@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'day1/day1.dart';
 
 void main() => runApp(new App());
 
 var days = [
-  {"title": "day1", "component": Day1}
+  {"title": "day1", "color": 600, "route": "day1"},
+  {"title": "day2", "color": 500, "route": "day2"}
 ];
 
 class App extends StatelessWidget {
@@ -15,30 +17,57 @@ class App extends StatelessWidget {
       theme: new ThemeData(
         primaryColor: Colors.white,
       ),
-      home: _buildListView()
-    );
-  }
-
-  Widget _buildListView(){
-    return ListView.builder(
-      
+      home: new DayItem(),
+      routes: {
+        "day1": (context) => Day1(),
+      },
     );
   }
 }
 
+class DayItem extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new DayItemState();
+  }
+}
 
-class DayItem extends StatelessWidget {
-  String title;
-
-  DayItem({@required this.title});
-
+class DayItemState extends State<DayItem> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        print('object');
-      },
-      child: Text(title),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('30-days-of-flutter'),
+        actions: <Widget>[
+          new IconButton(icon: new Icon(Icons.help)),
+        ],
+      ),
+      body: _buildListView(),
     );
+  }
+
+  Widget _buildListView() {
+    return ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: days.length,
+        itemBuilder: (context, i) {
+          return _buildRow(i);
+        });
+  }
+
+  Widget _buildRow(i) {
+    final _textStyle = const TextStyle(fontSize: 18.0);
+    return new ListTile(
+        title: new Text(
+          days[i]["title"],
+          style: _textStyle,
+        ),
+        onTap: () {
+          _pushToNewPage(i);
+        });
+  }
+
+  _pushToNewPage(i) {
+    Navigator.of(context).pushNamed(days[i]["route"]);
   }
 }
