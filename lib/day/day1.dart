@@ -5,7 +5,7 @@ class Day1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Welcome to Flutter',
+      title: 'day1',
       theme: new ThemeData(
         primaryColor: Colors.white,
       ),
@@ -31,7 +31,7 @@ class RandomWordState extends State<RandomWords>{
     Widget build(BuildContext context) {
       return new Scaffold(
         appBar: new AppBar(
-          title: new Text('im a king'),
+          title: new Text('day1'),
           actions: <Widget>[
             new IconButton(icon: new Icon(Icons.list),onPressed: _pushToNewPage),
           ],
@@ -41,7 +41,6 @@ class RandomWordState extends State<RandomWords>{
     }
 
     Widget _buildListView(){
-      print('buildListView');
       return new ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context,i){
@@ -56,7 +55,6 @@ class RandomWordState extends State<RandomWords>{
     }
 
     Widget _buildRow(WordPair wordPair){
-      print('buildRow');
       final isFavorite = _favoriteWord.contains(wordPair);
       return new ListTile(
         title: new Text(

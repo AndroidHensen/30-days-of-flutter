@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'day1/day1.dart';
+import 'day/day1.dart';
+import 'day/day2.dart';
 
 void main() => runApp(new App());
 
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
       home: new DayItem(),
       routes: {
         "day1": (context) => Day1(),
+        "day2": (context) => Day2(),
       },
     );
   }
