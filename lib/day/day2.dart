@@ -1,36 +1,91 @@
 import 'package:flutter/material.dart';
 
+class TabItem {
+  final String title;
+  final IconData icon;
+
+  const TabItem({this.title, this.icon});
+}
+
+const List<TabItem> tabs = [
+  const TabItem(title: "CAR", icon: Icons.directions_car),
+  const TabItem(title: "BICYCLE", icon: Icons.directions_bike),
+  const TabItem(title: "BOAT", icon: Icons.directions_boat),
+  const TabItem(title: 'BUS', icon: Icons.directions_bus),
+  const TabItem(title: 'TRAIN', icon: Icons.directions_railway),
+  const TabItem(title: 'WALK', icon: Icons.directions_walk),
+];
+
 class Day2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'day2',
-      theme: new ThemeData(
+      theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: new RandomWords(),
+      home: TabbedAppBar(),
     );
   }
 }
 
-class RandomWords extends StatefulWidget {
+class TabbedAppBar extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new RandomWordState();
+    return TabbedAppBarState();
   }
 }
 
-class RandomWordState extends State<RandomWords> {
+class TabbedAppBarState extends State<TabbedAppBar> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('day2'),
-        actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.list)),
-        ],
+    return DefaultTabController(
+      length: tabs.length,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("day2"),
+          bottom: TabBar(
+            tabs: tabs.map((TabItem tab) {
+              return Tab(
+                text: tab.title,
+                icon: Icon(tab.icon),
+              );
+            }).toList(),
+          ),
+        ),
+        body: TabBarView(
+            children: tabs.map((TabItem tab) {
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TabItemView(tabItem: tab),
+          );
+        }).toList()),
       ),
-      body: Center(),
+    );
+  }
+}
+
+class TabItemView extends StatelessWidget {
+  final TabItem tabItem;
+
+  const TabItemView({Key key, this.tabItem}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+
+    return Card(
+      color: Colors.white,
+      child: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(tabItem.icon, size: 120.0, color: textStyle.color),
+            Text(tabItem.title, style: textStyle)
+          ],
+        ),
+      ),
     );
   }
 }
