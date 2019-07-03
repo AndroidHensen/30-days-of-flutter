@@ -4,7 +4,7 @@ import 'day/day1.dart';
 import 'day/day2.dart';
 import 'day/day3.dart';
 
-void main() => runApp(new App());
+void main() => runApp(App());
 
 var days = [
   {"title": "day1", "color": 600, "route": "day1"},
@@ -15,12 +15,12 @@ var days = [
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Welcome to Flutter',
-      theme: new ThemeData(
+      theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: new DayItem(),
+      home: DayItem(),
       routes: {
         "day1": (context) => Day1(),
         "day2": (context) => Day2(),
@@ -33,18 +33,18 @@ class App extends StatelessWidget {
 class DayItem extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new DayItemState();
+    return DayItemState();
   }
 }
 
 class DayItemState extends State<DayItem> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('30-days-of-flutter'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('30-days-of-flutter'),
         actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.help)),
+          IconButton(icon: Icon(Icons.help)),
         ],
       ),
       body: _buildListView(),
@@ -62,8 +62,8 @@ class DayItemState extends State<DayItem> {
 
   Widget _buildRow(i) {
     final _textStyle = const TextStyle(fontSize: 18.0);
-    return new ListTile(
-        title: new Text(
+    return ListTile(
+        title: Text(
           days[i]["title"],
           style: _textStyle,
         ),

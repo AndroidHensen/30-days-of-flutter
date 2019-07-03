@@ -53,23 +53,23 @@ class DialogListState extends State<DialogList> {
     showDialog(
         context: context,
         builder: (context) {
-          return new AlertDialog(
-            title: new Text("通知"),
+          return AlertDialog(
+            title: Text("通知"),
+            content: Text("您的假期余额不足！"),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8))),
-            content: new Text("您的假期余额不足！"),
+                borderRadius: BorderRadius.all(Radius.circular(12))),
             actions: <Widget>[
-              new FlatButton(
+              FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: new Text("确认"),
+                child: Text("确认"),
               ),
-              new FlatButton(
+              FlatButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: new Text("取消"),
+                child: Text("取消"),
               ),
             ],
           );
@@ -80,25 +80,26 @@ class DialogListState extends State<DialogList> {
     showDialog(
         context: context,
         builder: (context) {
-          return new SimpleDialog(
-            title: new Text("请选择"),
+          return SimpleDialog(
+            title: Text("请选择"),
+            elevation: 12,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(8))),
+                borderRadius: BorderRadius.all(Radius.circular(12))),
             children: <Widget>[
-              new SimpleDialogOption(
-                child: new Text("选项一"),
+              SimpleDialogOption(
+                child: Text("选项一"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
-              new SimpleDialogOption(
-                child: new Text("选项二"),
+              SimpleDialogOption(
+                child: Text("选项二"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
-              new SimpleDialogOption(
-                child: new Text("选项三"),
+              SimpleDialogOption(
+                child: Text("选项三"),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
