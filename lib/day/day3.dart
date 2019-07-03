@@ -32,6 +32,7 @@ class DialogListState extends State<DialogList> {
 
   Widget _buildColumn() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         RaisedButton(
           onPressed: () {
@@ -44,6 +45,12 @@ class DialogListState extends State<DialogList> {
             showMyAlertDialog(context);
           },
           child: Text("通知弹窗"),
+        ),
+        RaisedButton(
+          onPressed: () {
+            showMyCustomDialog(context);
+          },
+          child: Text("自定义弹窗"),
         ),
       ],
     );
@@ -107,5 +114,26 @@ class DialogListState extends State<DialogList> {
             ],
           );
         });
+  }
+
+  void showMyCustomDialog(BuildContext context) {
+    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+
+    showDialog(
+        context: context,
+        builder: (_) => Padding(
+              padding: EdgeInsets.all(5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  CircularProgressIndicator(),
+                  Padding(
+                    padding: EdgeInsets.all(2),
+                    child: Text("loading"),
+                  )
+                ],
+              ),
+            ));
   }
 }
