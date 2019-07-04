@@ -24,10 +24,29 @@ class DialogListState extends State<DialogList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("day3"),
-        ),
-        body: _buildColumn());
+      appBar: AppBar(
+        title: Text("day3"),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            itemBuilder: (context) => <PopupMenuItem<String>>[
+                  PopupMenuItem<String>(
+                    value: "item1",
+                    child: createListItem("item1"),
+                  ),
+                  PopupMenuItem<String>(
+                    value: "item2",
+                    child: createListItem("item2"),
+                  ),
+                  PopupMenuItem<String>(
+                    value: "item3",
+                    child: createListItem("item3"),
+                  ),
+                ],
+          ),
+        ],
+      ),
+      body: _buildColumn(),
+    );
   }
 
   Widget _buildColumn() {
@@ -52,6 +71,18 @@ class DialogListState extends State<DialogList> {
           },
           child: Text("自定义弹窗"),
         ),
+        RaisedButton(
+          onPressed: () {
+            showMyAboutDialog(context);
+          },
+          child: Text("关于弹窗"),
+        ),
+        RaisedButton(
+          onPressed: () {
+            showMyBottomDialog(context);
+          },
+          child: Text("底部弹窗"),
+        )
       ],
     );
   }
@@ -117,23 +148,87 @@ class DialogListState extends State<DialogList> {
   }
 
   void showMyCustomDialog(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
+    final TextStyle textStyle = TextStyle(
+        color: Colors.black45, fontSize: 14, decoration: TextDecoration.none);
 
     showDialog(
         context: context,
-        builder: (_) => Padding(
-              padding: EdgeInsets.all(5),
+        builder: (_) => Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  CircularProgressIndicator(),
-                  Padding(
-                    padding: EdgeInsets.all(2),
-                    child: Text("loading"),
-                  )
+                  Container(
+                    padding: EdgeInsets.all(18),
+                    color: Colors.white,
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 30,
+                          width: 30,
+                          child: CircularProgressIndicator(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(8, 14, 8, 0),
+                          child: Text(
+                            "正在加速中...",
+                            style: textStyle,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ));
+  }
+
+  void showMyAboutDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) => AboutDialog(
+              applicationIcon: Icon(
+                Icons.android,
+                color: Colors.blueAccent,
+              ),
+              applicationLegalese: "1、新增搞笑玩法\n2、优化搞笑玩法流程",
+              applicationVersion: "v 1.1.0",
+              applicationName: "新玩法推出",
+            ));
+  }
+
+  void showMyBottomDialog(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) => Container(
+            height: 50.0 * 5,
+            child: ListView(
+              children: <Widget>[
+                createListItem("item1"),
+                createListItem("item2"),
+                createListItem("item3"),
+                createListItem("item4"),
+                createListItem("item5", 0.0),
+              ],
+            )));
+  }
+
+  Widget createListItem(text, [bottomBorder = 0.2]) {
+    return InkWell(
+      child: Container(
+        alignment: Alignment.center,
+        height: 50,
+        child: Text(text),
+        decoration: BoxDecoration(
+            border: Border(
+                bottom: BorderSide(
+          color: Colors.blueGrey,
+          width: bottomBorder,
+        ))),
+      ),
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+    );
   }
 }
