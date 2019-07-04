@@ -8,19 +8,19 @@ class Day3 extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: DialogList(),
+      home: WeWidget(),
     );
   }
 }
 
-class DialogList extends StatefulWidget {
+class WeWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return DialogListState();
+    return WeWidgetState();
   }
 }
 
-class DialogListState extends State<DialogList> {
+class WeWidgetState extends State<WeWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

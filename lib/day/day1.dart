@@ -9,19 +9,19 @@ class Day1 extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: RandomWords(),
+      home: WeWidget(),
     );
   }
 }
 
-class RandomWords extends StatefulWidget {
+class WeWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return RandomWordState();
+    return WeWidgetState();
   }
 }
 
-class RandomWordState extends State<RandomWords> {
+class WeWidgetState extends State<WeWidget> {
   final _words = <WordPair>[];
   final _favoriteWord = Set<WordPair>();
   final _textStyle = const TextStyle(fontSize: 18.0);

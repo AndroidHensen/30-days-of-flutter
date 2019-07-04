@@ -24,19 +24,19 @@ class Day2 extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: TabbedAppBar(),
+      home: WeWidget(),
     );
   }
 }
 
-class TabbedAppBar extends StatefulWidget {
+class WeWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return TabbedAppBarState();
+    return WeWidgetState();
   }
 }
 
-class TabbedAppBarState extends State<TabbedAppBar> {
+class WeWidgetState extends State<WeWidget> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'day/day1.dart';
 import 'day/day2.dart';
 import 'day/day3.dart';
+import 'day/day4.dart';
 
 void main() => runApp(App());
 
 var days = [
   {"title": "day1", "color": 600, "route": "day1"},
   {"title": "day2", "color": 500, "route": "day2"},
-  {"title": "day3", "color": 400, "route": "day3"}
+  {"title": "day3", "color": 400, "route": "day3"},
+  {"title": "day4", "color": 300, "route": "day4"}
 ];
 
 class App extends StatelessWidget {
@@ -25,6 +27,7 @@ class App extends StatelessWidget {
         "day1": (context) => Day1(),
         "day2": (context) => Day2(),
         "day3": (context) => Day3(),
+        "day4": (context) => Day4(),
       },
     );
   }
