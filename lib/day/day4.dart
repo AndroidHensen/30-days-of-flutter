@@ -176,49 +176,7 @@ class WeWidgetState extends State<WeWidget> {
             ),
           ],
         ),
-        Row(
-          children: <Widget>[
-            Image.asset(
-              "images/day4/定位.png",
-              width: 30,
-              height: 30,
-              fit: BoxFit.fill,
-            ),
-            DropdownButton(
-              items: getListItems(),
-              hint: Text("选择地点"),
-              elevation: 24,
-              value: value,
-              onChanged: (T) {
-                setState(() {
-                  value = T;
-                });
-              },
-            )
-          ],
-        ),
       ],
     );
-  }
-
-  getListItems() {
-    List<DropdownMenuItem> items = List();
-    items.add(DropdownMenuItem(
-      child: Text("item1"),
-      value: "1",
-    ));
-    items.add(DropdownMenuItem(
-      child: Text("item2"),
-      value: "2",
-    ));
-    items.add(DropdownMenuItem(
-      child: Text("item3"),
-      value: "3",
-    ));
-    items.add(DropdownMenuItem(
-      child: Text("item4"),
-      value: "4",
-    ));
-    return items;
   }
 }
