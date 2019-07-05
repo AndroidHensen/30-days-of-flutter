@@ -1,6 +1,42 @@
 import 'package:flutter/material.dart';
 
-var value;
+int _currentIndex = 0;
+var _pageController = new PageController(initialPage: 0);
+var _bottomText = ['首页', '通讯录', '我'];
+var _bottomIcons = [
+  [
+    new Icon(Icons.home, color: Colors.grey),
+    new Icon(Icons.home, color: Colors.blue),
+  ],
+  [
+    new Icon(Icons.account_box, color: Colors.grey),
+    new Icon(Icons.account_box, color: Colors.blue),
+  ],
+  [
+    new Icon(Icons.account_circle, color: Colors.grey),
+    new Icon(Icons.account_circle, color: Colors.blue),
+  ]
+];
+
+changeIconStyle(int currentIndex) {
+  if (currentIndex == _currentIndex) {
+    return _bottomIcons[currentIndex][1];
+  }
+  return _bottomIcons[currentIndex][0];
+}
+
+changeTextStyle(int currentIndex) {
+  if (currentIndex == _currentIndex) {
+    return Text(
+      _bottomText[currentIndex],
+      style: TextStyle(color: Colors.blue),
+    );
+  }
+  return Text(
+    _bottomText[currentIndex],
+    style: TextStyle(color: Colors.grey),
+  );
+}
 
 class Day5 extends StatelessWidget {
   @override
@@ -31,56 +67,35 @@ class WeWidgetState extends State<WeWidget> {
       ),
       resizeToAvoidBottomPadding: false,
       body: _buildColumn(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: changeIconStyle(0),
+            title: changeTextStyle(0),
+          ),
+          BottomNavigationBarItem(
+            icon: changeIconStyle(1),
+            title: changeTextStyle(1),
+          ),
+          BottomNavigationBarItem(
+            icon: changeIconStyle(2),
+            title: changeTextStyle(2),
+          )
+        ],
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
     );
   }
 
   Widget _buildColumn() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Image.asset(
-              "images/day4/定位.png",
-              width: 30,
-              height: 30,
-              fit: BoxFit.fill,
-            ),
-            DropdownButton(
-              items: getListItems(),
-              hint: Text("选择地点"),
-              elevation: 24,
-              value: value,
-              onChanged: (T) {
-                setState(() {
-                  value = T;
-                });
-              },
-            )
-          ],
-        ),
-      ],
+      children: <Widget>[],
     );
-  }
-
-  getListItems() {
-    List<DropdownMenuItem> items = List();
-    items.add(DropdownMenuItem(
-      child: Text("item1"),
-      value: "1",
-    ));
-    items.add(DropdownMenuItem(
-      child: Text("item2"),
-      value: "2",
-    ));
-    items.add(DropdownMenuItem(
-      child: Text("item3"),
-      value: "3",
-    ));
-    items.add(DropdownMenuItem(
-      child: Text("item4"),
-      value: "4",
-    ));
-    return items;
   }
 }
