@@ -74,27 +74,50 @@ class WeWidgetState extends State<WeWidget> {
           children: <Widget>[
             Expanded(
                 child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-              child: TextField(
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                    enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                      color: Color(0xffe0e0e0),
-                      width: 0.5,
-                    )),
-                    focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                      color: Color(0xffe0e0e0),
-                      width: 0.5,
-                    )),
-                    contentPadding: EdgeInsets.fromLTRB(0, 16, 0, 16),
-                    hintText: "请输入验证码",
-                    hintStyle: TextStyle(
-                      color: Color(0x40242424),
-                    )),
-              ),
-            ))
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Stack(
+                      alignment: new Alignment(1.0, 1.0),
+                      children: <Widget>[
+                        TextField(
+                          keyboardType: TextInputType.phone,
+                          decoration: InputDecoration(
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                color: Color(0xffe0e0e0),
+                                width: 0.5,
+                              )),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                color: Color(0xffe0e0e0),
+                                width: 0.5,
+                              )),
+                              contentPadding: EdgeInsets.fromLTRB(0, 16, 0, 16),
+                              hintText: "请输入验证码",
+                              hintStyle: TextStyle(
+                                color: Color(0x40242424),
+                              )),
+                        ),
+                        RaisedButton(
+                          color: Color(0xffD0D0D0),
+                          splashColor: Color(0xffF54131),
+                          onPressed: () => {},
+                          padding: EdgeInsets.fromLTRB(0, 6, 0, 6),
+                          child: Container(
+                            child: Text(
+                              "获取验证码",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(24))),
+                        ),
+                      ],
+                    )))
           ],
         ),
         Row(
