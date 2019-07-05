@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 
 int _currentIndex = 0;
-var _pageController = new PageController(initialPage: 0);
 var _bottomText = ['首页', '通讯录', '我'];
+
+var _bottomPage = [
+  Center(
+    child: Text("首页"),
+  ),
+  Center(
+    child: Text("通讯录"),
+  ),
+  Center(
+    child: Text("我"),
+  ),
+];
 var _bottomIcons = [
   [
     new Icon(Icons.home, color: Colors.grey),
@@ -66,7 +77,7 @@ class WeWidgetState extends State<WeWidget> {
         title: Text("day5"),
       ),
       resizeToAvoidBottomPadding: false,
-      body: _buildColumn(),
+      body: _bottomPage[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -89,13 +100,6 @@ class WeWidgetState extends State<WeWidget> {
           });
         },
       ),
-    );
-  }
-
-  Widget _buildColumn() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[],
     );
   }
 }
