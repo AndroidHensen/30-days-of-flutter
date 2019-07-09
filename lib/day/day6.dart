@@ -7,6 +7,8 @@ var _borderColor = Colors.transparent;
 var _width = 200.0;
 var _height = 200.0;
 var _borderWidth = 0.0;
+var _scaleX = 1.0;
+var _scaleY = 1.0;
 
 class Day6 extends StatelessWidget {
   @override
@@ -36,21 +38,34 @@ class WeWidgetState extends State<WeWidget> {
           case 1:
             _width = 300;
             _height = 100;
-            _borderColor = Colors.brown;
             break;
           case 2:
             _width = 100;
             _height = 300;
-            _borderWidth = 8.0;
+            _borderWidth = 4.0;
+            _borderColor = Colors.brown;
             break;
           case 3:
+            _borderWidth = 8.0;
+            _borderColor = Colors.pink;
             _color = Colors.blue;
             break;
           case 4:
             _width = 300;
             _height = 300;
-            _borderColor = Colors.pink;
             _color = Colors.deepPurple;
+            break;
+          case 5:
+            _scaleX = 1.3;
+            _scaleY = 1.3;
+            break;
+          case 6:
+            _scaleX = 0.5;
+            _scaleY = 0.8;
+            break;
+          case 7:
+            _scaleX = 1.0;
+            _scaleY = 1.0;
             break;
         }
         time++;
@@ -76,10 +91,12 @@ class WeWidgetState extends State<WeWidget> {
       children: <Widget>[
         Center(
           child: AnimatedContainer(
+            transform: Matrix4.identity().scaled(_scaleX, _scaleY),
             color: _color,
             width: _width,
             height: _height,
             duration: Duration(milliseconds: 400),
+            curve: Curves.easeInOut,
             child: Icon(
               Icons.android,
               color: Colors.green,
