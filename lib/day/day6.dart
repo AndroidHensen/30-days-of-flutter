@@ -50,7 +50,7 @@ class WeWidgetState extends State<WeWidget> {
             _width = 300;
             _height = 300;
             _borderColor = Colors.pink;
-            _color = Colors.green;
+            _color = Colors.deepPurple;
             break;
         }
         time++;
@@ -80,6 +80,11 @@ class WeWidgetState extends State<WeWidget> {
             width: _width,
             height: _height,
             duration: Duration(milliseconds: 400),
+            child: Icon(
+              Icons.android,
+              color: Colors.green,
+              size: 40,
+            ),
             foregroundDecoration: BoxDecoration(
               border: Border.all(
                 color: _borderColor,
