@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-var value;
-
 class Day4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

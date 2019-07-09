@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-int _currentIndex = 0;
+var _currentIndex = 0;
 var _bottomText = ['首页', '通讯录', '我'];
 
 var _bottomPage = [
