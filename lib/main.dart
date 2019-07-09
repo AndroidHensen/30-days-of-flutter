@@ -17,9 +17,9 @@ var days = [
   {"title": "day3   弹窗", "route": "day3"},
   {"title": "day4   枸杞登录页", "route": "day4"},
   {"title": "day5   底部导航栏", "route": "day5"},
-  {"title": "day6   动画1", "route": "day6"},
-  {"title": "day7   动画2", "route": "day7"},
-  {"title": "day8   动画3", "route": "day8"},
+  {"title": "day6   动画 AnimatedContainer", "route": "day6"},
+  {"title": "day7   动画 AnimatedCrossFade", "route": "day7"},
+  {"title": "day8   动画 Hero", "route": "day8"},
 ];
 
 class App extends StatelessWidget {
