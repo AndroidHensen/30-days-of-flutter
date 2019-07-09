@@ -10,12 +10,12 @@ import 'day/day6.dart';
 void main() => runApp(App());
 
 var days = [
-  {"title": "day1", "color": 600, "route": "day1"},
-  {"title": "day2", "color": 500, "route": "day2"},
-  {"title": "day3", "color": 400, "route": "day3"},
-  {"title": "day4", "color": 300, "route": "day4"},
-  {"title": "day5", "color": 200, "route": "day5"},
-  {"title": "day6", "color": 100, "route": "day6"},
+  {"title": "day1   列表", "color": 600, "route": "day1"},
+  {"title": "day2   顶部导航栏", "color": 500, "route": "day2"},
+  {"title": "day3   弹窗", "color": 400, "route": "day3"},
+  {"title": "day4   枸杞登录页", "color": 300, "route": "day4"},
+  {"title": "day5   底部导航栏", "color": 200, "route": "day5"},
+  {"title": "day6   动画1", "color": 100, "route": "day6"},
 ];
 
 class App extends StatelessWidget {
