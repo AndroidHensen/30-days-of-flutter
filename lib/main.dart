@@ -21,7 +21,7 @@ var days = [
   {"title": "day6   动画 AnimatedContainer", "route": "day6"},
   {"title": "day7   动画 AnimatedCrossFade", "route": "day7"},
   {"title": "day8   动画 Hero - 待完善", "route": "day8"},
-  {"title": "day9   动画 AnimatedBuilder", "route": "day9"},
+  {"title": "day9   动画 Flutter+Nima", "route": "day9"},
 ];
 
 class App extends StatelessWidget {
@@ -62,7 +62,10 @@ class DayItemState extends State<DayItem> {
       appBar: AppBar(
         title: Text('30-days-of-flutter'),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.help)),
+          IconButton(
+            icon: Icon(Icons.help),
+            onPressed: () {},
+          ),
         ],
       ),
       body: _buildListView(),

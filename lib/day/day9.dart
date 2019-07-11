@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nima/nima_actor.dart';
+
+var time = 0;
+var robotStateName = "idle";
 
 class Day9 extends StatelessWidget {
   @override
@@ -26,16 +30,47 @@ class WeWidgetState extends State<WeWidget> {
     return Scaffold(
       appBar: AppBar(
         title: Text("day9"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.directions_boat),
+            color: Colors.blue,
+            onPressed: () {
+              setState(() {
+                robotStateName = getRobotState(2);
+              });
+            },
+          ),
+        ],
       ),
       body: _buildColumn(),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.arrow_upward),
+          onPressed: () {
+            setState(() {
+              robotStateName = getRobotState(1);
+            });
+          }),
     );
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return NimaActor(
+      "assets/biu.nma",
+      alignment: Alignment.center,
+      fit: BoxFit.contain,
+      animation: robotStateName,
+      mixSeconds: 0.2,
+      completed: (animationName) {
+        setState(() {
+          robotStateName = getRobotState(0);
+        });
+      },
     );
+  }
+
+  getRobotState(state) {
+    if (state == 0) return "idle";
+    if (state == 1) return "jump";
+    if (state == 2) return "attack";
   }
 }
