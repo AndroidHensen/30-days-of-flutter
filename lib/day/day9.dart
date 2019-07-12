@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nima/nima_actor.dart';
 
-var time = 0;
-var robotStateName = "idle";
-
 class Day9 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,6 +22,9 @@ class WeWidget extends StatefulWidget {
 }
 
 class WeWidgetState extends State<WeWidget> {
+  var time = 0;
+  var robotStateName = "idle";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
