@@ -32,7 +32,7 @@ class WeWidget extends StatefulWidget {
 
 class WeWidgetState extends State<WeWidget> {
   WeWidgetState() {
-    Timer.periodic(Duration(milliseconds: 800), (timer) {
+    Timer.periodic(Duration(milliseconds: 1000), (timer) {
       setState(() {
         switch (time % 7) {
           case 0:
@@ -95,8 +95,8 @@ class WeWidgetState extends State<WeWidget> {
             color: _color,
             width: _width,
             height: _height,
-            duration: Duration(milliseconds: 800),
-            curve: Curves.easeInOut,
+            duration: Duration(milliseconds: 1000),
+            curve: Curves.fastOutSlowIn,
             child: Icon(
               Icons.android,
               color: Colors.green,

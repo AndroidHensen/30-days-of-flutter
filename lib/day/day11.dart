@@ -37,7 +37,7 @@ class WeWidgetState extends State<WeWidget>
       duration: const Duration(milliseconds: 3000),
       vsync: this,
     );
-    _curve = CurvedAnimation(parent: _controller, curve: Curves.bounceInOut);
+    _curve = CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
     _animation = DecorationTween(
       begin: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(0.0)),

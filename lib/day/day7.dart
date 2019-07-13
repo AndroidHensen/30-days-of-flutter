@@ -61,9 +61,9 @@ class WeWidgetState extends State<WeWidget> {
         Center(
           child: AnimatedCrossFade(
             duration: Duration(seconds: 1),
-            firstCurve: Curves.easeInOut,
-            secondCurve: Curves.easeInOut,
-            sizeCurve: Curves.bounceIn,
+            firstCurve: Curves.fastOutSlowIn,
+            secondCurve: Curves.fastOutSlowIn,
+            sizeCurve: Curves.fastOutSlowIn,
             firstChild: FlutterLogo(
               style: FlutterLogoStyle.horizontal,
               size: 100.0,
