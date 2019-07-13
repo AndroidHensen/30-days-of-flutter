@@ -28,7 +28,7 @@ var days = [
   {"title": "day5   底部导航栏", "route": "day5"},
   {"title": "day6   动画 AnimatedContainer", "route": "day6"},
   {"title": "day7   动画 AnimatedCrossFade", "route": "day7"},
-  {"title": "day8   动画 Hero - 待完善", "route": "day8"},
+  {"title": "day8   动画 Hero", "route": "day8"},
   {"title": "day9   动画 Flutter+Nima", "route": "day9"},
   {"title": "day10   动画 AnimatedBuilder", "route": "day10"},
   {"title": "day11   动画 DecoratedBoxTransition", "route": "day11"},
@@ -38,6 +38,7 @@ var days = [
   {"title": "day15   动画 ScaleTransition", "route": "day15"},
   {"title": "day16   动画 SizeTransition", "route": "day16"},
   {"title": "day17   动画 SlideTransition", "route": "day17"},
+  {"title": "day18   动画 AnimatedDefaultTextStyle", "route": "day18"},
 ];
 
 class App extends StatelessWidget {

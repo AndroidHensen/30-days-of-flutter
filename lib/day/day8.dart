@@ -38,6 +38,7 @@ class WeWidgetState extends State<WeWidget> {
 
   Widget _buildColumn() {
     return Container(
+      margin: EdgeInsets.all(20),
       width: 200,
       height: 200,
       decoration: BoxDecoration(
@@ -55,17 +56,9 @@ class WeWidgetState extends State<WeWidget> {
         tag: "mmm",
         transitionOnUserGestures: true,
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Icon(
-                    Icons.ac_unit,
-                    color: Colors.pink,
-                    size: 40,
-                  )),
-            ],
+          child: FlutterLogo(
+            style: FlutterLogoStyle.horizontal,
+            size: 100,
           ),
         ),
       ),
@@ -82,25 +75,9 @@ class WeWidgetState extends State<WeWidget> {
           body: Hero(
             tag: "mmm",
             child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 100),
-                      child: Icon(
-                        Icons.ac_unit,
-                        color: Colors.pink,
-                        size: 80,
-                      )),
-                  Text(
-                    "This is a Unit",
-                    style: TextStyle(
-                      color: Colors.brown,
-                      fontSize: 25,
-                      decoration: TextDecoration.none,
-                    ),
-                  )
-                ],
+              child: FlutterLogo(
+                style: FlutterLogoStyle.horizontal,
+                size: 100,
               ),
             ),
           ),
