@@ -5,7 +5,6 @@ class Day9 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'day9',
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
