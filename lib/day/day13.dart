@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Day11 extends StatelessWidget {
+class Day13 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,11 +21,11 @@ class WeWidget extends StatefulWidget {
 
 class WeWidgetState extends State<WeWidget>
     with SingleTickerProviderStateMixin {
-  Animation<Decoration> _animation;
+  Animation<RelativeRect> _animation;
   AnimationController _controller;
   Animation _curve;
 
-  Decoration _animationValue;
+  RelativeRect _animationValue;
   AnimationStatus _state;
 
   @override
@@ -37,32 +37,26 @@ class WeWidgetState extends State<WeWidget>
       vsync: this,
     );
     _curve = CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
-    _animation = DecorationTween(
-      begin: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(0.0)),
-        color: Colors.red,
-      ),
-      end: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(100.0)),
-        color: Colors.green,
-      ),
-    ).animate(_curve)
-      ..addListener(() {
-        setState(() {
-          _animationValue = _animation.value;
-        });
-      })
-      ..addStatusListener((AnimationStatus state) {
-        if (state == AnimationStatus.completed) {
-          _controller.reverse();
-        } else if (state == AnimationStatus.dismissed) {
-          _controller.forward();
-        }
+    _animation = RelativeRectTween(
+            begin: RelativeRect.fromLTRB(200.0, 200.0, 200.0, 200.0),
+            end: RelativeRect.fromLTRB(20.0, 20.0, 20.0, 20.0))
+        .animate(_curve)
+          ..addListener(() {
+            setState(() {
+              _animationValue = _animation.value;
+            });
+          })
+          ..addStatusListener((AnimationStatus state) {
+            if (state == AnimationStatus.completed) {
+              _controller.reverse();
+            } else if (state == AnimationStatus.dismissed) {
+              _controller.forward();
+            }
 
-        setState(() {
-          _state = state;
-        });
-      });
+            setState(() {
+              _state = state;
+            });
+          });
     _controller.forward();
   }
 
@@ -70,14 +64,14 @@ class WeWidgetState extends State<WeWidget>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("day11"),
+        title: Text("day13"),
       ),
       body: _buildColumn(),
     );
   }
 
   Widget _buildColumn() {
-    return Column(
+    return Stack(
       children: <Widget>[
         AnimatorTransition(
           child: FlutterLogo(
@@ -86,8 +80,14 @@ class WeWidgetState extends State<WeWidget>
           ),
           animation: _animation,
         ),
-        Text("动画值：" + _animationValue.toStringShort()),
-        Text("动画状态：" + _state.toString()),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+          child: Text("动画值：" + _animationValue.toString()),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          child: Text("动画状态：" + _state.toString()),
+        ),
       ],
     );
   }
@@ -101,19 +101,20 @@ class WeWidgetState extends State<WeWidget>
 
 class AnimatorTransition extends StatelessWidget {
   final Widget child;
-  final Animation<Decoration> animation;
+  final Animation<RelativeRect> animation;
 
   AnimatorTransition({this.child, this.animation});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: DecoratedBoxTransition(
-        decoration: animation,
-        child: Container(
+    //绝对定位的动画实现, 需要Stack包裹
+    return Stack(
+      children: <Widget>[
+        PositionedTransition(
+          rect: animation,
           child: this.child,
         ),
-      ),
+      ],
     );
   }
 }

@@ -12,6 +12,7 @@ import 'day/day9.dart';
 import 'day/day10.dart';
 import 'day/day11.dart';
 import 'day/day12.dart';
+import 'day/day13.dart';
 
 void main() => runApp(App());
 
@@ -28,6 +29,7 @@ var days = [
   {"title": "day10   动画 AnimatedBuilder", "route": "day10"},
   {"title": "day11   动画 DecoratedBoxTransition", "route": "day11"},
   {"title": "day12   动画 FadeTransition", "route": "day12"},
+  {"title": "day13   动画 PositionedTransition", "route": "day13"},
 ];
 
 class App extends StatelessWidget {
@@ -52,6 +54,7 @@ class App extends StatelessWidget {
         "day10": (context) => Day10(),
         "day11": (context) => Day11(),
         "day12": (context) => Day12(),
+        "day13": (context) => Day13(),
       },
     );
   }
