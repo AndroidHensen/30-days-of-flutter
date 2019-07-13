@@ -45,6 +45,13 @@ class WeWidgetState extends State<WeWidget>
         });
       })
       ..addStatusListener((AnimationStatus state) {
+
+        if (state == AnimationStatus.completed) {
+          _controller.reverse();
+        } else if (state == AnimationStatus.dismissed) {
+          _controller.forward();
+        }
+
         setState(() {
           _state = state;
         });
