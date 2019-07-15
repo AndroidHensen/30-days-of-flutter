@@ -10,6 +10,7 @@ import 'day/day15.dart';
 import 'day/day16.dart';
 import 'day/day17.dart';
 import 'day/day18.dart';
+import 'day/day19.dart';
 import 'day/day2.dart';
 import 'day/day3.dart';
 import 'day/day4.dart';
@@ -40,6 +41,7 @@ var days = [
   {"title": "day16   动画 SizeTransition", "route": "day16"},
   {"title": "day17   动画 SlideTransition", "route": "day17"},
   {"title": "day18   动画 AnimatedDefaultTextStyle", "route": "day18"},
+  {"title": "day19   动画 AnimatedListState【待看懂】", "route": "day19"},
 ];
 
 class App extends StatelessWidget {
@@ -70,6 +72,7 @@ class App extends StatelessWidget {
         "day16": (context) => Day16(),
         "day17": (context) => Day17(),
         "day18": (context) => Day18(),
+        "day19": (context) => Day19(),
       },
     );
   }
