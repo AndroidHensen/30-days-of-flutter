@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'day/day1.dart';
-import 'day/day2.dart';
-import 'day/day3.dart';
-import 'day/day4.dart';
-import 'day/day5.dart';
-import 'day/day6.dart';
-import 'day/day7.dart';
-import 'day/day8.dart';
-import 'day/day9.dart';
 import 'day/day10.dart';
 import 'day/day11.dart';
 import 'day/day12.dart';
@@ -17,6 +9,15 @@ import 'day/day14.dart';
 import 'day/day15.dart';
 import 'day/day16.dart';
 import 'day/day17.dart';
+import 'day/day18.dart';
+import 'day/day2.dart';
+import 'day/day3.dart';
+import 'day/day4.dart';
+import 'day/day5.dart';
+import 'day/day6.dart';
+import 'day/day7.dart';
+import 'day/day8.dart';
+import 'day/day9.dart';
 
 void main() => runApp(App());
 
@@ -68,6 +69,7 @@ class App extends StatelessWidget {
         "day15": (context) => Day15(),
         "day16": (context) => Day16(),
         "day17": (context) => Day17(),
+        "day18": (context) => Day18(),
       },
     );
   }
