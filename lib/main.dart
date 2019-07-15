@@ -19,29 +19,31 @@ import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
+import 'day/day20.dart';
 
 void main() => runApp(App());
 
 var days = [
-  {"title": "day1   列表", "route": "day1"},
-  {"title": "day2   顶部导航栏", "route": "day2"},
-  {"title": "day3   弹窗", "route": "day3"},
-  {"title": "day4   枸杞登录页", "route": "day4"},
-  {"title": "day5   底部导航栏", "route": "day5"},
-  {"title": "day6   动画 AnimatedContainer", "route": "day6"},
-  {"title": "day7   动画 AnimatedCrossFade", "route": "day7"},
-  {"title": "day8   动画 Hero", "route": "day8"},
-  {"title": "day9   动画 Flutter+Nima", "route": "day9"},
-  {"title": "day10   动画 AnimatedBuilder", "route": "day10"},
-  {"title": "day11   动画 DecoratedBoxTransition", "route": "day11"},
-  {"title": "day12   动画 FadeTransition", "route": "day12"},
-  {"title": "day13   动画 PositionedTransition", "route": "day13"},
-  {"title": "day14   动画 RotationTransition", "route": "day14"},
-  {"title": "day15   动画 ScaleTransition", "route": "day15"},
-  {"title": "day16   动画 SizeTransition", "route": "day16"},
-  {"title": "day17   动画 SlideTransition", "route": "day17"},
-  {"title": "day18   动画 AnimatedDefaultTextStyle", "route": "day18"},
-  {"title": "day19   动画 AnimatedListState【待看懂】", "route": "day19"},
+  {"title": "day1 列表", "route": "day1"},
+  {"title": "day2 顶部导航栏", "route": "day2"},
+  {"title": "day3 弹窗", "route": "day3"},
+  {"title": "day4 枸杞登录页", "route": "day4"},
+  {"title": "day5 底部导航栏", "route": "day5"},
+  {"title": "day6 AnimatedContainer", "route": "day6"},
+  {"title": "day7 AnimatedCrossFade", "route": "day7"},
+  {"title": "day8 Hero", "route": "day8"},
+  {"title": "day9 Flutter+Nima", "route": "day9"},
+  {"title": "day10 AnimatedBuilder", "route": "day10"},
+  {"title": "day11 DecoratedBoxTransition", "route": "day11"},
+  {"title": "day12 FadeTransition", "route": "day12"},
+  {"title": "day13 PositionedTransition", "route": "day13"},
+  {"title": "day14 RotationTransition", "route": "day14"},
+  {"title": "day15 ScaleTransition", "route": "day15"},
+  {"title": "day16 SizeTransition", "route": "day16"},
+  {"title": "day17 SlideTransition", "route": "day17"},
+  {"title": "day18 AnimatedDefaultTextStyle", "route": "day18"},
+  {"title": "day19 AnimatedListState【待看懂】", "route": "day19"},
+  {"title": "day20 AnimatedModalBarrier【不懂】", "route": "day20"},
 ];
 
 class App extends StatelessWidget {
@@ -73,6 +75,7 @@ class App extends StatelessWidget {
         "day17": (context) => Day17(),
         "day18": (context) => Day18(),
         "day19": (context) => Day19(),
+        "day20": (context) => Day20(),
       },
     );
   }
