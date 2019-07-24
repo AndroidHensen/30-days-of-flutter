@@ -24,7 +24,7 @@ import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
-import 'sdk/AnimatorSetActivity.dart';
+import 'sdk/anim/AnimatorSetActivity.dart';
 
 void main() => runApp(App());
 

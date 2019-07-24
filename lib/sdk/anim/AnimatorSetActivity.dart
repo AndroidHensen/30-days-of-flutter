@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'AnimatorSet.dart';
+import 'package:yyshop/sdk/anim/AnimatorSet.dart';
 
 class AnimatorSetActivity extends StatefulWidget {
   @override
