@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'action/animator.dart';
 
 class AnimatorSet extends StatefulWidget {
   AnimatorSet({
     Key key,
     this.child,
-    this.duration,
-  })  : assert(duration != null),
+    this.set = const <Animator>[],
+  })  : assert(set != null),
         super(key: key);
 
   final Widget child;
-  final Duration duration;
+  final List<Animator> set;
 
   @override
   State<StatefulWidget> createState() {
@@ -19,32 +20,192 @@ class AnimatorSet extends StatefulWidget {
 
 class AnimatorSetState extends State<AnimatorSet>
     with SingleTickerProviderStateMixin {
-  Animation<num> _animation;
+  Duration _duration = Duration(seconds: 5);
   AnimationController _controller;
-  Animation _curve;
 
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(
-      duration: widget.duration,
+      duration: _duration,
       vsync: this,
     );
-    _curve = CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
-    _animation = Tween(begin: 0.0, end: 1.0)
-        .chain(Tween(begin: 1.0, end: 0.0))
-        .animate(_curve)
-          ..addListener(() {})
-          ..addStatusListener((AnimationStatus state) {});
+
+    _controller
+      ..addListener(() {})
+      ..addStatusListener((AnimationStatus status) {
+        if (status == AnimationStatus.completed) {
+          _controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          _controller.forward();
+        }
+      });
     _controller.forward();
   }
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
+    return AnimatedLogo(
+      controller: _controller,
       child: widget.child,
-      opacity: _animation,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+}
+
+class AnimatedLogo extends StatelessWidget {
+  final Animation<double> controller;
+  final Animation<double> opacity;
+  final Animation<double> width;
+  final Animation<double> height;
+  final Animation<EdgeInsets> padding;
+  final Animation<BorderRadius> borderRadius;
+  final Animation<Color> color;
+  final Animation<double> scale;
+  final Animation<double> rotate;
+
+  AnimatedLogo({Key key, this.controller, this.child})
+      : opacity = Tween<double>(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.0,
+              0.100,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        width = Tween<double>(
+          begin: 50.0,
+          end: 150.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.125,
+              0.250,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        height = Tween<double>(begin: 50.0, end: 150.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.250,
+              0.375,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        padding = EdgeInsetsTween(
+          begin: const EdgeInsets.only(top: 16.0),
+          end: const EdgeInsets.only(top: 70.0),
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.250,
+              0.375,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        borderRadius = BorderRadiusTween(
+          begin: BorderRadius.circular(4.0),
+          end: BorderRadius.circular(40.0),
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.375,
+              0.500,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        color = ColorTween(
+          begin: Colors.indigo[100],
+          end: Colors.orange[400],
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.500,
+              0.750,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        scale = Tween<double>(
+          begin: 1.0,
+          end: 0.5,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.750,
+              0.900,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        rotate = Tween<double>(
+          begin: 0.0,
+          end: 0.5,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.900,
+              0.999,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      builder: _buildAnimation, // 动画变化时调用这个函数
+      animation: controller, // 要执行的动画
+    );
+  }
+
+  Widget _buildAnimation(BuildContext context, Widget child) {
+    return Container(
+      transform: Matrix4.identity()
+        ..scale(scale.value)
+        ..rotateZ(rotate.value),
+      padding: padding.value, // 内边距动画
+      child: Opacity(
+        opacity: opacity.value, // 透明度动画
+        child: Container(
+          child: this.child,
+          width: width.value, // 宽度动画
+          height: height.value, // 高度动画
+          decoration: BoxDecoration(
+            color: color.value, // 颜色动画
+            border: Border.all(
+              color: Colors.indigo[300],
+              width: 3.0,
+            ),
+            borderRadius: borderRadius.value, // 圆角动画
+          ),
+        ),
+      ),
     );
   }
 }
