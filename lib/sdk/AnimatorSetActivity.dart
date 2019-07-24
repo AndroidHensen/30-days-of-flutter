@@ -14,7 +14,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: AnimatorSet(),
+      body: AnimatorSet(
+        child: Text("AnimatorSet"),
+        duration: Duration(seconds: 2),
+      ),
     );
   }
 }
