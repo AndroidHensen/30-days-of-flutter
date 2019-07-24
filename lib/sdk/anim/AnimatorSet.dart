@@ -69,6 +69,7 @@ class AnimatedLogo extends StatelessWidget {
   final Animation<Color> color;
   final Animation<double> scale;
   final Animation<double> rotate;
+  final Animation<double> translate;
 
   AnimatedLogo({Key key, this.controller, this.child})
       : opacity = Tween<double>(
@@ -167,6 +168,19 @@ class AnimatedLogo extends StatelessWidget {
             parent: controller,
             curve: Interval(
               0.900,
+              0.950,
+              curve: Curves.linear,
+            ),
+          ),
+        ),
+        translate = Tween<double>(
+          begin: 0.0,
+          end: 50.0,
+        ).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.900,
               0.999,
               curve: Curves.linear,
             ),
@@ -188,7 +202,8 @@ class AnimatedLogo extends StatelessWidget {
     return Container(
       transform: Matrix4.identity()
         ..scale(scale.value)
-        ..rotateZ(rotate.value),
+        ..rotateZ(rotate.value)
+        ..translate(translate.value),
       padding: padding.value, // 内边距动画
       child: Opacity(
         opacity: opacity.value, // 透明度动画
