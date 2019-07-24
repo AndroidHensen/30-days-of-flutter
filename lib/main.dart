@@ -12,6 +12,11 @@ import 'day/day17.dart';
 import 'day/day18.dart';
 import 'day/day19.dart';
 import 'day/day2.dart';
+import 'day/day20.dart';
+import 'day/day21.dart';
+import 'day/day22.dart';
+import 'day/day23.dart';
+import 'day/day24.dart';
 import 'day/day3.dart';
 import 'day/day4.dart';
 import 'day/day5.dart';
@@ -19,11 +24,7 @@ import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
-import 'day/day20.dart';
-import 'day/day21.dart';
-import 'day/day22.dart';
-import 'day/day23.dart';
-import 'day/day24.dart';
+import 'sdk/AnimatorSetActivity.dart';
 
 void main() => runApp(App());
 
@@ -52,6 +53,7 @@ var days = [
   {"title": "day22 AnimatedPhysicalModel", "route": "day22"},
   {"title": "day23 AnimatedPositioned", "route": "day23"},
   {"title": "day24 AnimatedSize", "route": "day24"},
+  {"title": "day25 AnimatorSetActivity", "route": "AnimatorSetActivity"},
 ];
 
 class App extends StatelessWidget {
@@ -88,6 +90,7 @@ class App extends StatelessWidget {
         "day22": (context) => Day22(),
         "day23": (context) => Day23(),
         "day24": (context) => Day24(),
+        "AnimatorSetActivity": (context) => AnimatorSetActivity(),
       },
     );
   }
