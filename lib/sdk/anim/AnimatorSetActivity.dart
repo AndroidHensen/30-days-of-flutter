@@ -20,8 +20,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           style: FlutterLogoStyle.horizontal,
         ),
         set: [
-          Scale(from: 0.0, to: 1.0, duration: 2000),
-          Rotate(from: 0.0, to: 1.0, duration: 2000),
+          O(from: 0.0, to: 1.0, duration: 2000),
+          S(from: 0.0, to: 1.0, duration: 2000, delay: 2000),
+          R(from: 0.0, to: 1.0, duration: 2000),
+          T(from: 0.0, to: 1.0, duration: 2000),
         ],
       ),
     );

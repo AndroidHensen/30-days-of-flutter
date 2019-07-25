@@ -1,29 +1,44 @@
 class Animator {
-  Animator({this.from, this.to, this.duration});
+  Animator({this.from, this.to, this.duration, this.delay});
 
   double from;
-
   double to;
-
-  double duration;
+  double duration = 0.0;
+  double delay = 0.0;
 }
 
-class Scale extends Animator {
-  Scale({this.from, this.to, this.duration});
+class O extends Animator {
+  O({this.from, this.to, this.duration, this.delay});
 
   double from;
-
   double to;
-
-  double duration;
+  double duration = 0.0;
+  double delay = 0.0;
 }
 
-class Rotate extends Animator {
-  Rotate({this.from, this.to, this.duration});
+class S extends Animator {
+  S({this.from, this.to, this.duration, this.delay});
 
   double from;
-
   double to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
 
-  double duration;
+class R extends Animator {
+  R({this.from, this.to, this.duration, this.delay});
+
+  double from;
+  double to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
+
+class T extends Animator {
+  T({this.from, this.to, this.duration, this.delay});
+
+  double from;
+  double to;
+  double duration = 0.0;
+  double delay = 0.0;
 }
