@@ -20,7 +20,7 @@ class AnimatorSet extends StatefulWidget {
 
 class AnimatorSetState extends State<AnimatorSet>
     with SingleTickerProviderStateMixin {
-  Duration _duration = Duration(seconds: 5);
+  Duration _duration = Duration(seconds: 20);
   AnimationController _controller;
 
   @override
@@ -213,10 +213,6 @@ class AnimatedLogo extends StatelessWidget {
           height: height.value, // 高度动画
           decoration: BoxDecoration(
             color: color.value, // 颜色动画
-            border: Border.all(
-              color: Colors.indigo[300],
-              width: 3.0,
-            ),
             borderRadius: borderRadius.value, // 圆角动画
           ),
         ),

@@ -18,7 +18,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       body: AnimatorSet(
         child: FlutterLogo(
           style: FlutterLogoStyle.horizontal,
-          size: 200,
         ),
         set: [
           Scale(from: 0.0, to: 1.0, duration: 2000),
