@@ -227,7 +227,7 @@ class AnimatedLogo extends StatelessWidget {
   Widget _buildAnimationWidget(BuildContext context, Widget child) {
     return Container(
       transform: Matrix4.identity()
-        ..scale(scale?.value ?? 0.0)
+        ..scale(scale?.value ?? 1.0)
         ..rotateZ(rotate?.value ?? 0.0)
         ..translate(translate?.value ?? 0.0),
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
