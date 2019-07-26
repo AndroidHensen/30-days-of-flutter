@@ -48,9 +48,9 @@ class AnimatorSetState extends State<AnimatorSet>
   @override
   Widget build(BuildContext context) {
     return AnimatedLogo(
-      controller: _controller,
-      child: widget.child,
-    );
+        controller: _controller,
+        child: widget.child,
+        animatorSet: widget.animatorSet);
   }
 
   @override
@@ -71,14 +71,20 @@ class AnimatedLogo extends StatelessWidget {
   Animation<double> rotate;
   Animation<double> translate;
 
-  AnimatedLogo({Key key, this.controller, this.child}) : super(key: key) {
-    this._buildAnimation();
+  AnimatedLogo({
+    Key key,
+    this.controller,
+    this.child,
+    this.animatorSet,
+  }) : super(key: key) {
+    this._parseAnimation();
   }
 
-  Animation<double> controller;
+  final Animation<double> controller;
   final Widget child;
+  final List<Animator> animatorSet;
 
-  void _buildAnimation() {
+  void _parseAnimation() {
     opacity = Tween<double>(
       begin: 0.0,
       end: 1.0,
