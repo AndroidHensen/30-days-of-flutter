@@ -99,6 +99,17 @@ class AnimatedLogo extends StatelessWidget {
       start = anim.delay / duration + end;
       end = start + anim.duration / duration;
 
+      print("duration=" +
+          duration.toString() +
+          " anim.duration=" +
+          anim.duration.toString() +
+          " anim.delay=" +
+          anim.delay.toString() +
+          " start=" +
+          start.toString() +
+          " end=" +
+          end.toString());
+
       _parseAnimationItem(
         anim,
         start <= 0.0 ? 0.001 : start,
