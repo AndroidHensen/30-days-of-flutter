@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+
 import 'action/animator.dart';
-import 'dart:math' as math;
 
 class AnimatorSet extends StatefulWidget {
   AnimatorSet({
@@ -21,7 +21,7 @@ class AnimatorSet extends StatefulWidget {
 
 class AnimatorSetState extends State<AnimatorSet>
     with SingleTickerProviderStateMixin {
-  int _duration; //时间
+  int _duration=0; //时间
   AnimationController _controller;
 
   @override
@@ -29,7 +29,8 @@ class AnimatorSetState extends State<AnimatorSet>
     super.initState();
 
     for (var anim in widget.animatorSet) {
-      _duration = anim.duration + anim.delay;
+      int tempDuration = (anim.duration + anim.delay);
+      _duration = _duration + tempDuration;
     }
 
     _controller = AnimationController(
@@ -95,6 +96,8 @@ class AnimatedLogo extends StatelessWidget {
     double start = 0.0;
     double end = 0.0;
 
+    print("duration=" + duration.toString());
+
     for (var anim in animatorSet) {
       start += anim.delay / duration;
       end += anim.duration / duration;
@@ -137,7 +140,12 @@ class AnimatedLogo extends StatelessWidget {
 
   //解析动画
   void _parseAnimationItem(Animator anim, double start, double end) {
-    print("start=" + start.toString() + " end=" + end.toString());
+    print("anim=" +
+        anim.toString() +
+        "start=" +
+        start.toString() +
+        " end=" +
+        end.toString());
 
     if (anim is W) {
       width = Tween<double>(
