@@ -1,4 +1,33 @@
+import 'package:flutter/material.dart';
+
 abstract class Animator {}
+
+class W extends Animator {
+  W({this.from, this.to, this.duration, this.delay});
+
+  double from;
+  double to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
+
+class H extends Animator {
+  H({this.from, this.to, this.duration, this.delay});
+
+  double from;
+  double to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
+
+class P extends Animator {
+  P({this.from, this.to, this.duration, this.delay});
+
+  EdgeInsets from;
+  EdgeInsets to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
 
 class O extends Animator {
   O({this.from, this.to, this.duration, this.delay});
@@ -32,6 +61,24 @@ class T extends Animator {
 
   double from;
   double to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
+
+class C extends Animator {
+  C({this.from, this.to, this.duration, this.delay});
+
+  Color from;
+  Color to;
+  double duration = 0.0;
+  double delay = 0.0;
+}
+
+class B extends Animator {
+  B({this.from, this.to, this.duration, this.delay});
+
+  BorderRadius from;
+  BorderRadius to;
   double duration = 0.0;
   double delay = 0.0;
 }
