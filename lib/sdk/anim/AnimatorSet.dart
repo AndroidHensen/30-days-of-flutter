@@ -157,7 +157,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -171,7 +171,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -185,7 +185,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -199,7 +199,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -213,7 +213,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -227,7 +227,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -241,7 +241,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -255,7 +255,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
@@ -269,7 +269,7 @@ class AnimatedLogo extends StatelessWidget {
           curve: Interval(
             start,
             end,
-            curve: Curves.linear,
+            curve: anim.curve,
           ),
         ),
       );
