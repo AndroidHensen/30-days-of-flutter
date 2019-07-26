@@ -21,7 +21,7 @@ class AnimatorSet extends StatefulWidget {
 
 class AnimatorSetState extends State<AnimatorSet>
     with SingleTickerProviderStateMixin {
-  int _duration=0; //时间
+  int _duration = 0; //时间
   AnimationController _controller;
 
   @override
@@ -29,8 +29,7 @@ class AnimatorSetState extends State<AnimatorSet>
     super.initState();
 
     for (var anim in widget.animatorSet) {
-      int tempDuration = (anim.duration + anim.delay);
-      _duration = _duration + tempDuration;
+      _duration += (anim.duration + anim.delay);
     }
 
     _controller = AnimationController(
@@ -96,14 +95,15 @@ class AnimatedLogo extends StatelessWidget {
     double start = 0.0;
     double end = 0.0;
 
-    print("duration=" + duration.toString());
-
     for (var anim in animatorSet) {
-      start += anim.delay / duration;
-      end += anim.duration / duration;
+      start = anim.delay / duration + end;
+      end = start + anim.duration / duration;
 
       _parseAnimationItem(
-          anim, start <= 0.0 ? 0.001 : start, end >= 1.0 ? 0.999 : end);
+        anim,
+        start <= 0.0 ? 0.0000000000000001 : start,
+        end >= 1.0 ? 0.9999999999999999 : end,
+      );
     }
   }
 
@@ -142,7 +142,7 @@ class AnimatedLogo extends StatelessWidget {
   void _parseAnimationItem(Animator anim, double start, double end) {
     print("anim=" +
         anim.toString() +
-        "start=" +
+        " start=" +
         start.toString() +
         " end=" +
         end.toString());
@@ -155,8 +155,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.125,
-            0.250,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -169,8 +169,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.250,
-            0.375,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -183,8 +183,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.250,
-            0.375,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -197,8 +197,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.0,
-            0.100,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -211,8 +211,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.750,
-            0.900,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -225,8 +225,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.900,
-            0.950,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -239,8 +239,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.900,
-            0.999,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -253,8 +253,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.500,
-            0.750,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
@@ -267,8 +267,8 @@ class AnimatedLogo extends StatelessWidget {
         CurvedAnimation(
           parent: controller,
           curve: Interval(
-            0.375,
-            0.500,
+            start,
+            end,
             curve: Curves.linear,
           ),
         ),
