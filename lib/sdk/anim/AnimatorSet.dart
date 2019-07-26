@@ -29,7 +29,7 @@ class AnimatorSetState extends State<AnimatorSet>
     super.initState();
 
     for (var anim in widget.animatorSet) {
-      _duration = anim.duration ?? 0 + anim.delay ?? 0;
+      _duration = anim.duration + anim.delay;
     }
 
     _controller = AnimationController(
@@ -54,7 +54,8 @@ class AnimatorSetState extends State<AnimatorSet>
     return AnimatedLogo(
         child: widget.child,
         controller: _controller,
-        animatorSet: widget.animatorSet);
+        animatorSet: widget.animatorSet,
+        duration: _duration);
   }
 
   @override
@@ -80,6 +81,7 @@ class AnimatedLogo extends StatelessWidget {
     this.child,
     this.controller,
     this.animatorSet,
+    this.duration,
   }) : super(key: key) {
     this._parseAnimation();
   }
@@ -87,10 +89,18 @@ class AnimatedLogo extends StatelessWidget {
   final Widget child;
   final Animation<double> controller;
   final List<Animator> animatorSet;
+  final int duration;
 
   void _parseAnimation() {
+    double start = 0.0;
+    double end = 0.0;
+
     for (var anim in animatorSet) {
-      _parseAnimationItem(anim);
+      start += anim.delay / duration;
+      end += anim.duration / duration;
+
+      _parseAnimationItem(
+          anim, start <= 0.0 ? 0.001 : start, end >= 1.0 ? 0.999 : end);
     }
   }
 
@@ -126,7 +136,9 @@ class AnimatedLogo extends StatelessWidget {
   }
 
   //解析动画
-  void _parseAnimationItem(Animator anim) {
+  void _parseAnimationItem(Animator anim, double start, double end) {
+    print("start=" + start.toString() + " end=" + end.toString());
+
     if (anim is W) {
       width = Tween<double>(
         begin: anim.from,

@@ -6,82 +6,83 @@ abstract class Animator {
 }
 
 class W extends Animator {
-  W({this.from, this.to, this.duration, this.delay});
+  W({this.from, this.to, this.duration = 0, this.delay = 0});
 
   double from;
   double to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class H extends Animator {
-  H({this.from, this.to, this.duration, this.delay});
+  H({this.from, this.to, this.duration = 0, this.delay = 0});
 
   double from;
   double to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class P extends Animator {
-  P({this.from, this.to, this.duration, this.delay});
+  P({this.from, this.to, this.duration = 0, this.delay = 0});
 
   EdgeInsets from;
   EdgeInsets to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class O extends Animator {
-  O({this.from, this.to, this.duration, this.delay});
+  O({this.from, this.to, this.duration = 0, this.delay = 0});
 
   double from;
   double to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class S extends Animator {
-  S({this.from, this.to, this.duration, this.delay});
+  S({this.from, this.to, this.duration = 0, this.delay = 0});
 
   double from;
   double to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+
+  int delay;
 }
 
 class R extends Animator {
-  R({this.from, this.to, this.duration, this.delay});
+  R({this.from, this.to, this.duration = 0, this.delay = 0});
 
   double from;
   double to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class T extends Animator {
-  T({this.from, this.to, this.duration, this.delay});
+  T({this.from, this.to, this.duration = 0, this.delay = 0});
 
   double from;
   double to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class C extends Animator {
-  C({this.from, this.to, this.duration, this.delay});
+  C({this.from, this.to, this.duration = 0, this.delay = 0});
 
   Color from;
   Color to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
 
 class B extends Animator {
-  B({this.from, this.to, this.duration, this.delay});
+  B({this.from, this.to, this.duration = 0, this.delay = 0});
 
   BorderRadius from;
   BorderRadius to;
-  int duration = 0;
-  int delay = 0;
+  int duration;
+  int delay;
 }
