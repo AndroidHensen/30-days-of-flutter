@@ -101,8 +101,8 @@ class AnimatedLogo extends StatelessWidget {
 
       _parseAnimationItem(
         anim,
-        start <= 0.0 ? 0.0000000000000001 : start,
-        end >= 1.0 ? 0.9999999999999999 : end,
+        start <= 0.0 ? 0.001 : start,
+        end >= 1.0 ? 0.999 : end,
       );
     }
   }
