@@ -102,8 +102,24 @@ class AnimRotate extends Animator {
   Curve curve;
 }
 
-class AnimTranslate extends Animator {
-  AnimTranslate({
+class AnimTranslateX extends Animator {
+  AnimTranslateX({
+    this.from,
+    this.to,
+    this.duration = 0,
+    this.delay = 0,
+    this.curve = Curves.linear,
+  });
+
+  double from;
+  double to;
+  int duration;
+  int delay;
+  Curve curve;
+}
+
+class AnimTranslateY extends Animator {
+  AnimTranslateY({
     this.from,
     this.to,
     this.duration = 0,

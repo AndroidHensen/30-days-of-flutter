@@ -74,7 +74,8 @@ class AnimatedLogo extends StatelessWidget {
   Animation<Color> color;
   Animation<double> scale;
   Animation<double> rotate;
-  Animation<double> translate;
+  Animation<double> translateX;
+  Animation<double> translateY;
 
   AnimatedLogo({
     Key key,
@@ -131,7 +132,7 @@ class AnimatedLogo extends StatelessWidget {
       transform: Matrix4.identity()
         ..scale(scale?.value ?? 1.0)
         ..rotateZ(rotate?.value ?? 0.0)
-        ..translate(translate?.value ?? 0.0),
+        ..translate(translateX?.value ?? 0.0, translateY?.value ?? 0.0),
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
       child: Opacity(
         opacity: opacity?.value ?? 1.0, // 透明度动画
@@ -242,8 +243,22 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimTranslate) {
-      translate = Tween<double>(
+    } else if (anim is AnimTranslateX) {
+      translateX = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            start,
+            end,
+            curve: anim.curve,
+          ),
+        ),
+      );
+    } else if (anim is AnimTranslateY) {
+      translateY = Tween<double>(
         begin: anim.from,
         end: anim.to,
       ).animate(

@@ -15,10 +15,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        children: <Widget>[
-          buildLoading(),
-        ],
+      body: Center(
+        child: buildLoading(),
       ),
     );
   }
@@ -40,7 +38,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         ),
         AnimScale(from: 1.0, to: 0.5, duration: 1000),
         AnimRotate(from: 0.0, to: 0.5, duration: 1000),
-        AnimTranslate(from: 0.0, to: 300.0, duration: 1000),
+        AnimTranslateX(from: 0.0, to: 300.0, duration: 1000),
         AnimColor(
           from: Colors.indigo[100],
           to: Colors.indigo[400],
@@ -57,6 +55,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget buildLoading() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         AnimatorSet(
           child: Container(
@@ -67,7 +67,31 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           animatorSet: [
             AnimWidth(from: 20.0, to: 20.0, duration: 50),
             AnimHeight(from: 20.0, to: 20.0, duration: 50),
-            AnimTranslate(from: 0.0, to: 20.0, duration: 200),
+            AnimTranslateY(from: 0.0, to: -20.0, duration: 400),
+          ],
+        ),
+        AnimatorSet(
+          child: Container(
+            width: 20,
+            height: 20,
+            color: Colors.blue,
+          ),
+          animatorSet: [
+            AnimWidth(from: 20.0, to: 20.0, duration: 50),
+            AnimHeight(from: 20.0, to: 20.0, duration: 50),
+            AnimTranslateY(from: 0.0, to: -20.0, duration: 300, delay: 100),
+          ],
+        ),
+        AnimatorSet(
+          child: Container(
+            width: 20,
+            height: 20,
+            color: Colors.blue,
+          ),
+          animatorSet: [
+            AnimWidth(from: 20.0, to: 20.0, duration: 50),
+            AnimHeight(from: 20.0, to: 20.0, duration: 50),
+            AnimTranslateY(from: 0.0, to: -20.0, duration: 200, delay: 200),
           ],
         ),
       ],
