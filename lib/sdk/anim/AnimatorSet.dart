@@ -158,7 +158,7 @@ class AnimatedLogo extends StatelessWidget {
         " end=" +
         end.toString());
 
-    if (anim is W) {
+    if (anim is AnimWidth) {
       width = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -172,7 +172,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is H) {
+    } else if (anim is AnimHeight) {
       height = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -186,7 +186,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is P) {
+    } else if (anim is AnimPadding) {
       padding = EdgeInsetsTween(
         begin: anim.from,
         end: anim.to,
@@ -200,7 +200,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is O) {
+    } else if (anim is AnimOpacity) {
       opacity = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -214,7 +214,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is S) {
+    } else if (anim is AnimScale) {
       scale = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -228,7 +228,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is R) {
+    } else if (anim is AnimRotate) {
       rotate = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -242,7 +242,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is T) {
+    } else if (anim is AnimTranslate) {
       translate = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -256,7 +256,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is C) {
+    } else if (anim is AnimColor) {
       color = ColorTween(
         begin: anim.from,
         end: anim.to,
@@ -270,7 +270,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is B) {
+    } else if (anim is AnimBorder) {
       borderRadius = BorderRadiusTween(
         begin: anim.from,
         end: anim.to,

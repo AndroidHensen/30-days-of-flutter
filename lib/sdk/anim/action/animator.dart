@@ -6,8 +6,8 @@ abstract class Animator {
   Curve curve;
 }
 
-class W extends Animator {
-  W({
+class AnimWidth extends Animator {
+  AnimWidth({
     this.from,
     this.to,
     this.duration = 0,
@@ -22,8 +22,8 @@ class W extends Animator {
   Curve curve;
 }
 
-class H extends Animator {
-  H({
+class AnimHeight extends Animator {
+  AnimHeight({
     this.from,
     this.to,
     this.duration = 0,
@@ -38,8 +38,8 @@ class H extends Animator {
   Curve curve;
 }
 
-class P extends Animator {
-  P({
+class AnimPadding extends Animator {
+  AnimPadding({
     this.from,
     this.to,
     this.duration = 0,
@@ -54,8 +54,8 @@ class P extends Animator {
   Curve curve;
 }
 
-class O extends Animator {
-  O({
+class AnimOpacity extends Animator {
+  AnimOpacity({
     this.from,
     this.to,
     this.duration = 0,
@@ -70,8 +70,8 @@ class O extends Animator {
   Curve curve;
 }
 
-class S extends Animator {
-  S({
+class AnimScale extends Animator {
+  AnimScale({
     this.from,
     this.to,
     this.duration = 0,
@@ -86,8 +86,8 @@ class S extends Animator {
   Curve curve;
 }
 
-class R extends Animator {
-  R({
+class AnimRotate extends Animator {
+  AnimRotate({
     this.from,
     this.to,
     this.duration = 0,
@@ -102,8 +102,8 @@ class R extends Animator {
   Curve curve;
 }
 
-class T extends Animator {
-  T({
+class AnimTranslate extends Animator {
+  AnimTranslate({
     this.from,
     this.to,
     this.duration = 0,
@@ -118,8 +118,8 @@ class T extends Animator {
   Curve curve;
 }
 
-class C extends Animator {
-  C({
+class AnimColor extends Animator {
+  AnimColor({
     this.from,
     this.to,
     this.duration = 0,
@@ -134,8 +134,8 @@ class C extends Animator {
   Curve curve;
 }
 
-class B extends Animator {
-  B({
+class AnimBorder extends Animator {
+  AnimBorder({
     this.from,
     this.to,
     this.duration = 0,
