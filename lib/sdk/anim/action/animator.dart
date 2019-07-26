@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
-abstract class Animator {}
+abstract class Animator {
+  int duration;
+  int delay;
+}
 
 class W extends Animator {
   W({this.from, this.to, this.duration, this.delay});
 
   double from;
   double to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class H extends Animator {
@@ -16,8 +19,8 @@ class H extends Animator {
 
   double from;
   double to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class P extends Animator {
@@ -25,8 +28,8 @@ class P extends Animator {
 
   EdgeInsets from;
   EdgeInsets to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class O extends Animator {
@@ -34,8 +37,8 @@ class O extends Animator {
 
   double from;
   double to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class S extends Animator {
@@ -43,8 +46,8 @@ class S extends Animator {
 
   double from;
   double to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class R extends Animator {
@@ -52,8 +55,8 @@ class R extends Animator {
 
   double from;
   double to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class T extends Animator {
@@ -61,8 +64,8 @@ class T extends Animator {
 
   double from;
   double to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class C extends Animator {
@@ -70,8 +73,8 @@ class C extends Animator {
 
   Color from;
   Color to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }
 
 class B extends Animator {
@@ -79,6 +82,6 @@ class B extends Animator {
 
   BorderRadius from;
   BorderRadius to;
-  double duration = 0.0;
-  double delay = 0.0;
+  int duration = 0;
+  int delay = 0;
 }

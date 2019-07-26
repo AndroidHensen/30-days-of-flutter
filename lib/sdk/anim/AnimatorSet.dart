@@ -21,15 +21,19 @@ class AnimatorSet extends StatefulWidget {
 
 class AnimatorSetState extends State<AnimatorSet>
     with SingleTickerProviderStateMixin {
-  Duration _duration = Duration(seconds: 20);
+  int _duration; //时间
   AnimationController _controller;
 
   @override
   void initState() {
     super.initState();
 
+    for (var anim in widget.animatorSet) {
+      _duration = anim.duration ?? 0 + anim.delay ?? 0;
+    }
+
     _controller = AnimationController(
-      duration: _duration,
+      duration: Duration(milliseconds: _duration),
       vsync: this,
     );
 
@@ -48,8 +52,8 @@ class AnimatorSetState extends State<AnimatorSet>
   @override
   Widget build(BuildContext context) {
     return AnimatedLogo(
-        controller: _controller,
         child: widget.child,
+        controller: _controller,
         animatorSet: widget.animatorSet);
   }
 
@@ -73,146 +77,20 @@ class AnimatedLogo extends StatelessWidget {
 
   AnimatedLogo({
     Key key,
-    this.controller,
     this.child,
+    this.controller,
     this.animatorSet,
   }) : super(key: key) {
     this._parseAnimation();
   }
 
-  final Animation<double> controller;
   final Widget child;
+  final Animation<double> controller;
   final List<Animator> animatorSet;
 
   void _parseAnimation() {
     for (var anim in animatorSet) {
-      if (anim is W) {
-        width = Tween<double>(
-          begin: 50.0,
-          end: 150.0,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.125,
-              0.250,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is H) {
-        height = Tween<double>(
-          begin: 50.0,
-          end: 150.0,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.250,
-              0.375,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is P) {
-        padding = EdgeInsetsTween(
-          begin: const EdgeInsets.only(top: 16.0),
-          end: const EdgeInsets.only(top: 70.0),
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.250,
-              0.375,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is O) {
-        opacity = Tween<double>(
-          begin: 0.0,
-          end: 1.0,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.0,
-              0.100,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is S) {
-        scale = Tween<double>(
-          begin: 1.0,
-          end: 0.5,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.750,
-              0.900,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is R) {
-        rotate = Tween<double>(
-          begin: 0.0,
-          end: 0.5,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.900,
-              0.950,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is T) {
-        translate = Tween<double>(
-          begin: 0.0,
-          end: 50.0,
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.900,
-              0.999,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is C) {
-        color = ColorTween(
-          begin: Colors.indigo[100],
-          end: Colors.orange[400],
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.500,
-              0.750,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      } else if (anim is B) {
-        borderRadius = BorderRadiusTween(
-          begin: BorderRadius.circular(4.0),
-          end: BorderRadius.circular(40.0),
-        ).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.375,
-              0.500,
-              curve: Curves.linear,
-            ),
-          ),
-        );
-      }
+      _parseAnimationItem(anim);
     }
   }
 
@@ -245,5 +123,136 @@ class AnimatedLogo extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  //解析动画
+  void _parseAnimationItem(Animator anim) {
+    if (anim is W) {
+      width = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.125,
+            0.250,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is H) {
+      height = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.250,
+            0.375,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is P) {
+      padding = EdgeInsetsTween(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.250,
+            0.375,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is O) {
+      opacity = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.0,
+            0.100,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is S) {
+      scale = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.750,
+            0.900,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is R) {
+      rotate = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.900,
+            0.950,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is T) {
+      translate = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.900,
+            0.999,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is C) {
+      color = ColorTween(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.500,
+            0.750,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    } else if (anim is B) {
+      borderRadius = BorderRadiusTween(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            0.375,
+            0.500,
+            curve: Curves.linear,
+          ),
+        ),
+      );
+    }
   }
 }
