@@ -65,9 +65,9 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             color: Colors.blue,
           ),
           animatorSet: [
-            W(from: 20.0, to: 20.0, duration: 10),
-            H(from: 20.0, to: 20.0, duration: 10),
-            T(from: 0.0, to: 20.0, duration: 500),
+            W(from: 20.0, to: 20.0, duration: 50),
+            H(from: 20.0, to: 20.0, duration: 50),
+            T(from: 0.0, to: 20.0, duration: 200),
           ],
         ),
       ],

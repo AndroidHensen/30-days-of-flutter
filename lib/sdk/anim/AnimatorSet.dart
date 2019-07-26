@@ -96,8 +96,8 @@ class AnimatedLogo extends StatelessWidget {
     double end = 0.0;
 
     for (var anim in animatorSet) {
-      start = anim.delay / duration + end;
-      end = start + anim.duration / duration;
+      start = anim.delay / duration + end; //延时+上次结束
+      end = start + anim.duration / duration; //上次开始+时长
 
       print("duration=" +
           duration.toString() +
