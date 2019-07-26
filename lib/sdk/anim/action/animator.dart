@@ -1,11 +1,4 @@
-class Animator {
-  Animator({this.from, this.to, this.duration, this.delay});
-
-  double from;
-  double to;
-  double duration = 0.0;
-  double delay = 0.0;
-}
+abstract class Animator {}
 
 class O extends Animator {
   O({this.from, this.to, this.duration, this.delay});
