@@ -19,7 +19,6 @@ class Day6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'day6',
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
@@ -98,7 +97,6 @@ class WeWidgetState extends State<WeWidget> {
       appBar: AppBar(
         title: Text("day6"),
       ),
-      resizeToAvoidBottomPadding: false,
       body: _buildColumn(),
     );
   }
