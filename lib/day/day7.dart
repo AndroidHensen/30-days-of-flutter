@@ -55,26 +55,24 @@ class WeWidgetState extends State<WeWidget> {
 
   Widget _buildColumn() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Center(
-          child: AnimatedCrossFade(
-            duration: Duration(seconds: 1),
-            firstCurve: Curves.fastOutSlowIn,
-            secondCurve: Curves.fastOutSlowIn,
-            sizeCurve: Curves.fastOutSlowIn,
-            firstChild: FlutterLogo(
-              style: FlutterLogoStyle.horizontal,
-              size: 100.0,
-            ),
-            secondChild: FlutterLogo(
-              style: FlutterLogoStyle.stacked,
-              size: 200.0,
-            ),
-            crossFadeState:
-                _first ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        AnimatedCrossFade(
+          //layoutBuilder: ,
+          alignment: AlignmentDirectional(0.0, 1.0),
+          duration: Duration(seconds: 1),
+          firstCurve: Curves.fastOutSlowIn,
+          secondCurve: Curves.fastOutSlowIn,
+          sizeCurve: Curves.fastOutSlowIn,
+          firstChild: FlutterLogo(
+            style: FlutterLogoStyle.horizontal,
+            size: 100.0,
           ),
+          secondChild: FlutterLogo(
+            style: FlutterLogoStyle.stacked,
+            size: 200.0,
+          ),
+          crossFadeState:
+              _first ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         ),
       ],
     );
