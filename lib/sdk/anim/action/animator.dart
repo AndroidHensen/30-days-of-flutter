@@ -6,8 +6,8 @@ abstract class Animator {
   Curve curve;
 }
 
-class AnimWidth extends Animator {
-  AnimWidth({
+class W extends Animator {
+  W({
     this.from,
     this.to,
     this.duration = 0,
@@ -22,8 +22,8 @@ class AnimWidth extends Animator {
   Curve curve;
 }
 
-class AnimHeight extends Animator {
-  AnimHeight({
+class H extends Animator {
+  H({
     this.from,
     this.to,
     this.duration = 0,
@@ -38,8 +38,8 @@ class AnimHeight extends Animator {
   Curve curve;
 }
 
-class AnimPadding extends Animator {
-  AnimPadding({
+class P extends Animator {
+  P({
     this.from,
     this.to,
     this.duration = 0,
@@ -54,8 +54,8 @@ class AnimPadding extends Animator {
   Curve curve;
 }
 
-class AnimOpacity extends Animator {
-  AnimOpacity({
+class O extends Animator {
+  O({
     this.from,
     this.to,
     this.duration = 0,
@@ -70,8 +70,8 @@ class AnimOpacity extends Animator {
   Curve curve;
 }
 
-class AnimScale extends Animator {
-  AnimScale({
+class S extends Animator {
+  S({
     this.from,
     this.to,
     this.duration = 0,
@@ -86,8 +86,8 @@ class AnimScale extends Animator {
   Curve curve;
 }
 
-class AnimRotate extends Animator {
-  AnimRotate({
+class R extends Animator {
+  R({
     this.from,
     this.to,
     this.duration = 0,
@@ -102,8 +102,8 @@ class AnimRotate extends Animator {
   Curve curve;
 }
 
-class AnimTranslateX extends Animator {
-  AnimTranslateX({
+class TX extends Animator {
+  TX({
     this.from,
     this.to,
     this.duration = 0,
@@ -118,8 +118,8 @@ class AnimTranslateX extends Animator {
   Curve curve;
 }
 
-class AnimTranslateY extends Animator {
-  AnimTranslateY({
+class TY extends Animator {
+  TY({
     this.from,
     this.to,
     this.duration = 0,
@@ -134,8 +134,8 @@ class AnimTranslateY extends Animator {
   Curve curve;
 }
 
-class AnimColor extends Animator {
-  AnimColor({
+class C extends Animator {
+  C({
     this.from,
     this.to,
     this.duration = 0,
@@ -150,8 +150,8 @@ class AnimColor extends Animator {
   Curve curve;
 }
 
-class AnimBorder extends Animator {
-  AnimBorder({
+class B extends Animator {
+  B({
     this.from,
     this.to,
     this.duration = 0,

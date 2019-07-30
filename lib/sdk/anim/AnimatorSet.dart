@@ -159,7 +159,7 @@ class AnimatedLogo extends StatelessWidget {
         " end=" +
         end.toString());
 
-    if (anim is AnimWidth) {
+    if (anim is W) {
       width = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -173,7 +173,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimHeight) {
+    } else if (anim is H) {
       height = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -187,7 +187,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimPadding) {
+    } else if (anim is P) {
       padding = EdgeInsetsTween(
         begin: anim.from,
         end: anim.to,
@@ -201,7 +201,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimOpacity) {
+    } else if (anim is O) {
       opacity = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -215,7 +215,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimScale) {
+    } else if (anim is S) {
       scale = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -229,7 +229,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimRotate) {
+    } else if (anim is R) {
       rotate = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -243,7 +243,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimTranslateX) {
+    } else if (anim is TX) {
       translateX = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -257,7 +257,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimTranslateY) {
+    } else if (anim is TY) {
       translateY = Tween<double>(
         begin: anim.from,
         end: anim.to,
@@ -271,7 +271,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimColor) {
+    } else if (anim is C) {
       color = ColorTween(
         begin: anim.from,
         end: anim.to,
@@ -285,7 +285,7 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is AnimBorder) {
+    } else if (anim is B) {
       borderRadius = BorderRadiusTween(
         begin: anim.from,
         end: anim.to,
