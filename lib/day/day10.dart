@@ -45,7 +45,6 @@ class WeWidgetState extends State<WeWidget>
         });
       })
       ..addStatusListener((AnimationStatus state) {
-
         if (state == AnimationStatus.completed) {
           _controller.reverse();
         } else if (state == AnimationStatus.dismissed) {
@@ -101,12 +100,13 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: AnimatedBuilder(
+        child: this.child,
         animation: animation,
         builder: (BuildContext context, Widget child) {
           return Container(
             height: animation.value,
             width: animation.value,
-            child: this.child,
+            child: child,
           );
         },
       ),
