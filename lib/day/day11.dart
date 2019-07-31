@@ -109,6 +109,7 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: DecoratedBoxTransition(
+        position: DecorationPosition.background,
         decoration: animation,
         child: Container(
           child: this.child,
