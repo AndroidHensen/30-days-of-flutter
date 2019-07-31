@@ -101,6 +101,7 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: FadeTransition(
+        alwaysIncludeSemantics: false,
         opacity: animation,
         child: this.child,
       ),
