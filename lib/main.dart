@@ -25,6 +25,7 @@ import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
 import 'sdk/anim/AnimatorSetActivity.dart';
+import 'sdk/dialog/DialogActivity.dart';
 
 void main() => runApp(App());
 
@@ -47,13 +48,14 @@ var days = [
   {"title": "day16 SizeTransition", "route": "day16"},
   {"title": "day17 SlideTransition", "route": "day17"},
   {"title": "day18 AnimatedDefaultTextStyle", "route": "day18"},
-  {"title": "day19 AnimatedListState【待看懂】", "route": "day19"},
-  {"title": "day20 AnimatedModalBarrier【不懂】", "route": "day20"},
+  {"title": "day19 AnimatedListState[x]", "route": "day19"},
+  {"title": "day20 AnimatedModalBarrier[x]", "route": "day20"},
   {"title": "day21 AnimatedOpacity", "route": "day21"},
   {"title": "day22 AnimatedPhysicalModel", "route": "day22"},
   {"title": "day23 AnimatedPositioned", "route": "day23"},
   {"title": "day24 AnimatedSize", "route": "day24"},
-  {"title": "day25 AnimatorSetActivity", "route": "AnimatorSetActivity"},
+  {"title": "day25 SDK-AnimatorSetActivity[x]", "route": "AnimatorSetActivity"},
+  {"title": "day26 SDK-DialogActivity[x]", "route": "DialogActivity"},
 ];
 
 class App extends StatelessWidget {
@@ -91,6 +93,7 @@ class App extends StatelessWidget {
         "day23": (context) => Day23(),
         "day24": (context) => Day24(),
         "AnimatorSetActivity": (context) => AnimatorSetActivity(),
+        "DialogActivity": (context) => DialogActivity(),
       },
     );
   }
