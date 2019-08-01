@@ -104,6 +104,8 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SlideTransition(
+        transformHitTests: true,
+        textDirection: TextDirection.rtl,
         position: animation,
         child: this.child,
       ),
