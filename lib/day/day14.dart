@@ -101,6 +101,7 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: RotationTransition(
+        //旋转的锚定坐标
         alignment: Alignment.center,
         turns: animation,
         child: this.child,

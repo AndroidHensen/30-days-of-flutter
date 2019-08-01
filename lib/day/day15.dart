@@ -101,6 +101,7 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ScaleTransition(
+        //缩放的锚定坐标
         alignment: Alignment.topLeft,
         scale: animation,
         child: this.child,

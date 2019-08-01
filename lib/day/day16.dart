@@ -113,7 +113,9 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizeTransition(
+        //动画出现的原始位置偏移量
         axisAlignment: 2.0,
+        //动画出现的方式
         axis: axis,
         sizeFactor: animation,
         child: this.child,

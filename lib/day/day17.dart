@@ -104,7 +104,9 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SlideTransition(
+        //点击事件是否落在动画后的控件上
         transformHitTests: true,
+        //动画执行的位置关系
         textDirection: TextDirection.rtl,
         position: animation,
         child: this.child,
