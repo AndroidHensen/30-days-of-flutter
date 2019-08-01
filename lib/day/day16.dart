@@ -113,6 +113,7 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizeTransition(
+        axisAlignment: 2.0,
         axis: axis,
         sizeFactor: animation,
         child: this.child,
