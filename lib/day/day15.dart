@@ -101,6 +101,7 @@ class AnimatorTransition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ScaleTransition(
+        alignment: Alignment.topLeft,
         scale: animation,
         child: this.child,
       ),

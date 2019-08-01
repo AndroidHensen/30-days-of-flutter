@@ -44,7 +44,7 @@ var days = [
   {"title": "day12 FadeTransition[√]", "route": "day12"},
   {"title": "day13 PositionedTransition[√]", "route": "day13"},
   {"title": "day14 RotationTransition[√]", "route": "day14"},
-  {"title": "day15 ScaleTransition", "route": "day15"},
+  {"title": "day15 ScaleTransition[√]", "route": "day15"},
   {"title": "day16 SizeTransition", "route": "day16"},
   {"title": "day17 SlideTransition", "route": "day17"},
   {"title": "day18 AnimatedDefaultTextStyle", "route": "day18"},
