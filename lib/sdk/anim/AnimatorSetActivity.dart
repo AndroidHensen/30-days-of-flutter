@@ -16,7 +16,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: buildShiny(),
+        child: buildLoading(),
       ),
     );
   }
@@ -68,11 +68,12 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             height: 20,
           ),
           animatorSet: [
-            TY(
-                from: 0.0,
-                to: -20.0,
-                duration: 400,
-                curve: Curves.fastOutSlowIn),
+            S(
+              from: 0.5,
+              to: 0.8,
+              duration: 400,
+              curve: Curves.fastOutSlowIn,
+            ),
           ],
         ),
         AnimatorSet(
@@ -85,12 +86,13 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             height: 20,
           ),
           animatorSet: [
-            TY(
-                from: 0.0,
-                to: -20.0,
-                duration: 300,
-                delay: 100,
-                curve: Curves.fastOutSlowIn),
+            S(
+              from: 0.5,
+              to: 0.8,
+              duration: 300,
+              delay: 100,
+              curve: Curves.fastOutSlowIn,
+            ),
           ],
         ),
         AnimatorSet(
@@ -103,12 +105,13 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             height: 20,
           ),
           animatorSet: [
-            TY(
-                from: 0.0,
-                to: -20.0,
-                duration: 200,
-                delay: 200,
-                curve: Curves.fastOutSlowIn),
+            S(
+              from: 0.5,
+              to: 0.8,
+              duration: 200,
+              delay: 200,
+              curve: Curves.fastOutSlowIn,
+            ),
           ],
         ),
       ],
@@ -129,11 +132,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               delay: 500,
               duration: 2000,
               serialList: [
-                S(from: 0.5, to: 4.0),
-                O(from: 1.0, to: 0.5),
+                S(from: 0.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                R(from: 0.0, to: 3.5, delay: 1000, curve: Curves.fastOutSlowIn),
               ],
             ),
-            R(from: 0.0, to: 3.0, duration: 800, curve: Curves.fastOutSlowIn),
           ],
         ),
       ],

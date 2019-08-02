@@ -10,13 +10,11 @@ class Serial extends Animator {
   Serial({
     this.duration = 0,
     this.delay = 0,
-    this.curve = Curves.linear,
     this.serialList = const <Animator>[],
   });
 
   int duration;
   int delay;
-  Curve curve;
   List<Animator> serialList;
 }
 
