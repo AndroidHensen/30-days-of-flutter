@@ -111,12 +111,26 @@ class AnimatedLogo extends StatelessWidget {
           " end=" +
           end.toString());
 
-      _parseAnimationItem(
-        anim,
-        start <= 0.0 ? 0.001 : start,
-        end >= 1.0 ? 0.999 : end,
-      );
+      if (anim is Serial) {
+        //并行动画处理
+        List<Animator> serialList = anim.serialList;
+        serialList.forEach((Animator anim2) {
+          double tempStart = start + anim2.delay / duration;
+          _parseAnimation2(anim2, tempStart, end);
+        });
+      } else {
+        //串行动画处理
+        _parseAnimation2(anim, start, end);
+      }
     }
+  }
+
+  void _parseAnimation2(Animator anim, double start, double end) {
+    _parseAnimationItem(
+      anim,
+      start <= 0.0 ? 0.001 : start,
+      end >= 1.0 ? 0.999 : end,
+    );
   }
 
   @override
