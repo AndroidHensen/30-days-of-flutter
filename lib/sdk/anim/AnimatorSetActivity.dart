@@ -120,15 +120,22 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       children: <Widget>[
         AnimatorSet(
           child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-            ),
+            color: Colors.blue[200],
             width: 20,
             height: 20,
           ),
           animatorSet: [
-            S(from: 0.5, to: 4.0, duration: 1000, curve: Curves.fastOutSlowIn),
+            Serial(
+              delay: 500,
+              duration: 2000,
+              serialList: [
+                S(from: 0.5, to: 4.0),
+                O(from: 1.0, to: 0.5),
+              ],
+            ),
+            R(from: 0.0, to: 1.0, duration: 800, curve: Curves.fastOutSlowIn),
+            R(from: 0.0, to: 2.0, duration: 800, curve: Curves.fastOutSlowIn),
+            R(from: 0.0, to: 3.0, duration: 800, curve: Curves.fastOutSlowIn),
           ],
         ),
       ],
