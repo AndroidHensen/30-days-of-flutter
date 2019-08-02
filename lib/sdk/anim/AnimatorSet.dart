@@ -138,8 +138,8 @@ class AnimatedLogo extends StatelessWidget {
         opacity: opacity?.value ?? 1.0, // 透明度动画
         child: Container(
           child: this.child,
-          width: width?.value ?? 0, // 宽度动画
-          height: height?.value ?? 0, // 高度动画
+          width: width?.value ?? null, // 宽度动画
+          height: height?.value ?? null, // 高度动画
           decoration: BoxDecoration(
             color: color?.value ?? Colors.transparent, // 颜色动画
             borderRadius:

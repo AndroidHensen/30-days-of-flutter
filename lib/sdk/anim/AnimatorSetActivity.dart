@@ -60,38 +60,55 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       children: <Widget>[
         AnimatorSet(
           child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
             width: 20,
             height: 20,
-            color: Colors.blue,
           ),
           animatorSet: [
-            W(from: 20.0, to: 20.0, duration: 50),
-            H(from: 20.0, to: 20.0, duration: 50),
-            TY(from: 0.0, to: -20.0, duration: 400),
+            TY(
+                from: 0.0,
+                to: -20.0,
+                duration: 400,
+                curve: Curves.fastOutSlowIn),
           ],
         ),
         AnimatorSet(
           child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
             width: 20,
             height: 20,
-            color: Colors.blue,
           ),
           animatorSet: [
-            W(from: 20.0, to: 20.0, duration: 50),
-            H(from: 20.0, to: 20.0, duration: 50),
-            TY(from: 0.0, to: -20.0, duration: 300, delay: 100),
+            TY(
+                from: 0.0,
+                to: -20.0,
+                duration: 300,
+                delay: 100,
+                curve: Curves.fastOutSlowIn),
           ],
         ),
         AnimatorSet(
           child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
             width: 20,
             height: 20,
-            color: Colors.blue,
           ),
           animatorSet: [
-            W(from: 20.0, to: 20.0, duration: 50),
-            H(from: 20.0, to: 20.0, duration: 50),
-            TY(from: 0.0, to: -20.0, duration: 200, delay: 200),
+            TY(
+                from: 0.0,
+                to: -20.0,
+                duration: 200,
+                delay: 200,
+                curve: Curves.fastOutSlowIn),
           ],
         ),
       ],
