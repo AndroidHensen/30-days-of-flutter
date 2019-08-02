@@ -130,20 +130,22 @@ class AnimatedLogo extends StatelessWidget {
   Widget _buildAnimationWidget(BuildContext context, Widget child) {
     return Container(
       transform: Matrix4.identity()
-        ..scale(scale?.value ?? 1.0)
         ..rotateZ(rotate?.value ?? 0.0)
         ..translate(translateX?.value ?? 0.0, translateY?.value ?? 0.0),
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
-      child: Opacity(
-        opacity: opacity?.value ?? 1.0, // 透明度动画
-        child: Container(
-          child: this.child,
-          width: width?.value ?? null, // 宽度动画
-          height: height?.value ?? null, // 高度动画
-          decoration: BoxDecoration(
-            color: color?.value ?? Colors.transparent, // 颜色动画
-            borderRadius:
-                borderRadius?.value ?? BorderRadius.circular(0), // 圆角动画
+      child: Transform.scale(
+        scale: scale?.value ?? 1.0,
+        child: Opacity(
+          opacity: opacity?.value ?? 1.0, // 透明度动画
+          child: Container(
+            child: this.child,
+            width: width?.value ?? null, // 宽度动画
+            height: height?.value ?? null, // 高度动画
+            decoration: BoxDecoration(
+              color: color?.value ?? Colors.transparent, // 颜色动画
+              borderRadius:
+                  borderRadius?.value ?? BorderRadius.circular(0), // 圆角动画
+            ),
           ),
         ),
       ),

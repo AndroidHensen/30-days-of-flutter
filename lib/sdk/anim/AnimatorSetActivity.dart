@@ -16,7 +16,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: buildLoading(),
+        child: buildShiny(),
       ),
     );
   }
@@ -109,6 +109,26 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 duration: 200,
                 delay: 200,
                 curve: Curves.fastOutSlowIn),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget buildShiny() {
+    return Stack(
+      children: <Widget>[
+        AnimatorSet(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
+            width: 20,
+            height: 20,
+          ),
+          animatorSet: [
+            S(from: 0.5, to: 4.0, duration: 1000, curve: Curves.fastOutSlowIn),
           ],
         ),
       ],
