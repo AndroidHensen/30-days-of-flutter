@@ -133,8 +133,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 O(from: 1.0, to: 0.5),
               ],
             ),
-            R(from: 0.0, to: 1.0, duration: 800, curve: Curves.fastOutSlowIn),
-            R(from: 0.0, to: 2.0, duration: 800, curve: Curves.fastOutSlowIn),
             R(from: 0.0, to: 3.0, duration: 800, curve: Curves.fastOutSlowIn),
           ],
         ),
