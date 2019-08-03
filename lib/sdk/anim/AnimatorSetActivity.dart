@@ -16,7 +16,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: buildLoading(),
+        child: buildShiny(),
       ),
     );
   }
@@ -123,17 +123,39 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       children: <Widget>[
         AnimatorSet(
           child: Container(
-            color: Colors.blue[200],
+            decoration: BoxDecoration(
+              color: Colors.blue[200],
+              shape: BoxShape.circle,
+            ),
+            width: 20,
+            height: 20,
+          ),
+          animatorSet: [
+            Serial(
+              duration: 2000,
+              serialList: [
+                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
+              ],
+            ),
+          ],
+        ),
+        AnimatorSet(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue[300],
+              shape: BoxShape.circle,
+            ),
             width: 20,
             height: 20,
           ),
           animatorSet: [
             Serial(
               delay: 500,
-              duration: 2000,
+              duration: 1500,
               serialList: [
-                S(from: 0.5, to: 4.0, curve: Curves.fastOutSlowIn),
-                R(from: 0.0, to: 3.5, delay: 1000, curve: Curves.fastOutSlowIn),
+                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
               ],
             ),
           ],
