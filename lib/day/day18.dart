@@ -57,22 +57,29 @@ class WeWidgetState extends State<WeWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Center(
-          child: AnimatedDefaultTextStyle(
-            duration: Duration(seconds: 1),
-            child: Text("Animate me!"),
-            style: _isSelected
-                ? TextStyle(
-                    fontSize: 50.0,
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold,
-                  )
-                : TextStyle(
-                    fontSize: 24.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w300,
-                  ),
-          ),
+        AnimatedDefaultTextStyle(
+          //文本是否应该在软换行符处换行
+          softWrap: false,
+          //如果文本超过指定行数时候的对齐方式
+          textAlign: TextAlign.right,
+          //文本最大行数，默认是1
+          maxLines: 1,
+          //超过文本区域的裁剪方式
+          overflow: TextOverflow.ellipsis,
+          curve: Curves.fastOutSlowIn,
+          duration: Duration(seconds: 1),
+          child: Text("Animate messsssss!"),
+          style: _isSelected
+              ? TextStyle(
+                  fontSize: 50.0,
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                )
+              : TextStyle(
+                  fontSize: 24.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w300,
+                ),
         ),
       ],
     );
