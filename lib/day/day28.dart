@@ -34,7 +34,16 @@ class WeWidgetState extends State<WeWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+      children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            height: 200,
+            width: 200,
+            color: Colors.blue[200],
+          ),
+        )
+      ],
     );
   }
 }
