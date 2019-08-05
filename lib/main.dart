@@ -17,6 +17,8 @@ import 'day/day21.dart';
 import 'day/day22.dart';
 import 'day/day23.dart';
 import 'day/day24.dart';
+import 'day/day27.dart';
+import 'day/day28.dart';
 import 'day/day3.dart';
 import 'day/day4.dart';
 import 'day/day5.dart';
@@ -24,7 +26,6 @@ import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
-import 'day/day27.dart';
 import 'sdk/anim/AnimatorSetActivity.dart';
 import 'sdk/dialog/DialogActivity.dart';
 
@@ -58,6 +59,7 @@ var days = [
   {"title": "day25 SDK-AnimatorSetActivity[x]", "route": "AnimatorSetActivity"},
   {"title": "day26 SDK-DialogActivity[x]", "route": "DialogActivity"},
   {"title": "day27 FittedBox", "route": "day27"},
+  {"title": "day28 AspectRatio", "route": "day28"},
 ];
 
 class App extends StatelessWidget {
@@ -97,6 +99,7 @@ class App extends StatelessWidget {
         "AnimatorSetActivity": (context) => AnimatorSetActivity(),
         "DialogActivity": (context) => DialogActivity(),
         "day27": (context) => Day27(),
+        "day28": (context) => Day28(),
       },
     );
   }

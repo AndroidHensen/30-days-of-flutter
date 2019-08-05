@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Day27 extends StatelessWidget {
+class Day28 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +24,7 @@ class WeWidgetState extends State<WeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("day27"),
+        title: Text("day28"),
       ),
       body: _buildColumn(),
     );
@@ -35,16 +35,17 @@ class WeWidgetState extends State<WeWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Container(
-          width: 300,
-          height: 300,
-          color: Colors.blue,
-          child: FittedBox(
-            fit: BoxFit.cover,
-            alignment: Alignment.centerLeft,
-            child: Image.asset("images/day27/美女.jpg"),
+        Expanded(
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: AspectRatio(
+              aspectRatio: 3 / 2,
+              child: Container(
+                color: Colors.blue,
+              ),
+            ),
           ),
-        )
+        ),
       ],
     );
   }
