@@ -24,6 +24,7 @@ import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
+import 'day/day27.dart';
 import 'sdk/anim/AnimatorSetActivity.dart';
 import 'sdk/dialog/DialogActivity.dart';
 
@@ -56,6 +57,7 @@ var days = [
   {"title": "day24 AnimatedSize", "route": "day24"},
   {"title": "day25 SDK-AnimatorSetActivity[x]", "route": "AnimatorSetActivity"},
   {"title": "day26 SDK-DialogActivity[x]", "route": "DialogActivity"},
+  {"title": "day27 FittedBox", "route": "day27"},
 ];
 
 class App extends StatelessWidget {
@@ -94,6 +96,7 @@ class App extends StatelessWidget {
         "day24": (context) => Day24(),
         "AnimatorSetActivity": (context) => AnimatorSetActivity(),
         "DialogActivity": (context) => DialogActivity(),
+        "day27": (context) => Day27(),
       },
     );
   }
