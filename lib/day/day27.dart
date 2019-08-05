@@ -24,7 +24,7 @@ class WeWidgetState extends State<WeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("day11"),
+        title: Text("day27"),
       ),
       body: _buildColumn(),
     );
@@ -34,7 +34,18 @@ class WeWidgetState extends State<WeWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+      children: <Widget>[
+        Container(
+          width: 300,
+          height: 300,
+          color: Colors.blue,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            alignment: Alignment.centerLeft,
+            child: Image.asset("images/day27/美女.jpg"),
+          ),
+        )
+      ],
     );
   }
 }
