@@ -31,10 +31,9 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return ConstrainedBox(
+      constraints: BoxConstraints.expand(),
+      child: Card(child: Text('Hello World!')),
     );
   }
 }
