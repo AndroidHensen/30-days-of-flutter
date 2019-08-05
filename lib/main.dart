@@ -17,19 +17,29 @@ import 'day/day21.dart';
 import 'day/day22.dart';
 import 'day/day23.dart';
 import 'day/day24.dart';
+import 'day/day27.dart';
+import 'day/day28.dart';
+import 'day/day29.dart';
+import 'day/day3.dart';
+import 'day/day30.dart';
 import 'day/day31.dart';
 import 'day/day32.dart';
-import 'day/day3.dart';
+import 'day/day33.dart';
+import 'day/day34.dart';
+import 'day/day35.dart';
+import 'day/day36.dart';
+import 'day/day37.dart';
+import 'day/day38.dart';
+import 'day/day39.dart';
 import 'day/day4.dart';
+import 'day/day40.dart';
+import 'day/day41.dart';
+import 'day/day42.dart';
 import 'day/day5.dart';
 import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
-import 'day/day27.dart';
-import 'day/day28.dart';
-import 'day/day29.dart';
-import 'day/day30.dart';
 import 'sdk/anim/AnimatorSetActivity.dart';
 import 'sdk/dialog/DialogActivity.dart';
 
@@ -68,6 +78,16 @@ var days = [
   {"title": "day30 Align", "route": "day30"},
   {"title": "day31 FittedBox", "route": "day31"},
   {"title": "day32 AspectRatio", "route": "day32"},
+  {"title": "day33 ConstrainedBox", "route": "day33"},
+  {"title": "day34 Baseline", "route": "day34"},
+  {"title": "day35 FractionallySizedBox", "route": "day35"},
+  {"title": "day36 IntrinsicHeight", "route": "day36"},
+  {"title": "day37 IntrinsicWidth", "route": "day37"},
+  {"title": "day38 LimitedBox", "route": "day38"},
+  {"title": "day39 Offstage", "route": "day39"},
+  {"title": "day40 OverflowBox", "route": "day40"},
+  {"title": "day41 SizedBox", "route": "day41"},
+  {"title": "day42 SizedOverflowBox", "route": "day42"},
 ];
 
 class App extends StatelessWidget {
@@ -112,6 +132,16 @@ class App extends StatelessWidget {
         "day30": (context) => Day30(),
         "day31": (context) => Day31(),
         "day32": (context) => Day32(),
+        "day33": (context) => Day33(),
+        "day34": (context) => Day34(),
+        "day35": (context) => Day35(),
+        "day36": (context) => Day36(),
+        "day37": (context) => Day37(),
+        "day38": (context) => Day38(),
+        "day39": (context) => Day39(),
+        "day40": (context) => Day40(),
+        "day41": (context) => Day41(),
+        "day42": (context) => Day42(),
       },
     );
   }
