@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Day27 extends StatelessWidget {
+class Day31 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +24,7 @@ class WeWidgetState extends State<WeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("day27"),
+        title: Text("day31"),
       ),
       body: _buildColumn(),
     );
