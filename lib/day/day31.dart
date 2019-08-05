@@ -31,21 +31,15 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          width: 300,
-          height: 300,
-          color: Colors.blue,
-          child: FittedBox(
-            fit: BoxFit.cover,
-            alignment: Alignment.centerLeft,
-            child: Image.asset("images/day27/美女.jpg"),
-          ),
-        )
-      ],
+    return Container(
+      width: 300,
+      height: 300,
+      color: Colors.blue,
+      child: FittedBox(
+        fit: BoxFit.cover,
+        alignment: Alignment.centerLeft,
+        child: Image.asset("images/day27/美女.jpg"),
+      ),
     );
   }
 }
