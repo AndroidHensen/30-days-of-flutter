@@ -15,12 +15,24 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: Colors.deepOrangeAccent[200],
-      body: Center(
-        child: doubleBounce(),
-      ),
-    );
+        appBar: AppBar(),
+        body: GridView.count(
+          crossAxisCount: 4,
+          children: <Widget>[
+            BoxColor(
+              child: rotatingPlane(),
+              color: Colors.deepOrangeAccent[200],
+            ),
+            BoxColor(
+              child: doubleBounce(),
+              color: Colors.blueGrey,
+            ),
+            BoxColor(
+              child: fadingFour(),
+              color: Colors.black87,
+            ),
+          ],
+        ));
   }
 
   Widget rotatingPlane() {
@@ -46,14 +58,14 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               color: Colors.white,
               shape: BoxShape.circle,
             ),
-            width: 20,
-            height: 20,
+            width: 100,
+            height: 100,
           ),
           animatorSet: [
             Serial(
               duration: 2000,
               serialList: [
-                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                S(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
                 O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
               ],
             ),
@@ -65,15 +77,15 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               color: Colors.white,
               shape: BoxShape.circle,
             ),
-            width: 20,
-            height: 20,
+            width: 100,
+            height: 100,
           ),
           animatorSet: [
             Serial(
               delay: 500,
               duration: 1500,
               serialList: [
-                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                S(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
                 O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
               ],
             ),
@@ -85,8 +97,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget fadingFour() {
     return Container(
-      width: 60,
-      height: 60,
+      width: 100,
+      height: 100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -99,8 +111,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  width: 20,
-                  height: 20,
+                  width: 15,
+                  height: 15,
                 ),
                 animatorSet: [
                   Serial(
@@ -118,8 +130,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  width: 20,
-                  height: 20,
+                  width: 15,
+                  height: 15,
                 ),
                 animatorSet: [
                   Serial(
@@ -143,8 +155,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  width: 20,
-                  height: 20,
+                  width: 15,
+                  height: 15,
                 ),
                 animatorSet: [
                   Serial(
@@ -163,8 +175,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  width: 20,
-                  height: 20,
+                  width: 15,
+                  height: 15,
                 ),
                 animatorSet: [
                   Serial(
@@ -213,6 +225,31 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           duration: 2000,
         ),
       ],
+    );
+  }
+}
+
+class BoxColor extends StatefulWidget {
+  BoxColor({this.child, this.color = Colors.black});
+
+  var child;
+  var color;
+
+  @override
+  State<StatefulWidget> createState() {
+    return BoxColorState();
+  }
+}
+
+class BoxColorState extends State<BoxColor> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        padding: EdgeInsets.all(30.0),
+        child: widget.child,
+        color: widget.color,
+      ),
     );
   }
 }
