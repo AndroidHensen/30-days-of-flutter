@@ -127,18 +127,16 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           AnimatorSet(
-            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 1.4, duration: 900, delay: 900),
+              SY(from: 1.0, to: 1.4, duration: 1000, delay: 900),
             ],
           ),
           AnimatorSet(
-            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
@@ -149,47 +147,43 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ],
           ),
           AnimatorSet(
-            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 1.8, duration: 1100, delay: 700),
+              SY(from: 1.0, to: 1.8, duration: 1000, delay: 700),
             ],
           ),
           AnimatorSet(
-            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 1200, delay: 600),
+              SY(from: 1.0, to: 2.0, duration: 1000, delay: 600),
             ],
           ),
           AnimatorSet(
-            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.2, duration: 1300, delay: 500),
+              SY(from: 1.0, to: 2.2, duration: 1000, delay: 500),
             ],
           ),
           AnimatorSet(
-            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.4, duration: 1400, delay: 400),
+              SY(from: 1.0, to: 2.4, duration: 1000, delay: 400),
             ],
           ),
         ],
