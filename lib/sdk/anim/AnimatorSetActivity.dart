@@ -134,7 +134,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 900, delay: 200),
+              SY(from: 1.0, to: 1.4, duration: 900, delay: 900),
             ],
           ),
           AnimatorSet(
@@ -145,7 +145,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 800, delay: 300),
+              SY(from: 1.0, to: 1.6, duration: 1000, delay: 800),
             ],
           ),
           AnimatorSet(
@@ -156,7 +156,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 700, delay: 400),
+              SY(from: 1.0, to: 1.8, duration: 1100, delay: 700),
             ],
           ),
           AnimatorSet(
@@ -167,7 +167,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 600, delay: 500),
+              SY(from: 1.0, to: 2.0, duration: 1200, delay: 600),
             ],
           ),
           AnimatorSet(
@@ -178,7 +178,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 500, delay: 600),
+              SY(from: 1.0, to: 2.2, duration: 1300, delay: 500),
             ],
           ),
           AnimatorSet(
@@ -189,7 +189,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 400, delay: 700),
+              SY(from: 1.0, to: 2.4, duration: 1400, delay: 400),
             ],
           ),
         ],
