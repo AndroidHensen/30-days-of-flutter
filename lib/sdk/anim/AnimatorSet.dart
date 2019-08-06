@@ -2,16 +2,23 @@ import 'package:flutter/material.dart';
 
 import 'action/animator.dart';
 
+enum AnimationType {
+  repeat,
+  reverse,
+}
+
 class AnimatorSet extends StatefulWidget {
   AnimatorSet({
     Key key,
     this.child,
     this.animatorSet = const <Animator>[],
+    this.animationType = AnimationType.repeat,
   })  : assert(animatorSet != null),
         super(key: key);
 
   final Widget child;
   final List<Animator> animatorSet;
+  final AnimationType animationType;
 
   @override
   State<StatefulWidget> createState() {
@@ -23,10 +30,13 @@ class AnimatorSetState extends State<AnimatorSet>
     with SingleTickerProviderStateMixin {
   int _duration = 0; //时间
   AnimationController _controller;
+  AnimationType _animationType;
 
   @override
   void initState() {
     super.initState();
+
+    _animationType = widget.animationType;
 
     for (var anim in widget.animatorSet) {
       _duration += (anim.duration + anim.delay);
@@ -37,16 +47,30 @@ class AnimatorSetState extends State<AnimatorSet>
       vsync: this,
     );
 
+    initAnimation();
+    startAnimation();
+  }
+
+  void initAnimation() {
     _controller
       ..addListener(() {})
       ..addStatusListener((AnimationStatus status) {
-//        if (status == AnimationStatus.completed) {
-//          _controller.reverse();
-//        } else if (status == AnimationStatus.dismissed) {
-//          _controller.forward();
-//        }
+        if (_animationType == AnimationType.reverse) {
+          if (status == AnimationStatus.completed) {
+            _controller.reverse();
+          } else if (status == AnimationStatus.dismissed) {
+            _controller.forward();
+          }
+        }
       });
-    _controller.repeat();
+  }
+
+  void startAnimation() {
+    if (_animationType == AnimationType.repeat) {
+      _controller.repeat();
+    } else {
+      _controller.forward();
+    }
   }
 
   @override

@@ -64,6 +64,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       child: Stack(
         children: <Widget>[
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -88,6 +89,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -125,63 +127,69 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 500),
+              SY(from: 1.0, to: 2.0, duration: 900, delay: 200),
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 450, delay: 50),
+              SY(from: 1.0, to: 2.0, duration: 800, delay: 300),
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 400, delay: 100),
+              SY(from: 1.0, to: 2.0, duration: 700, delay: 400),
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 350, delay: 150),
+              SY(from: 1.0, to: 2.0, duration: 600, delay: 500),
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 300, delay: 200),
+              SY(from: 1.0, to: 2.0, duration: 500, delay: 600),
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 2.0, duration: 250, delay: 250),
+              SY(from: 1.0, to: 2.0, duration: 400, delay: 700),
             ],
           ),
         ],
@@ -298,6 +306,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
@@ -308,12 +317,13 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 duration: 1000,
                 serialList: [
                   O(from: 0.0, to: 1.0),
-                  RZ(from: 0.0, to: math.pi),
+                  RZ(from: 0.0, to: 2 * math.pi),
                 ],
               )
             ],
           ),
           AnimatorSet(
+            animationType: AnimationType.reverse,
             child: Container(
               color: Colors.white,
               width: 5,
@@ -321,11 +331,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ),
             animatorSet: [
               Serial(
-                duration: 800,
-                delay: 200,
+                duration: 1000,
                 serialList: [
                   O(from: 0.0, to: 1.0),
-                  RZ(from: 0.0, to: math.pi),
+                  RZ(from: 0.0, to: 2 * math.pi),
                 ],
               )
             ],
