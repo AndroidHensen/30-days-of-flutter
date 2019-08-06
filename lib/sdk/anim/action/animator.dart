@@ -226,3 +226,12 @@ class B extends Animator {
   Curve curve;
 }
 
+class Space extends Animator {
+  Space({
+    this.duration = 0,
+    this.delay = 0,
+  });
+
+  int duration;
+  int delay;
+}
