@@ -73,7 +73,9 @@ class AnimatedLogo extends StatelessWidget {
   Animation<BorderRadius> borderRadius;
   Animation<Color> color;
   Animation<double> scale;
-  Animation<double> rotate;
+  Animation<double> rotateX;
+  Animation<double> rotateY;
+  Animation<double> rotateZ;
   Animation<double> translateX;
   Animation<double> translateY;
 
@@ -144,7 +146,9 @@ class AnimatedLogo extends StatelessWidget {
   Widget _buildAnimationWidget(BuildContext context, Widget child) {
     return Container(
       transform: Matrix4.identity()
-        ..rotateZ(rotate?.value ?? 0.0)
+        ..rotateX(rotateX?.value ?? 0.0)
+        ..rotateY(rotateY?.value ?? 0.0)
+        ..rotateZ(rotateZ?.value ?? 0.0)
         ..translate(translateX?.value ?? 0.0, translateY?.value ?? 0.0),
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
       child: Transform.scale(
@@ -245,8 +249,36 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is R) {
-      rotate = Tween<double>(
+    } else if (anim is RX) {
+      rotateX = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            start,
+            end,
+            curve: anim.curve,
+          ),
+        ),
+      );
+    } else if (anim is RY) {
+      rotateY = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            start,
+            end,
+            curve: anim.curve,
+          ),
+        ),
+      );
+    } else if (anim is RZ) {
+      rotateZ = Tween<double>(
         begin: anim.from,
         end: anim.to,
       ).animate(

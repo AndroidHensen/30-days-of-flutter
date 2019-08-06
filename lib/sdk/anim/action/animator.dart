@@ -98,8 +98,40 @@ class S extends Animator {
   Curve curve;
 }
 
-class R extends Animator {
-  R({
+class RX extends Animator {
+  RX({
+    this.from,
+    this.to,
+    this.duration = 0,
+    this.delay = 0,
+    this.curve = Curves.linear,
+  });
+
+  double from;
+  double to;
+  int duration;
+  int delay;
+  Curve curve;
+}
+
+class RY extends Animator {
+  RY({
+    this.from,
+    this.to,
+    this.duration = 0,
+    this.delay = 0,
+    this.curve = Curves.linear,
+  });
+
+  double from;
+  double to;
+  int duration;
+  int delay;
+  Curve curve;
+}
+
+class RZ extends Animator {
+  RZ({
     this.from,
     this.to,
     this.duration = 0,

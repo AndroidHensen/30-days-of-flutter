@@ -16,7 +16,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: buildShiny(),
+        child: buildLoading(),
       ),
     );
   }
@@ -37,7 +37,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           delay: 500,
         ),
         S(from: 1.0, to: 0.5, duration: 1000),
-        R(from: 0.0, to: 0.5, duration: 1000),
+        RZ(from: 0.0, to: 0.5, duration: 1000),
         TX(from: 0.0, to: 300.0, duration: 1000),
         C(
           from: Colors.indigo[100],
@@ -72,6 +72,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               from: 0.5,
               to: 0.8,
               duration: 400,
+              delay: 200,
               curve: Curves.fastOutSlowIn,
             ),
           ],
@@ -90,7 +91,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               from: 0.5,
               to: 0.8,
               duration: 300,
-              delay: 100,
+              delay: 300,
               curve: Curves.fastOutSlowIn,
             ),
           ],
@@ -109,7 +110,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               from: 0.5,
               to: 0.8,
               duration: 200,
-              delay: 200,
+              delay: 400,
               curve: Curves.fastOutSlowIn,
             ),
           ],
