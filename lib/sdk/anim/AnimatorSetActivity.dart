@@ -134,7 +134,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ),
             animatorSet: [
               SY(from: 1.0, to: 1.4, duration: 500),
-              SY(from: 1.4, to: 1.0, duration: 500),
             ],
           ),
           AnimatorSet(
@@ -145,7 +144,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ),
             animatorSet: [
               SY(from: 1.0, to: 1.6, duration: 500),
-              SY(from: 1.6, to: 1.0, duration: 500),
             ],
           ),
 //          AnimatorSet(
