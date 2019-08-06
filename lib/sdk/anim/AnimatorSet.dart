@@ -40,13 +40,13 @@ class AnimatorSetState extends State<AnimatorSet>
     _controller
       ..addListener(() {})
       ..addStatusListener((AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          _controller.reverse();
-        } else if (status == AnimationStatus.dismissed) {
-          _controller.forward();
-        }
+//        if (status == AnimationStatus.completed) {
+//          _controller.reverse();
+//        } else if (status == AnimationStatus.dismissed) {
+//          _controller.forward();
+//        }
       });
-    _controller.forward();
+    _controller.repeat();
   }
 
   @override
@@ -145,14 +145,15 @@ class AnimatedLogo extends StatelessWidget {
 
   Widget _buildAnimationWidget(BuildContext context, Widget child) {
     return Container(
-      transform: Matrix4.identity()
-        ..rotateX(rotateX?.value ?? 0.0)
-        ..rotateY(rotateY?.value ?? 0.0)
-        ..rotateZ(rotateZ?.value ?? 0.0)
-        ..translate(translateX?.value ?? 0.0, translateY?.value ?? 0.0),
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
-      child: Transform.scale(
-        scale: scale?.value ?? 1.0,
+      child: Transform(
+        transform: Matrix4.identity()
+          ..scale(scale?.value ?? 1.0)
+          ..rotateX(rotateX?.value ?? 0.0)
+          ..rotateY(rotateY?.value ?? 0.0)
+          ..rotateZ(rotateZ?.value ?? 0.0)
+          ..translate(translateX?.value ?? 0.0, translateY?.value ?? 0.0),
+        alignment: FractionalOffset.center,
         child: Opacity(
           opacity: opacity?.value ?? 1.0, // 透明度动画
           child: Container(

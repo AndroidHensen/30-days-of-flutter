@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:yyshop/sdk/anim/AnimatorSet.dart';
 import 'action/animator.dart';
+import 'dart:math' as math;
 
 class AnimatorSetActivity extends StatefulWidget {
   @override
@@ -15,13 +16,175 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      backgroundColor: Colors.deepOrangeAccent[200],
       body: Center(
-        child: buildLoading(),
+        child: doubleBounce(),
       ),
     );
   }
 
-  Widget buildDemo() {
+  Widget rotatingPlane() {
+    return AnimatorSet(
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.white,
+      ),
+      animatorSet: [
+        RX(from: 0.0, to: math.pi, duration: 600, curve: Curves.easeIn),
+        RY(from: 0.0, to: math.pi, duration: 600, curve: Curves.easeOut),
+      ],
+    );
+  }
+
+  Widget doubleBounce() {
+    return Stack(
+      children: <Widget>[
+        AnimatorSet(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            width: 20,
+            height: 20,
+          ),
+          animatorSet: [
+            Serial(
+              duration: 2000,
+              serialList: [
+                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
+              ],
+            ),
+          ],
+        ),
+        AnimatorSet(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            width: 20,
+            height: 20,
+          ),
+          animatorSet: [
+            Serial(
+              delay: 500,
+              duration: 1500,
+              serialList: [
+                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
+                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget fadingFour() {
+    return Container(
+      width: 60,
+      height: 60,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              AnimatorSet(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  width: 20,
+                  height: 20,
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 1000,
+                    serialList: [
+                      O(from: 0.0, to: 1.0),
+                      RZ(from: 0.0, to: math.pi),
+                    ],
+                  )
+                ],
+              ),
+              AnimatorSet(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  width: 20,
+                  height: 20,
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 800,
+                    delay: 200,
+                    serialList: [
+                      O(from: 0.0, to: 1.0),
+                      RZ(from: 0.0, to: math.pi),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              AnimatorSet(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  width: 20,
+                  height: 20,
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 400,
+                    delay: 600,
+                    serialList: [
+                      O(from: 0.0, to: 1.0),
+                      RZ(from: 0.0, to: math.pi),
+                    ],
+                  )
+                ],
+              ),
+              AnimatorSet(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  width: 20,
+                  height: 20,
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 600,
+                    delay: 400,
+                    serialList: [
+                      O(from: 0.0, to: 1.0),
+                      RZ(from: 0.0, to: math.pi),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget testApi() {
     return AnimatorSet(
       child: FlutterLogo(
         style: FlutterLogoStyle.horizontal,
@@ -48,118 +211,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           from: BorderRadius.circular(4.0),
           to: BorderRadius.circular(40.0),
           duration: 2000,
-        ),
-      ],
-    );
-  }
-
-  Widget buildLoading() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-            ),
-            width: 20,
-            height: 20,
-          ),
-          animatorSet: [
-            S(
-              from: 0.5,
-              to: 0.8,
-              duration: 400,
-              delay: 200,
-              curve: Curves.fastOutSlowIn,
-            ),
-          ],
-        ),
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-            ),
-            width: 20,
-            height: 20,
-          ),
-          animatorSet: [
-            S(
-              from: 0.5,
-              to: 0.8,
-              duration: 300,
-              delay: 300,
-              curve: Curves.fastOutSlowIn,
-            ),
-          ],
-        ),
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-            ),
-            width: 20,
-            height: 20,
-          ),
-          animatorSet: [
-            S(
-              from: 0.5,
-              to: 0.8,
-              duration: 200,
-              delay: 400,
-              curve: Curves.fastOutSlowIn,
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget buildShiny() {
-    return Stack(
-      children: <Widget>[
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue[200],
-              shape: BoxShape.circle,
-            ),
-            width: 20,
-            height: 20,
-          ),
-          animatorSet: [
-            Serial(
-              duration: 2000,
-              serialList: [
-                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
-                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
-              ],
-            ),
-          ],
-        ),
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue[300],
-              shape: BoxShape.circle,
-            ),
-            width: 20,
-            height: 20,
-          ),
-          animatorSet: [
-            Serial(
-              delay: 500,
-              duration: 1500,
-              serialList: [
-                S(from: 1.5, to: 4.0, curve: Curves.fastOutSlowIn),
-                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
-              ],
-            ),
-          ],
         ),
       ],
     );
