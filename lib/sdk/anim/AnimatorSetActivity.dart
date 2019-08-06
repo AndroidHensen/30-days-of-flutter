@@ -21,15 +21,23 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           children: <Widget>[
             BoxColor(
               child: rotatingPlane(),
-              color: Colors.deepOrangeAccent[200],
+              color: Color(0xFFD35413),
             ),
             BoxColor(
               child: doubleBounce(),
-              color: Colors.blueGrey,
+              color: Color(0xFF2F3E50),
+            ),
+            BoxColor(
+              child: wave(),
+              color: Color(0xFF00BA9B),
             ),
             BoxColor(
               child: fadingFour(),
-              color: Colors.black87,
+              color: Color(0xFF323232),
+            ),
+            BoxColor(
+              child: custom(),
+              color: Color(0xFF00BA9B),
             ),
           ],
         ));
@@ -50,48 +58,134 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
   }
 
   Widget doubleBounce() {
-    return Stack(
-      children: <Widget>[
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
+    return Container(
+      width: 100,
+      height: 100,
+      child: Stack(
+        children: <Widget>[
+          AnimatorSet(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              width: 100,
+              height: 100,
             ),
-            width: 100,
-            height: 100,
+            animatorSet: [
+              Serial(
+                duration: 2000,
+                serialList: [
+                  SX(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
+                  SY(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
+                  O(
+                      from: 0.5,
+                      to: 1.0,
+                      delay: 1000,
+                      curve: Curves.fastOutSlowIn),
+                ],
+              ),
+            ],
           ),
-          animatorSet: [
-            Serial(
-              duration: 2000,
-              serialList: [
-                S(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
-                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
-              ],
+          AnimatorSet(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              width: 100,
+              height: 100,
             ),
-          ],
-        ),
-        AnimatorSet(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-            width: 100,
-            height: 100,
+            animatorSet: [
+              Serial(
+                delay: 500,
+                duration: 1500,
+                serialList: [
+                  SX(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
+                  SY(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
+                  O(
+                      from: 0.5,
+                      to: 1.0,
+                      delay: 1000,
+                      curve: Curves.fastOutSlowIn),
+                ],
+              ),
+            ],
           ),
-          animatorSet: [
-            Serial(
-              delay: 500,
-              duration: 1500,
-              serialList: [
-                S(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
-                O(from: 0.5, to: 1.0, delay: 1000, curve: Curves.fastOutSlowIn),
-              ],
+        ],
+      ),
+    );
+  }
+
+  Widget wave() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
             ),
-          ],
-        ),
-      ],
+            animatorSet: [
+              SY(from: 1.0, to: 2.0, duration: 500),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              SY(from: 1.0, to: 2.0, duration: 450, delay: 50),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              SY(from: 1.0, to: 2.0, duration: 400, delay: 100),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              SY(from: 1.0, to: 2.0, duration: 350, delay: 150),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              SY(from: 1.0, to: 2.0, duration: 300, delay: 200),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              SY(from: 1.0, to: 2.0, duration: 250, delay: 250),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -196,6 +290,51 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
+  Widget custom() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              Serial(
+                duration: 1000,
+                serialList: [
+                  O(from: 0.0, to: 1.0),
+                  RZ(from: 0.0, to: math.pi),
+                ],
+              )
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              Serial(
+                duration: 800,
+                delay: 200,
+                serialList: [
+                  O(from: 0.0, to: 1.0),
+                  RZ(from: 0.0, to: math.pi),
+                ],
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget testApi() {
     return AnimatorSet(
       child: FlutterLogo(
@@ -211,7 +350,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           duration: 1000,
           delay: 500,
         ),
-        S(from: 1.0, to: 0.5, duration: 1000),
+        SX(from: 1.0, to: 0.5, duration: 1000),
         RZ(from: 0.0, to: 0.5, duration: 1000),
         TX(from: 0.0, to: 300.0, duration: 1000),
         C(

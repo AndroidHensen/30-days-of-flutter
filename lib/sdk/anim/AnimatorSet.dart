@@ -72,7 +72,8 @@ class AnimatedLogo extends StatelessWidget {
   Animation<EdgeInsets> padding;
   Animation<BorderRadius> borderRadius;
   Animation<Color> color;
-  Animation<double> scale;
+  Animation<double> scaleX;
+  Animation<double> scaleY;
   Animation<double> rotateX;
   Animation<double> rotateY;
   Animation<double> rotateZ;
@@ -148,7 +149,7 @@ class AnimatedLogo extends StatelessWidget {
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
       child: Transform(
         transform: Matrix4.identity()
-          ..scale(scale?.value ?? 1.0)
+          ..scale(scaleX?.value ?? 1.0, scaleY?.value ?? 1.0)
           ..rotateX(rotateX?.value ?? 0.0)
           ..rotateY(rotateY?.value ?? 0.0)
           ..rotateZ(rotateZ?.value ?? 0.0)
@@ -236,8 +237,22 @@ class AnimatedLogo extends StatelessWidget {
           ),
         ),
       );
-    } else if (anim is S) {
-      scale = Tween<double>(
+    } else if (anim is SX) {
+      scaleX = Tween<double>(
+        begin: anim.from,
+        end: anim.to,
+      ).animate(
+        CurvedAnimation(
+          parent: controller,
+          curve: Interval(
+            start,
+            end,
+            curve: anim.curve,
+          ),
+        ),
+      );
+    } else if (anim is SY) {
+      scaleY = Tween<double>(
         begin: anim.from,
         end: anim.to,
       ).animate(
