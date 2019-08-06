@@ -31,10 +31,29 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return Container(
+      color: Colors.grey,
+      child: IntrinsicWidth(
+        //父容器的大小
+        stepHeight: 200,
+        stepWidth: 150,
+        child: Column(
+          children: <Widget>[
+            Container(
+              color: Colors.blue,
+              width: 100.0,
+              height: 150.0,
+            ),
+            Container(
+              color: Colors.red,
+              width: 60.0,
+              height: 150.0,
+            ),
+            Container(color: Colors.yellow, height: 150.0),
+            Container(color: Colors.green, height: 150.0),
+          ],
+        ),
+      ),
     );
   }
 }
