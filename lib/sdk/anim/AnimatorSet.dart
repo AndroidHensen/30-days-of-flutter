@@ -105,8 +105,8 @@ class AnimatedLogo extends StatelessWidget {
   List<Animation<double>> rotateX = [null, null, null, null];
   List<Animation<double>> rotateY = [null, null, null, null];
   List<Animation<double>> rotateZ = [null, null, null, null];
-  List<Animation<double>> translateX = [null, null, null, null];
-  List<Animation<double>> translateY = [null, null, null, null];
+  List<Animation<double>> transX = [null, null, null, null];
+  List<Animation<double>> transY = [null, null, null, null];
 
   AnimatedLogo({
     Key key,
@@ -180,34 +180,38 @@ class AnimatedLogo extends StatelessWidget {
     return Container(
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
       child: Transform(
-        transform: Matrix4.identity()
-          ..translate(translateX[0]?.value ?? 0.0, translateY[0]?.value ?? 0.0)
-          ..translate(translateX[1]?.value ?? 0.0, translateY[1]?.value ?? 0.0)
-          ..translate(translateX[2]?.value ?? 0.0, translateY[2]?.value ?? 0.0)
-          ..translate(translateX[3]?.value ?? 0.0, translateY[3]?.value ?? 0.0),
         alignment: Alignment.center,
+        transform: Matrix4.identity()
+          ..translate(transX[0]?.value ?? 0.0, transY[0]?.value ?? 0.0)
+          ..translate(transX[1]?.value ?? 0.0, transY[1]?.value ?? 0.0)
+          ..translate(transX[2]?.value ?? 0.0, transY[2]?.value ?? 0.0)
+          ..translate(transX[3]?.value ?? 0.0, transY[3]?.value ?? 0.0),
         child: Transform(
-          transform: Matrix4.identity()
-            ..rotateX(rotateX[0]?.value ?? 0.0)
-            ..rotateX(rotateX[1]?.value ?? 0.0)
-            ..rotateX(rotateX[2]?.value ?? 0.0)
-            ..rotateX(rotateX[3]?.value ?? 0.0)
-            ..rotateY(rotateY[0]?.value ?? 0.0)
-            ..rotateY(rotateY[1]?.value ?? 0.0)
-            ..rotateY(rotateY[2]?.value ?? 0.0)
-            ..rotateY(rotateY[3]?.value ?? 0.0)
-            ..rotateZ(rotateZ[0]?.value ?? 0.0)
-            ..rotateZ(rotateZ[1]?.value ?? 0.0)
-            ..rotateZ(rotateZ[2]?.value ?? 0.0)
-            ..rotateZ(rotateZ[3]?.value ?? 0.0),
           alignment: Alignment.center,
+          transform: Matrix4.identity()
+            ..scale(
+                scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? scaleX[0]?.value)
+            ..scale(
+                scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? scaleX[1]?.value)
+            ..scale(
+                scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? scaleX[2]?.value)
+            ..scale(
+                scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? scaleX[3]?.value),
           child: Transform(
-            transform: Matrix4.identity()
-              ..scale(scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? 1.0)
-              ..scale(scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? 1.0)
-              ..scale(scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? 1.0)
-              ..scale(scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? 1.0),
             alignment: Alignment.center,
+            transform: Matrix4.identity()
+              ..rotateX(rotateX[0]?.value ?? 0.0)
+              ..rotateX(rotateX[1]?.value ?? 0.0)
+              ..rotateX(rotateX[2]?.value ?? 0.0)
+              ..rotateX(rotateX[3]?.value ?? 0.0)
+              ..rotateY(rotateY[0]?.value ?? 0.0)
+              ..rotateY(rotateY[1]?.value ?? 0.0)
+              ..rotateY(rotateY[2]?.value ?? 0.0)
+              ..rotateY(rotateY[3]?.value ?? 0.0)
+              ..rotateZ(rotateZ[0]?.value ?? 0.0)
+              ..rotateZ(rotateZ[1]?.value ?? 0.0)
+              ..rotateZ(rotateZ[2]?.value ?? 0.0)
+              ..rotateZ(rotateZ[3]?.value ?? 0.0),
             child: Opacity(
               opacity: opacity?.value ?? 1.0, // 透明度动画
               child: Container(
@@ -394,9 +398,9 @@ class AnimatedLogo extends StatelessWidget {
         }
       }
     } else if (anim is TX) {
-      for (int i = 0; i < translateX.length; i++) {
-        if (translateX[i] == null) {
-          translateX[i] = Tween<double>(
+      for (int i = 0; i < transX.length; i++) {
+        if (transX[i] == null) {
+          transX[i] = Tween<double>(
             begin: anim.from,
             end: anim.to,
           ).animate(
@@ -413,9 +417,9 @@ class AnimatedLogo extends StatelessWidget {
         }
       }
     } else if (anim is TY) {
-      for (int i = 0; i < translateY.length; i++) {
-        if (translateY[i] == null) {
-          translateY[i] = Tween<double>(
+      for (int i = 0; i < transY.length; i++) {
+        if (transY[i] == null) {
+          transY[i] = Tween<double>(
             begin: anim.from,
             end: anim.to,
           ).animate(
