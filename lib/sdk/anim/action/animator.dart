@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-abstract class Animator {
+abstract class Animator<T> {
+  T from;
+  T to;
   int duration;
   int delay;
   Curve curve;
@@ -18,7 +20,7 @@ class Serial extends Animator {
   List<Animator> serialList;
 }
 
-class W extends Animator {
+class W extends Animator<double> {
   W({
     this.from,
     this.to,
@@ -34,7 +36,7 @@ class W extends Animator {
   Curve curve;
 }
 
-class H extends Animator {
+class H extends Animator<double> {
   H({
     this.from,
     this.to,
@@ -50,7 +52,7 @@ class H extends Animator {
   Curve curve;
 }
 
-class P extends Animator {
+class P extends Animator<EdgeInsets> {
   P({
     this.from,
     this.to,
@@ -66,7 +68,7 @@ class P extends Animator {
   Curve curve;
 }
 
-class O extends Animator {
+class O extends Animator<double> {
   O({
     this.from,
     this.to,
@@ -82,7 +84,7 @@ class O extends Animator {
   Curve curve;
 }
 
-class SX extends Animator {
+class SX extends Animator<double> {
   SX({
     this.from,
     this.to,
@@ -98,7 +100,7 @@ class SX extends Animator {
   Curve curve;
 }
 
-class SY extends Animator {
+class SY extends Animator<double> {
   SY({
     this.from,
     this.to,
@@ -114,7 +116,7 @@ class SY extends Animator {
   Curve curve;
 }
 
-class RX extends Animator {
+class RX extends Animator<double> {
   RX({
     this.from,
     this.to,
@@ -130,7 +132,7 @@ class RX extends Animator {
   Curve curve;
 }
 
-class RY extends Animator {
+class RY extends Animator<double> {
   RY({
     this.from,
     this.to,
@@ -146,7 +148,7 @@ class RY extends Animator {
   Curve curve;
 }
 
-class RZ extends Animator {
+class RZ extends Animator<double> {
   RZ({
     this.from,
     this.to,
@@ -162,7 +164,7 @@ class RZ extends Animator {
   Curve curve;
 }
 
-class TX extends Animator {
+class TX extends Animator<double> {
   TX({
     this.from,
     this.to,
@@ -178,7 +180,7 @@ class TX extends Animator {
   Curve curve;
 }
 
-class TY extends Animator {
+class TY extends Animator<double> {
   TY({
     this.from,
     this.to,
@@ -194,7 +196,7 @@ class TY extends Animator {
   Curve curve;
 }
 
-class C extends Animator {
+class C extends Animator<Color> {
   C({
     this.from,
     this.to,
@@ -210,7 +212,7 @@ class C extends Animator {
   Curve curve;
 }
 
-class B extends Animator {
+class B extends Animator<BorderRadius> {
   B({
     this.from,
     this.to,

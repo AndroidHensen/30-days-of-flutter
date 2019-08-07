@@ -96,8 +96,8 @@ class AnimatedLogo extends StatelessWidget {
   Animation<EdgeInsets> padding;
   Animation<BorderRadius> borderRadius;
   Animation<Color> color;
-  Animation<double> scaleX;
-  Animation<double> scaleY;
+  List<Animation<double>> scaleX = [null, null, null, null];
+  List<Animation<double>> scaleY = [null, null, null, null];
   Animation<double> rotateX;
   Animation<double> rotateY;
   Animation<double> rotateZ;
@@ -173,7 +173,10 @@ class AnimatedLogo extends StatelessWidget {
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
       child: Transform(
         transform: Matrix4.identity()
-          ..scale(scaleX?.value ?? 1.0, scaleY?.value ?? 1.0)
+          ..scale(scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? 1.0)
+          ..scale(scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? 1.0)
+          ..scale(scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? 1.0)
+          ..scale(scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? 1.0)
           ..rotateX(rotateX?.value ?? 0.0)
           ..rotateY(rotateY?.value ?? 0.0)
           ..rotateZ(rotateZ?.value ?? 0.0)
@@ -198,11 +201,15 @@ class AnimatedLogo extends StatelessWidget {
 
   //解析动画
   void _parseAnimationItem(Animator anim, double start, double end) {
-    print("anim=" +
+    print("anim = " +
         anim.toString() +
-        " start=" +
+        "| anim.from = " +
+        anim.from.toString() +
+        "| anim.to = " +
+        anim.to.toString() +
+        "| start = " +
         start.toString() +
-        " end=" +
+        "| end = " +
         end.toString());
 
     if (anim is W) {
@@ -262,33 +269,43 @@ class AnimatedLogo extends StatelessWidget {
         ),
       );
     } else if (anim is SX) {
-      scaleX = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < scaleX.length; i++) {
+        if (scaleX[i] == null) {
+          scaleX[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is SY) {
-      scaleY = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < scaleY.length; i++) {
+        if (scaleY[i] == null) {
+          scaleY[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is RX) {
       rotateX = Tween<double>(
         begin: anim.from,

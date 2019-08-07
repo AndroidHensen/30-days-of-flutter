@@ -133,7 +133,9 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 1.4, duration: 500),
+              SY(from: 0.8, to: 1.6, duration: 200),
+              SY(from: 1.6, to: 0.8, duration: 200),
+              Space(duration: 500),
             ],
           ),
           AnimatorSet(
@@ -143,56 +145,63 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              SY(from: 1.0, to: 1.6, duration: 500),
+              Space(duration: 100),
+              SY(from: 0.8, to: 1.6, duration: 200),
+              SY(from: 1.6, to: 0.8, duration: 200),
+              Space(duration: 400),
             ],
           ),
-//          AnimatorSet(
-//            animationType: AnimationType.reverse,
-//            child: Container(
-//              color: Colors.white,
-//              width: 5,
-//              height: 15,
-//            ),
-//            animatorSet: [
-//              Space(duration: 300),
-//              SY(from: 1.0, to: 1.8, duration: 1000, delay: 300),
-//            ],
-//          ),
-//          AnimatorSet(
-//            animationType: AnimationType.reverse,
-//            child: Container(
-//              color: Colors.white,
-//              width: 5,
-//              height: 15,
-//            ),
-//            animatorSet: [
-//              Space(duration: 200),
-//              SY(from: 1.0, to: 2.0, duration: 1000, delay: 400),
-//            ],
-//          ),
-//          AnimatorSet(
-//            animationType: AnimationType.reverse,
-//            child: Container(
-//              color: Colors.white,
-//              width: 5,
-//              height: 15,
-//            ),
-//            animatorSet: [
-//              Space(duration: 100),
-//              SY(from: 1.0, to: 2.2, duration: 1000, delay: 500),
-//            ],
-//          ),
-//          AnimatorSet(
-//            animationType: AnimationType.reverse,
-//            child: Container(
-//              color: Colors.white,
-//              width: 5,
-//              height: 15,
-//            ),
-//            animatorSet: [
-//              SY(from: 1.0, to: 2.4, duration: 1000, delay: 600),
-//            ],
-//          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              Space(duration: 200),
+              SY(from: 0.8, to: 1.6, duration: 200),
+              SY(from: 1.6, to: 0.8, duration: 200),
+              Space(duration: 300),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              Space(duration: 300),
+              SY(from: 0.8, to: 1.6, duration: 200),
+              SY(from: 1.6, to: 0.8, duration: 200),
+              Space(duration: 200),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              Space(duration: 400),
+              SY(from: 0.8, to: 1.6, duration: 200),
+              SY(from: 1.6, to: 0.8, duration: 200),
+              Space(duration: 100),
+            ],
+          ),
+          AnimatorSet(
+            child: Container(
+              color: Colors.white,
+              width: 5,
+              height: 15,
+            ),
+            animatorSet: [
+              Space(duration: 500),
+              SY(from: 0.8, to: 1.6, duration: 200),
+              SY(from: 1.6, to: 0.8, duration: 200),
+            ],
+          ),
         ],
       ),
     );
