@@ -32,6 +32,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               color: Color(0xFF00BA9B),
             ),
             BoxColor(
+              child: wanderingCubes(),
+              color: Color(0xFF3279B5),
+            ),
+            BoxColor(
               child: fadingFour(),
               color: Color(0xFF323232),
             ),
@@ -303,6 +307,71 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               ),
             ],
           )
+        ],
+      ),
+    );
+  }
+
+  Widget wanderingCubes() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Align(
+            alignment: Alignment(-1.0, 0.0),
+            child: AnimatorSet(
+              child: Container(
+                width: 10,
+                height: 10,
+                color: Colors.white,
+              ),
+              animatorSet: [
+                Serial(duration: 500, serialList: [
+                  TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                ]),
+//                TX(
+//                    from: 0.0,
+//                    to: -30.0,
+//                    duration: 500,
+//                    curve: Curves.easeInOut),
+//                TY(
+//                    from: 0.0,
+//                    to: -30.0,
+//                    duration: 500,
+//                    curve: Curves.easeInOut),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment(1.0, 0.0),
+            child: AnimatorSet(
+              child: Container(
+                width: 10,
+                height: 10,
+                color: Colors.white,
+              ),
+              animatorSet: [
+                TX(
+                    from: 0.0,
+                    to: -30.0,
+                    duration: 500,
+                    curve: Curves.easeInOut),
+                TY(
+                    from: 0.0,
+                    to: -30.0,
+                    duration: 500,
+                    curve: Curves.easeInOut),
+                TX(from: 0.0, to: 30.0, duration: 500, curve: Curves.easeInOut),
+                TY(from: 0.0, to: 30.0, duration: 500, curve: Curves.easeInOut),
+              ],
+            ),
+          ),
         ],
       ),
     );

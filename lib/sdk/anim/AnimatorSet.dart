@@ -13,7 +13,8 @@ class AnimatorSet extends StatefulWidget {
     this.child,
     this.animatorSet = const <Animator>[],
     this.animationType = AnimationType.repeat,
-  })  : assert(animatorSet != null),
+  })  : assert(child != null),
+        assert(animatorSet != null),
         super(key: key);
 
   final Widget child;
@@ -173,28 +174,36 @@ class AnimatedLogo extends StatelessWidget {
       padding: padding?.value ?? EdgeInsets.all(0), // 内边距动画
       child: Transform(
         transform: Matrix4.identity()
-          ..scale(scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? 1.0)
-          ..scale(scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? 1.0)
-          ..scale(scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? 1.0)
-          ..scale(scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? 1.0)
-          ..rotateX(rotateX?.value ?? 0.0)
-          ..rotateY(rotateY?.value ?? 0.0)
-          ..rotateZ(rotateZ?.value ?? 0.0)
           ..translate(translateX[0]?.value ?? 0.0, translateY[0]?.value ?? 0.0)
           ..translate(translateX[1]?.value ?? 0.0, translateY[1]?.value ?? 0.0)
           ..translate(translateX[2]?.value ?? 0.0, translateY[2]?.value ?? 0.0)
           ..translate(translateX[3]?.value ?? 0.0, translateY[3]?.value ?? 0.0),
-        alignment: FractionalOffset.center,
-        child: Opacity(
-          opacity: opacity?.value ?? 1.0, // 透明度动画
-          child: Container(
-            child: this.child,
-            width: width?.value ?? null, // 宽度动画
-            height: height?.value ?? null, // 高度动画
-            decoration: BoxDecoration(
-              color: color?.value ?? Colors.transparent, // 颜色动画
-              borderRadius:
-                  borderRadius?.value ?? BorderRadius.circular(0), // 圆角动画
+        alignment: Alignment.center,
+        child: Transform(
+          transform: Matrix4.identity()
+            ..rotateX(rotateX?.value ?? 0.0)
+            ..rotateY(rotateY?.value ?? 0.0)
+            ..rotateZ(rotateZ?.value ?? 0.0),
+          alignment: Alignment.center,
+          child: Transform(
+            transform: Matrix4.identity()
+              ..scale(scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? 1.0)
+              ..scale(scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? 1.0)
+              ..scale(scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? 1.0)
+              ..scale(scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? 1.0),
+            alignment: Alignment.center,
+            child: Opacity(
+              opacity: opacity?.value ?? 1.0, // 透明度动画
+              child: Container(
+                child: this.child,
+                width: width?.value ?? null, // 宽度动画
+                height: height?.value ?? null, // 高度动画
+                decoration: BoxDecoration(
+                  color: color?.value ?? Colors.transparent, // 颜色动画
+                  borderRadius:
+                      borderRadius?.value ?? BorderRadius.circular(0), // 圆角动画
+                ),
+              ),
             ),
           ),
         ),
