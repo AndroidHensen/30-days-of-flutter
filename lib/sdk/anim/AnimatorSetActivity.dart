@@ -40,12 +40,20 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               color: Color(0xFF323232),
             ),
             BoxColor(
+              child: fadingCube(),
+              color: Color(0xFF58BD60),
+            ),
+            BoxColor(
               child: pulse(),
               color: Color(0xFF7D8A8B),
             ),
             BoxColor(
-              child: custom(),
+              child: customRotateIn(),
               color: Color(0xFF00BA9B),
+            ),
+            BoxColor(
+              child: customFadeIn(),
+              color: Color(0xFFFCCB63),
             ),
           ],
         ));
@@ -213,6 +221,82 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
+  Widget wanderingCubes() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Align(
+            alignment: Alignment(-1.0, 0.0),
+            child: AnimatorSet(
+              child: Container(
+                width: 10,
+                height: 10,
+                color: Colors.white,
+              ),
+              animatorSet: [
+                Serial(duration: 500, serialList: [
+                  TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TX(from: 0.0, to: -30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TY(from: 0.0, to: -30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment(1.0, 0.0),
+            child: AnimatorSet(
+              child: Container(
+                width: 10,
+                height: 10,
+                color: Colors.white,
+              ),
+              animatorSet: [
+                Serial(duration: 500, serialList: [
+                  TX(from: 0.0, to: -30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TY(from: 0.0, to: -30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+                Serial(duration: 500, serialList: [
+                  TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
+                ]),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget fadingFour() {
     return Container(
       width: 100,
@@ -314,78 +398,116 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget wanderingCubes() {
+  Widget fadingCube() {
     return Container(
       width: 100,
       height: 100,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Align(
-            alignment: Alignment(-1.0, 0.0),
-            child: AnimatorSet(
-              child: Container(
-                width: 10,
-                height: 10,
-                color: Colors.white,
+      child: Transform.rotate(
+        angle: math.pi / 4,
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              left: 0,
+              top: 0,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 4000,
+                    serialList: [
+                      O(
+                          from: 0.0,
+                          to: 0.8,
+                          delay: 500,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
               ),
-              animatorSet: [
-                Serial(duration: 500, serialList: [
-                  TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-                Serial(duration: 500, serialList: [
-                  TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-                Serial(duration: 500, serialList: [
-                  TX(from: 0.0, to: -30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-                Serial(duration: 500, serialList: [
-                  TY(from: 0.0, to: -30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-              ],
             ),
-          ),
-          Align(
-            alignment: Alignment(1.0, 0.0),
-            child: AnimatorSet(
-              child: Container(
-                width: 10,
-                height: 10,
-                color: Colors.white,
+            Positioned(
+              left: 20,
+              top: 0,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 4000,
+                    serialList: [
+                      O(
+                          from: 0.0,
+                          to: 0.8,
+                          delay: 1000,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
               ),
-              animatorSet: [
-                Serial(duration: 500, serialList: [
-                  TX(from: 0.0, to: -30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-                Serial(duration: 500, serialList: [
-                  TY(from: 0.0, to: -30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-                Serial(duration: 500, serialList: [
-                  TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-                Serial(duration: 500, serialList: [
-                  TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
-                  SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
-                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
-                ]),
-              ],
             ),
-          ),
-        ],
+            Positioned(
+              left: 20,
+              top: 20,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 4000,
+                    serialList: [
+                      O(
+                          from: 0.0,
+                          to: 0.8,
+                          delay: 1500,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 0,
+              top: 20,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 4000,
+                    serialList: [
+                      O(
+                          from: 0.0,
+                          to: 0.8,
+                          delay: 2000,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -417,7 +539,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget custom() {
+  Widget customRotateIn() {
     return Container(
       width: 100,
       height: 100,
@@ -459,6 +581,124 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget customFadeIn() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Transform.rotate(
+        angle: math.pi / 4,
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              left: 0,
+              top: 0,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 2000,
+                    serialList: [
+                      SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      O(
+                          from: 0.8,
+                          to: 0.0,
+                          delay: 1000,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 20,
+              top: 0,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 2000,
+                    serialList: [
+                      SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      O(
+                          from: 0.8,
+                          to: 0.0,
+                          delay: 1000,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 20,
+              top: 20,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 2000,
+                    serialList: [
+                      SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      O(
+                          from: 0.8,
+                          to: 0.0,
+                          delay: 1000,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 0,
+              top: 20,
+              width: 20,
+              height: 20,
+              child: AnimatorSet(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                ),
+                animatorSet: [
+                  Serial(
+                    duration: 2000,
+                    serialList: [
+                      SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      O(
+                          from: 0.8,
+                          to: 0.0,
+                          delay: 1000,
+                          curve: Curves.easeInOut),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
