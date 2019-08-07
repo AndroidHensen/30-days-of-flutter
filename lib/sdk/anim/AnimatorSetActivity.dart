@@ -412,22 +412,26 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
+                debug: true,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                 ),
                 animatorSet: [
-                  Serial(
-                    duration: 4000,
-                    serialList: [
-                      O(
-                          from: 0.0,
-                          to: 0.8,
-                          delay: 500,
-                          curve: Curves.easeInOut),
-                    ],
-                  ),
+                  Space(duration: 1000),
+                  O(
+                      from: 0.0,
+                      to: 1.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  O(
+                      from: 1.0,
+                      to: 0.0,
+                      delay: 100,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  Space(duration: 2500),
                 ],
               ),
             ),
@@ -443,16 +447,18 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Serial(
-                    duration: 4000,
-                    serialList: [
-                      O(
-                          from: 0.0,
-                          to: 0.8,
-                          delay: 1000,
-                          curve: Curves.easeInOut),
-                    ],
-                  ),
+                  Space(duration: 2500),
+                  O(
+                      from: 0.0,
+                      to: 1.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  O(
+                      from: 1.0,
+                      to: 0.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  Space(duration: 1000),
                 ],
               ),
             ),
@@ -468,16 +474,18 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Serial(
-                    duration: 4000,
-                    serialList: [
-                      O(
-                          from: 0.0,
-                          to: 0.8,
-                          delay: 1500,
-                          curve: Curves.easeInOut),
-                    ],
-                  ),
+                  Space(duration: 3000),
+                  O(
+                      from: 0.0,
+                      to: 1.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  O(
+                      from: 1.0,
+                      to: 0.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  Space(duration: 500),
                 ],
               ),
             ),
@@ -493,16 +501,17 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Serial(
-                    duration: 4000,
-                    serialList: [
-                      O(
-                          from: 0.0,
-                          to: 0.8,
-                          delay: 2000,
-                          curve: Curves.easeInOut),
-                    ],
-                  ),
+                  Space(duration: 3500),
+                  O(
+                      from: 0.0,
+                      to: 1.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
+                  O(
+                      from: 1.0,
+                      to: 0.0,
+                      duration: 1000,
+                      curve: Curves.easeInOut),
                 ],
               ),
             ),
@@ -517,7 +526,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       width: 100,
       height: 100,
       child: AnimatorSet(
-        debug: true,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,

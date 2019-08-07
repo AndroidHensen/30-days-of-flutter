@@ -213,15 +213,14 @@ class AnimatedLogo extends StatelessWidget {
               ..rotateZ(rotateZ[2]?.value ?? 0.0)
               ..rotateZ(rotateZ[3]?.value ?? 0.0),
             child: Opacity(
-              opacity: opacity?.value ?? 1.0, // 透明度动画
+              opacity: opacity?.value ?? 1.0,
               child: Container(
                 child: this.child,
-                width: width?.value ?? null, // 宽度动画
-                height: height?.value ?? null, // 高度动画
+                width: width?.value ?? null,
+                height: height?.value ?? null,
                 decoration: BoxDecoration(
-                  color: color?.value ?? Colors.transparent, // 颜色动画
-                  borderRadius:
-                      borderRadius?.value ?? BorderRadius.circular(0), // 圆角动画
+                  color: color?.value ?? Colors.transparent,
+                  borderRadius: borderRadius?.value ?? BorderRadius.circular(0),
                 ),
               ),
             ),
