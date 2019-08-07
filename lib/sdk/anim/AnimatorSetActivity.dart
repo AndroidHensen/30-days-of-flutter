@@ -322,6 +322,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           Align(
             alignment: Alignment(-1.0, 0.0),
             child: AnimatorSet(
+              debug: true,
               child: Container(
                 width: 10,
                 height: 10,
@@ -330,10 +331,15 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               animatorSet: [
                 Serial(duration: 500, serialList: [
                   TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  SX(from: 1.0, to: 0.6, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 0.6, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
+                  SX(from: 0.6, to: 1.0, curve: Curves.easeInOut),
+                  SY(from: 0.6, to: 1.0, curve: Curves.easeInOut),
+                  RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
 //                TX(
 //                    from: 0.0,

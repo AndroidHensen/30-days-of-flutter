@@ -10,6 +10,7 @@ enum AnimationType {
 class AnimatorSet extends StatefulWidget {
   AnimatorSet({
     Key key,
+    this.debug = false,
     this.child,
     this.animatorSet = const <Animator>[],
     this.animationType = AnimationType.repeat,
@@ -17,6 +18,7 @@ class AnimatorSet extends StatefulWidget {
         assert(animatorSet != null),
         super(key: key);
 
+  final bool debug;
   final Widget child;
   final List<Animator> animatorSet;
   final AnimationType animationType;
@@ -99,14 +101,15 @@ class AnimatedLogo extends StatelessWidget {
   Animation<Color> color;
   List<Animation<double>> scaleX = [null, null, null, null];
   List<Animation<double>> scaleY = [null, null, null, null];
-  Animation<double> rotateX;
-  Animation<double> rotateY;
-  Animation<double> rotateZ;
+  List<Animation<double>> rotateX = [null, null, null, null];
+  List<Animation<double>> rotateY = [null, null, null, null];
+  List<Animation<double>> rotateZ = [null, null, null, null];
   List<Animation<double>> translateX = [null, null, null, null];
   List<Animation<double>> translateY = [null, null, null, null];
 
   AnimatedLogo({
     Key key,
+    this.debug,
     this.child,
     this.controller,
     this.animatorSet,
@@ -115,6 +118,7 @@ class AnimatedLogo extends StatelessWidget {
     this._parseAnimation();
   }
 
+  final bool debug;
   final Widget child;
   final Animation<double> controller;
   final List<Animator> animatorSet;
@@ -128,16 +132,18 @@ class AnimatedLogo extends StatelessWidget {
       start = anim.delay / duration + end; //延时+上次结束
       end = start + anim.duration / duration; //上次开始+时长
 
-      print("duration=" +
-          duration.toString() +
-          " anim.duration=" +
-          anim.duration.toString() +
-          " anim.delay=" +
-          anim.delay.toString() +
-          " start=" +
-          start.toString() +
-          " end=" +
-          end.toString());
+      if (debug) {
+        print("duration=" +
+            duration.toString() +
+            " anim.duration=" +
+            anim.duration.toString() +
+            " anim.delay=" +
+            anim.delay.toString() +
+            " start=" +
+            start.toString() +
+            " end=" +
+            end.toString());
+      }
 
       if (anim is Serial) {
         //并行动画处理
@@ -181,9 +187,18 @@ class AnimatedLogo extends StatelessWidget {
         alignment: Alignment.center,
         child: Transform(
           transform: Matrix4.identity()
-            ..rotateX(rotateX?.value ?? 0.0)
-            ..rotateY(rotateY?.value ?? 0.0)
-            ..rotateZ(rotateZ?.value ?? 0.0),
+            ..rotateX(rotateX[0]?.value ?? 0.0)
+            ..rotateX(rotateX[1]?.value ?? 0.0)
+            ..rotateX(rotateX[2]?.value ?? 0.0)
+            ..rotateX(rotateX[3]?.value ?? 0.0)
+            ..rotateY(rotateY[0]?.value ?? 0.0)
+            ..rotateY(rotateY[1]?.value ?? 0.0)
+            ..rotateY(rotateY[2]?.value ?? 0.0)
+            ..rotateY(rotateY[3]?.value ?? 0.0)
+            ..rotateZ(rotateZ[0]?.value ?? 0.0)
+            ..rotateZ(rotateZ[1]?.value ?? 0.0)
+            ..rotateZ(rotateZ[2]?.value ?? 0.0)
+            ..rotateZ(rotateZ[3]?.value ?? 0.0),
           alignment: Alignment.center,
           child: Transform(
             transform: Matrix4.identity()
@@ -213,16 +228,18 @@ class AnimatedLogo extends StatelessWidget {
 
   //解析动画
   void _parseAnimationItem(Animator anim, double start, double end) {
-    print("anim = " +
-        anim.toString() +
-        "| anim.from = " +
-        anim.from.toString() +
-        "| anim.to = " +
-        anim.to.toString() +
-        "| start = " +
-        start.toString() +
-        "| end = " +
-        end.toString());
+    if (debug) {
+      print("anim = " +
+          anim.toString() +
+          "| anim.from = " +
+          anim.from.toString() +
+          "| anim.to = " +
+          anim.to.toString() +
+          "| start = " +
+          start.toString() +
+          "| end = " +
+          end.toString());
+    }
 
     if (anim is W) {
       width = Tween<double>(
@@ -319,47 +336,62 @@ class AnimatedLogo extends StatelessWidget {
         }
       }
     } else if (anim is RX) {
-      rotateX = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < rotateX.length; i++) {
+        if (rotateX[i] == null) {
+          rotateX[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is RY) {
-      rotateY = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < rotateY.length; i++) {
+        if (rotateY[i] == null) {
+          rotateY[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is RZ) {
-      rotateZ = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < rotateZ.length; i++) {
+        if (rotateZ[i] == null) {
+          rotateZ[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is TX) {
       for (int i = 0; i < translateX.length; i++) {
         if (translateX[i] == null) {
