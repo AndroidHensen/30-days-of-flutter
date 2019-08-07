@@ -101,8 +101,8 @@ class AnimatedLogo extends StatelessWidget {
   Animation<double> rotateX;
   Animation<double> rotateY;
   Animation<double> rotateZ;
-  Animation<double> translateX;
-  Animation<double> translateY;
+  List<Animation<double>> translateX = [null, null, null, null];
+  List<Animation<double>> translateY = [null, null, null, null];
 
   AnimatedLogo({
     Key key,
@@ -180,7 +180,10 @@ class AnimatedLogo extends StatelessWidget {
           ..rotateX(rotateX?.value ?? 0.0)
           ..rotateY(rotateY?.value ?? 0.0)
           ..rotateZ(rotateZ?.value ?? 0.0)
-          ..translate(translateX?.value ?? 0.0, translateY?.value ?? 0.0),
+          ..translate(translateX[0]?.value ?? 0.0, translateY[0]?.value ?? 0.0)
+          ..translate(translateX[1]?.value ?? 0.0, translateY[1]?.value ?? 0.0)
+          ..translate(translateX[2]?.value ?? 0.0, translateY[2]?.value ?? 0.0)
+          ..translate(translateX[3]?.value ?? 0.0, translateY[3]?.value ?? 0.0),
         alignment: FractionalOffset.center,
         child: Opacity(
           opacity: opacity?.value ?? 1.0, // 透明度动画
@@ -349,33 +352,43 @@ class AnimatedLogo extends StatelessWidget {
         ),
       );
     } else if (anim is TX) {
-      translateX = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < translateX.length; i++) {
+        if (translateX[i] == null) {
+          translateX[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is TY) {
-      translateY = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < translateY.length; i++) {
+        if (translateY[i] == null) {
+          translateY[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          );
+          break;
+        }
+      }
     } else if (anim is C) {
       color = ColorTween(
         begin: anim.from,
