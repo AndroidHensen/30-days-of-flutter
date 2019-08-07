@@ -79,6 +79,7 @@ class AnimatorSetState extends State<AnimatorSet>
   @override
   Widget build(BuildContext context) {
     return AnimatedLogo(
+        debug: widget.debug,
         child: widget.child,
         controller: _controller,
         animatorSet: widget.animatorSet,
