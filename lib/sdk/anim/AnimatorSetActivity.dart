@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-
-import 'package:yyshop/sdk/anim/AnimatorSet.dart';
-import 'action/animator.dart';
 import 'dart:math' as math;
+
+import 'package:flutter/material.dart';
+import 'package:yyshop/sdk/anim/AnimatorSet.dart';
+
+import 'action/animator.dart';
 
 class AnimatorSetActivity extends StatefulWidget {
   @override
@@ -27,6 +28,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: fadingCube(), color: Color(0xFF58BD60)),
             BoxColor(child: pulse(), color: Color(0xFF7D8A8B)),
             BoxColor(child: threeBounce(), color: Color(0xFFD35413)),
+            BoxColor(child: rotatingCircle(), color: Color(0xFF3279B5)),
             BoxColor(child: pumpingHeart(), color: Color(0xFFF4A352)),
             BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
             BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
@@ -593,6 +595,31 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ),
           ],
         ));
+  }
+
+  Widget rotatingCircle() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Stack(
+        children: <Widget>[
+          AnimatorSet(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              width: 100,
+              height: 100,
+            ),
+            animatorSet: [
+              RX(from: 0.0, to: math.pi, duration: 500, curve: Curves.easeIn),
+              RY(from: 0.0, to: math.pi, duration: 500, curve: Curves.easeOut),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget pumpingHeart() {
