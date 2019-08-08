@@ -19,46 +19,17 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         body: GridView.count(
           crossAxisCount: 4,
           children: <Widget>[
-            BoxColor(
-              child: rotatingPlane(),
-              color: Color(0xFFD35413),
-            ),
-            BoxColor(
-              child: doubleBounce(),
-              color: Color(0xFF2F3E50),
-            ),
-            BoxColor(
-              child: wave(),
-              color: Color(0xFF00BA9B),
-            ),
-            BoxColor(
-              child: wanderingCubes(),
-              color: Color(0xFF3279B5),
-            ),
-            BoxColor(
-              child: fadingFour(),
-              color: Color(0xFF323232),
-            ),
-            BoxColor(
-              child: fadingCube(),
-              color: Color(0xFF58BD60),
-            ),
-            BoxColor(
-              child: pulse(),
-              color: Color(0xFF7D8A8B),
-            ),
-            BoxColor(
-              child: threeBounce(),
-              color: Color(0xFFD35413),
-            ),
-            BoxColor(
-              child: customRotateIn(),
-              color: Color(0xFF00BA9B),
-            ),
-            BoxColor(
-              child: customFadeIn(),
-              color: Color(0xFFFCCB63),
-            ),
+            BoxColor(child: rotatingPlane(), color: Color(0xFFD35413)),
+            BoxColor(child: doubleBounce(), color: Color(0xFF2F3E50)),
+            BoxColor(child: wave(), color: Color(0xFF00BA9B)),
+            BoxColor(child: wanderingCubes(), color: Color(0xFF3279B5)),
+            BoxColor(child: fadingFour(), color: Color(0xFF323232)),
+            BoxColor(child: fadingCube(), color: Color(0xFF58BD60)),
+            BoxColor(child: pulse(), color: Color(0xFF7D8A8B)),
+            BoxColor(child: threeBounce(), color: Color(0xFFD35413)),
+            BoxColor(child: pumpingHeart(), color: Color(0xFFF4A352)),
+            BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
+            BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
           ],
         ));
   }
@@ -624,6 +595,29 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         ));
   }
 
+  Widget pumpingHeart() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: AnimatorSet(
+        child: Icon(
+          Icons.favorite,
+          color: Colors.white,
+          size: 40,
+        ),
+        animatorSet: [
+          Serial(
+            duration: 2400,
+            serialList: [
+              SX(from: 1.0, to: 1.25, curve: PumpingHeartCurve()),
+              SY(from: 1.0, to: 1.25, curve: PumpingHeartCurve()),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget customRotateIn() {
     return Container(
       width: 100,
@@ -847,5 +841,24 @@ class BoxColorState extends State<BoxColor> {
         color: widget.color,
       ),
     );
+  }
+}
+
+class PumpingHeartCurve extends Curve {
+  @override
+  double transform(double t) {
+    if (t >= 0.0 && t < 0.22) {
+      return math.pow(t, 1.0) * 4.54545454;
+    } else if (t >= 0.22 && t < 0.44) {
+      return 1.0 - (math.pow(t - 0.22, 1.0) * 4.54545454);
+    } else if (t >= 0.44 && t < 0.5) {
+      return 0.0;
+    } else if (t >= 0.5 && t < 0.72) {
+      return math.pow(t - 0.5, 1.0) * 2.27272727;
+    } else if (t >= 0.72 && t < 0.94) {
+      return 0.5 - (math.pow(t - 0.72, 1.0) * 2.27272727);
+    } else {
+      return 0.0;
+    }
   }
 }
