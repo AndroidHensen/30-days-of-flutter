@@ -418,6 +418,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
+                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -439,6 +440,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
+                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -460,6 +462,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
+                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -481,6 +484,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
+                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -537,7 +541,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             AnimatorSet(
-              animationType: AnimationType.reverse,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -548,37 +551,22 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               ),
               animatorSet: [
                 Serial(
-                  duration: 500,
+                  duration: 1000,
                   serialList: [
                     SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                     SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                   ],
                 ),
-              ],
-            ),
-            AnimatorSet(
-              animationType: AnimationType.reverse,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-                width: 10,
-                height: 10,
-              ),
-              animatorSet: [
                 Serial(
-                  delay: 100,
-                  duration: 500,
+                  duration: 1000,
                   serialList: [
-                    SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
-                    SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                    SX(from: 1.0, to: 0.0, curve: Curves.easeInOut),
+                    SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
                   ],
                 ),
               ],
             ),
             AnimatorSet(
-              animationType: AnimationType.reverse,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -590,10 +578,44 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               animatorSet: [
                 Serial(
                   delay: 200,
-                  duration: 500,
+                  duration: 1000,
                   serialList: [
                     SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                     SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                  ],
+                ),
+                Serial(
+                  duration: 1000,
+                  serialList: [
+                    SX(from: 1.0, to: 0.0, curve: Curves.easeInOut),
+                    SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
+                  ],
+                ),
+              ],
+            ),
+            AnimatorSet(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                width: 10,
+                height: 10,
+              ),
+              animatorSet: [
+                Serial(
+                  delay: 400,
+                  duration: 1000,
+                  serialList: [
+                    SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                    SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                  ],
+                ),
+                Serial(
+                  duration: 1000,
+                  serialList: [
+                    SX(from: 1.0, to: 0.0, curve: Curves.easeInOut),
+                    SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
                   ],
                 ),
               ],
