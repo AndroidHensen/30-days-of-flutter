@@ -42,7 +42,7 @@ class AnimatorSetState extends State<AnimatorSet>
     _animationType = widget.animationType;
 
     for (var anim in widget.animatorSet) {
-      _duration += (anim.duration + anim.delay);
+      _duration += anim.duration;
     }
 
     _controller = AnimationController(
@@ -150,7 +150,7 @@ class AnimatedLogo extends StatelessWidget {
         //并行动画处理
         List<Animator> serialList = anim.serialList;
         serialList.forEach((Animator anim2) {
-          double tempStart = start + anim2.delay / duration;
+          double tempStart = start + anim.delay / duration;
           _parseAnimation2(anim2, tempStart, end);
         });
       } else {

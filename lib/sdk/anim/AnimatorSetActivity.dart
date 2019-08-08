@@ -48,6 +48,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               color: Color(0xFF7D8A8B),
             ),
             BoxColor(
+              child: threeBounce(),
+              color: Color(0xFFD35413),
+            ),
+            BoxColor(
               child: customRotateIn(),
               color: Color(0xFF00BA9B),
             ),
@@ -95,11 +99,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 serialList: [
                   SX(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
                   SY(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
-                  O(
-                      from: 0.5,
-                      to: 1.0,
-                      delay: 1000,
-                      curve: Curves.fastOutSlowIn),
+                  O(from: 0.5, to: 0.8, curve: Curves.fastOutSlowIn),
                 ],
               ),
             ],
@@ -116,16 +116,12 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ),
             animatorSet: [
               Serial(
-                delay: 500,
-                duration: 1500,
+                delay: 200,
+                duration: 2000,
                 serialList: [
                   SX(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
                   SY(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
-                  O(
-                      from: 0.5,
-                      to: 1.0,
-                      delay: 1000,
-                      curve: Curves.fastOutSlowIn),
+                  O(from: 0.5, to: 1.0, curve: Curves.fastOutSlowIn),
                 ],
               ),
             ],
@@ -347,8 +343,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 ),
                 animatorSet: [
                   Serial(
-                    duration: 800,
-                    delay: 200,
+                    delay: 100,
+                    duration: 1000,
                     serialList: [
                       O(from: 0.0, to: 1.0),
                       RZ(from: 0.0, to: math.pi),
@@ -372,8 +368,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 ),
                 animatorSet: [
                   Serial(
-                    duration: 400,
-                    delay: 600,
+                    delay: 300,
+                    duration: 1000,
                     serialList: [
                       O(from: 0.0, to: 1.0),
                       RZ(from: 0.0, to: math.pi),
@@ -392,8 +388,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 ),
                 animatorSet: [
                   Serial(
-                    duration: 600,
-                    delay: 400,
+                    delay: 200,
+                    duration: 1000,
                     serialList: [
                       O(from: 0.0, to: 1.0),
                       RZ(from: 0.0, to: math.pi),
@@ -422,26 +418,18 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
-                debug: true,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                 ),
                 animatorSet: [
-                  Delay(duration: 1000),
                   O(
+                      delay: 200,
                       from: 0.0,
                       to: 1.0,
-                      duration: 1000,
+                      duration: 2000,
                       curve: Curves.easeInOut),
-                  O(
-                      from: 1.0,
-                      to: 0.0,
-                      delay: 100,
-                      duration: 1000,
-                      curve: Curves.easeInOut),
-                  Delay(duration: 2500),
                 ],
               ),
             ),
@@ -457,18 +445,12 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Delay(duration: 2500),
                   O(
+                      delay: 400,
                       from: 0.0,
                       to: 1.0,
-                      duration: 1000,
+                      duration: 2000,
                       curve: Curves.easeInOut),
-                  O(
-                      from: 1.0,
-                      to: 0.0,
-                      duration: 1000,
-                      curve: Curves.easeInOut),
-                  Delay(duration: 1000),
                 ],
               ),
             ),
@@ -484,18 +466,12 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Delay(duration: 3000),
                   O(
+                      delay: 600,
                       from: 0.0,
                       to: 1.0,
-                      duration: 1000,
+                      duration: 2000,
                       curve: Curves.easeInOut),
-                  O(
-                      from: 1.0,
-                      to: 0.0,
-                      duration: 1000,
-                      curve: Curves.easeInOut),
-                  Delay(duration: 500),
                 ],
               ),
             ),
@@ -511,16 +487,11 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Delay(duration: 3500),
                   O(
+                      delay: 800,
                       from: 0.0,
                       to: 1.0,
-                      duration: 1000,
-                      curve: Curves.easeInOut),
-                  O(
-                      from: 1.0,
-                      to: 0.0,
-                      duration: 1000,
+                      duration: 2000,
                       curve: Curves.easeInOut),
                 ],
               ),
@@ -556,6 +527,79 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         ],
       ),
     );
+  }
+
+  Widget threeBounce() {
+    return Container(
+        width: 100,
+        height: 100,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            AnimatorSet(
+              animationType: AnimationType.reverse,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                width: 10,
+                height: 10,
+              ),
+              animatorSet: [
+                Serial(
+                  duration: 500,
+                  serialList: [
+                    SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                    SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                  ],
+                ),
+              ],
+            ),
+            AnimatorSet(
+              animationType: AnimationType.reverse,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                width: 10,
+                height: 10,
+              ),
+              animatorSet: [
+                Serial(
+                  delay: 100,
+                  duration: 500,
+                  serialList: [
+                    SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                    SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                  ],
+                ),
+              ],
+            ),
+            AnimatorSet(
+              animationType: AnimationType.reverse,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                width: 10,
+                height: 10,
+              ),
+              animatorSet: [
+                Serial(
+                  delay: 200,
+                  duration: 500,
+                  serialList: [
+                    SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                    SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ));
   }
 
   Widget customRotateIn() {
