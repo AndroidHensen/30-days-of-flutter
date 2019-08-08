@@ -228,8 +228,8 @@ class B extends Animator<BorderRadius> {
   Curve curve;
 }
 
-class Space extends Animator {
-  Space({
+class Delay extends Animator {
+  Delay({
     this.duration = 0,
     this.delay = 0,
   });

@@ -94,6 +94,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 duration: 2000,
                 serialList: [
                   SX(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
+                  SY(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
                   O(
                       from: 0.5,
                       to: 1.0,
@@ -119,6 +120,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 duration: 1500,
                 serialList: [
                   SX(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
+                  SY(from: 0.0, to: 1.0, curve: Curves.fastOutSlowIn),
                   O(
                       from: 0.5,
                       to: 1.0,
@@ -149,7 +151,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             animatorSet: [
               SY(from: 0.8, to: 1.6, duration: 200),
               SY(from: 1.6, to: 0.8, duration: 200),
-              Space(duration: 500),
+              Delay(duration: 500),
             ],
           ),
           AnimatorSet(
@@ -159,10 +161,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              Space(duration: 100),
+              Delay(duration: 100),
               SY(from: 0.8, to: 1.6, duration: 200),
               SY(from: 1.6, to: 0.8, duration: 200),
-              Space(duration: 400),
+              Delay(duration: 400),
             ],
           ),
           AnimatorSet(
@@ -172,10 +174,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              Space(duration: 200),
+              Delay(duration: 200),
               SY(from: 0.8, to: 1.6, duration: 200),
               SY(from: 1.6, to: 0.8, duration: 200),
-              Space(duration: 300),
+              Delay(duration: 300),
             ],
           ),
           AnimatorSet(
@@ -185,10 +187,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              Space(duration: 300),
+              Delay(duration: 300),
               SY(from: 0.8, to: 1.6, duration: 200),
               SY(from: 1.6, to: 0.8, duration: 200),
-              Space(duration: 200),
+              Delay(duration: 200),
             ],
           ),
           AnimatorSet(
@@ -198,10 +200,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              Space(duration: 400),
+              Delay(duration: 400),
               SY(from: 0.8, to: 1.6, duration: 200),
               SY(from: 1.6, to: 0.8, duration: 200),
-              Space(duration: 100),
+              Delay(duration: 100),
             ],
           ),
           AnimatorSet(
@@ -211,7 +213,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               height: 15,
             ),
             animatorSet: [
-              Space(duration: 500),
+              Delay(duration: 500),
               SY(from: 0.8, to: 1.6, duration: 200),
               SY(from: 1.6, to: 0.8, duration: 200),
             ],
@@ -240,21 +242,25 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 Serial(duration: 500, serialList: [
                   TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 0.5, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 2.0, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TX(from: 0.0, to: -30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 0.5, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TY(from: 0.0, to: -30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 2.0, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
               ],
@@ -272,21 +278,25 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                 Serial(duration: 500, serialList: [
                   TX(from: 0.0, to: -30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 0.5, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TY(from: 0.0, to: -30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 2.0, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TX(from: 0.0, to: 30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 0.5, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 0.5, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
                 Serial(duration: 500, serialList: [
                   TY(from: 0.0, to: 30.0, curve: Curves.easeInOut),
                   SX(from: 1.0, to: 2.0, curve: Curves.easeInOut),
+                  SY(from: 1.0, to: 2.0, curve: Curves.easeInOut),
                   RZ(from: 0.0, to: math.pi / 2, curve: Curves.easeInOut),
                 ]),
               ],
@@ -419,7 +429,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Space(duration: 1000),
+                  Delay(duration: 1000),
                   O(
                       from: 0.0,
                       to: 1.0,
@@ -431,7 +441,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                       delay: 100,
                       duration: 1000,
                       curve: Curves.easeInOut),
-                  Space(duration: 2500),
+                  Delay(duration: 2500),
                 ],
               ),
             ),
@@ -447,7 +457,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Space(duration: 2500),
+                  Delay(duration: 2500),
                   O(
                       from: 0.0,
                       to: 1.0,
@@ -458,7 +468,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                       to: 0.0,
                       duration: 1000,
                       curve: Curves.easeInOut),
-                  Space(duration: 1000),
+                  Delay(duration: 1000),
                 ],
               ),
             ),
@@ -474,7 +484,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Space(duration: 3000),
+                  Delay(duration: 3000),
                   O(
                       from: 0.0,
                       to: 1.0,
@@ -485,7 +495,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                       to: 0.0,
                       duration: 1000,
                       curve: Curves.easeInOut),
-                  Space(duration: 500),
+                  Delay(duration: 500),
                 ],
               ),
             ),
@@ -501,7 +511,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   ),
                 ),
                 animatorSet: [
-                  Space(duration: 3500),
+                  Delay(duration: 3500),
                   O(
                       from: 0.0,
                       to: 1.0,
@@ -539,6 +549,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             duration: 2000,
             serialList: [
               SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+              SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
               O(from: 0.5, to: 0.0, delay: 1000, curve: Curves.easeInOut),
             ],
           ),
@@ -617,6 +628,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     duration: 2000,
                     serialList: [
                       SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                       O(
                           from: 0.8,
                           to: 0.0,
@@ -643,6 +655,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     duration: 2000,
                     serialList: [
                       SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                       O(
                           from: 0.8,
                           to: 0.0,
@@ -669,6 +682,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     duration: 2000,
                     serialList: [
                       SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                       O(
                           from: 0.8,
                           to: 0.0,
@@ -695,6 +709,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     duration: 2000,
                     serialList: [
                       SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
+                      SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                       O(
                           from: 0.8,
                           to: 0.0,

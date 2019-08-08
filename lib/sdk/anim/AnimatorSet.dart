@@ -189,14 +189,10 @@ class AnimatedLogo extends StatelessWidget {
         child: Transform(
           alignment: Alignment.center,
           transform: Matrix4.identity()
-            ..scale(
-                scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? scaleX[0]?.value)
-            ..scale(
-                scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? scaleX[1]?.value)
-            ..scale(
-                scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? scaleX[2]?.value)
-            ..scale(
-                scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? scaleX[3]?.value),
+            ..scale(scaleX[0]?.value ?? 1.0, scaleY[0]?.value ?? 1.0)
+            ..scale(scaleX[1]?.value ?? 1.0, scaleY[1]?.value ?? 1.0)
+            ..scale(scaleX[2]?.value ?? 1.0, scaleY[2]?.value ?? 1.0)
+            ..scale(scaleX[3]?.value ?? 1.0, scaleY[3]?.value ?? 1.0),
           child: Transform(
             alignment: Alignment.center,
             transform: Matrix4.identity()
