@@ -322,6 +322,7 @@ class AnimatedLogo extends StatelessWidget {
               ),
             ),
           )..addListener(() {
+              ///由于在播放完成后会回到初始值，需要过滤掉
               if (opacity[i].value != anim.from) {
                 opacityNotify[i].value = opacity[i].value;
               }
