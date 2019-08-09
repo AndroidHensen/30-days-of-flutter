@@ -94,7 +94,13 @@ class AnimatorSetState extends State<AnimatorSet>
 }
 
 class AnimatedLogo extends StatelessWidget {
-  Animation<double> opacity;
+  ///opacityNotify：监听透明度变化，将正在变化的动画值作为opacityValue
+  ///opacity：透明度动画集合
+  ///opacityValue：最终显示的透明度
+  List<ValueNotifier<double>> opacityNotify = [null, null, null, null];
+  List<Animation<double>> opacity = [null, null, null, null];
+  double opacityValue;
+
   Animation<double> width;
   Animation<double> height;
   Animation<EdgeInsets> padding;
@@ -117,6 +123,7 @@ class AnimatedLogo extends StatelessWidget {
     this.duration,
   }) : super(key: key) {
     this._parseAnimation();
+    this._initOpacityListener();
   }
 
   final bool debug;
@@ -125,6 +132,7 @@ class AnimatedLogo extends StatelessWidget {
   final List<Animator> animatorSet;
   final int duration;
 
+  ///解析交错动画
   void _parseAnimation() {
     double start = 0.0;
     double end = 0.0;
@@ -147,14 +155,14 @@ class AnimatedLogo extends StatelessWidget {
       }
 
       if (anim is Serial) {
-        //并行动画处理
+        ///并行动画处理
         List<Animator> serialList = anim.serialList;
         serialList.forEach((Animator anim2) {
           double tempStart = start + anim.delay / duration;
           _parseAnimation2(anim2, tempStart, end);
         });
       } else {
-        //串行动画处理
+        ///串行动画处理
         _parseAnimation2(anim, start, end);
       }
     }
@@ -166,6 +174,20 @@ class AnimatedLogo extends StatelessWidget {
       start <= 0.0 ? 0.001 : start,
       end >= 1.0 ? 0.999 : end,
     );
+  }
+
+  ///透明度变化监听
+  void _initOpacityListener() {
+    ///默认的透明度，以第一个透明度动画的初始值为准
+    opacityValue = opacity[0]?.value ?? 1.0;
+    for (int i = 0; i < opacityNotify.length; i++) {
+      if (opacityNotify[i] != null) {
+        ///监听透明度变化
+        opacityNotify[i].addListener(() {
+          opacityValue = opacity[i].value;
+        });
+      }
+    }
   }
 
   @override
@@ -209,7 +231,7 @@ class AnimatedLogo extends StatelessWidget {
               ..rotateZ(rotateZ[2]?.value ?? 0.0)
               ..rotateZ(rotateZ[3]?.value ?? 0.0),
             child: Opacity(
-              opacity: opacity?.value ?? 1.0,
+              opacity: opacityValue,
               child: Container(
                 child: this.child,
                 width: width?.value ?? null,
@@ -226,7 +248,7 @@ class AnimatedLogo extends StatelessWidget {
     );
   }
 
-  //解析动画
+  ///解析动画每帧动画
   void _parseAnimationItem(Animator anim, double start, double end) {
     if (debug) {
       print("anim = " +
@@ -284,19 +306,29 @@ class AnimatedLogo extends StatelessWidget {
         ),
       );
     } else if (anim is O) {
-      opacity = Tween<double>(
-        begin: anim.from,
-        end: anim.to,
-      ).animate(
-        CurvedAnimation(
-          parent: controller,
-          curve: Interval(
-            start,
-            end,
-            curve: anim.curve,
-          ),
-        ),
-      );
+      for (int i = 0; i < opacity.length; i++) {
+        if (opacity[i] == null) {
+          opacityNotify[i] = ValueNotifier(anim.from);
+          opacity[i] = Tween<double>(
+            begin: anim.from,
+            end: anim.to,
+          ).animate(
+            CurvedAnimation(
+              parent: controller,
+              curve: Interval(
+                start,
+                end,
+                curve: anim.curve,
+              ),
+            ),
+          )..addListener(() {
+              if (opacity[i].value != anim.from) {
+                opacityNotify[i].value = opacity[i].value;
+              }
+            });
+          break;
+        }
+      }
     } else if (anim is SX) {
       for (int i = 0; i < scaleX.length; i++) {
         if (scaleX[i] == null) {

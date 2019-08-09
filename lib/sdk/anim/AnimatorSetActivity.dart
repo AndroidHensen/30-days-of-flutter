@@ -296,13 +296,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Serial(
-                    duration: 1000,
-                    serialList: [
-                      O(from: 0.0, to: 1.0),
-                      RZ(from: 0.0, to: math.pi),
-                    ],
-                  )
+                  Delay(duration: 1000),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 1000),
                 ],
               ),
               AnimatorSet(
@@ -315,14 +312,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Serial(
-                    delay: 100,
-                    duration: 1000,
-                    serialList: [
-                      O(from: 0.0, to: 1.0),
-                      RZ(from: 0.0, to: math.pi),
-                    ],
-                  )
+                  Delay(duration: 1000),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 1000),
                 ],
               ),
             ],
@@ -340,14 +333,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Serial(
-                    delay: 300,
-                    duration: 1000,
-                    serialList: [
-                      O(from: 0.0, to: 1.0),
-                      RZ(from: 0.0, to: math.pi),
-                    ],
-                  )
+                  Delay(duration: 1000),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 1000),
                 ],
               ),
               AnimatorSet(
@@ -360,14 +349,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Serial(
-                    delay: 200,
-                    duration: 1000,
-                    serialList: [
-                      O(from: 0.0, to: 1.0),
-                      RZ(from: 0.0, to: math.pi),
-                    ],
-                  )
+                  Delay(duration: 1000),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 1000),
                 ],
               ),
             ],
