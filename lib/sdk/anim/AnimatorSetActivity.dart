@@ -35,6 +35,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
             BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
             BoxColor(child: customGrid(), color: Color(0xFF323232)),
+            BoxColor(child: customColor(), color: Color(0xFFF48A8B)),
           ],
         ));
   }
@@ -1263,6 +1264,40 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
+  Widget customColor() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Center(
+        child: AnimatorSet(
+          animationType: AnimationType.reverse,
+          child: Container(
+            width: 50,
+            height: 50,
+          ),
+          animatorSet: [
+            Serial(
+              duration: 1000,
+              serialList: [
+                O(from: 0.6, to: 1.0),
+                SX(from: 0.3, to: 1.0),
+                SY(from: 0.3, to: 1.0),
+                P(
+                    from: EdgeInsets.only(left: 0, right: 0),
+                    to: EdgeInsets.only(left: 8, right: 8)),
+                C(from: Colors.white, to: Colors.yellow[200]),
+                B(
+                  from: BorderRadius.circular(8.0),
+                  to: BorderRadius.circular(30.0),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget testApi() {
     return AnimatorSet(
       child: FlutterLogo(
@@ -1285,11 +1320,6 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
           from: Colors.indigo[100],
           to: Colors.indigo[400],
           duration: 1000,
-        ),
-        B(
-          from: BorderRadius.circular(4.0),
-          to: BorderRadius.circular(40.0),
-          duration: 2000,
         ),
       ],
     );
