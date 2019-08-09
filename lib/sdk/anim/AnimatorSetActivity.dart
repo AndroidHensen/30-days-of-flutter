@@ -28,10 +28,12 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: fadingCube(), color: Color(0xFF58BD60)),
             BoxColor(child: pulse(), color: Color(0xFF7D8A8B)),
             BoxColor(child: threeBounce(), color: Color(0xFFD35413)),
+            BoxColor(child: cubeGrid(), color: Color(0xFFD35413)),
             BoxColor(child: rotatingCircle(), color: Color(0xFF3279B5)),
             BoxColor(child: pumpingHeart(), color: Color(0xFFF4A352)),
             BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
             BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
+            BoxColor(child: customGrid(), color: Color(0xFF323232)),
           ],
         ));
   }
@@ -570,6 +572,249 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
         ));
   }
 
+  Widget cubeGrid() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            left: 0,
+            top: 0,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 200),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1600),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 200),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 0,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 100),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1800),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 100),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 0,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 2000),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 10,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 300),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1400),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 300),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 10,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 200),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1600),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 200),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 10,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 100),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1800),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 100),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 20,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 400),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1200),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 400),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 20,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 300),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1400),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 300),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 20,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 200),
+                Serial(duration: 500, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                ]),
+                Delay(duration: 1600),
+                Serial(duration: 500, serialList: [
+                  SX(from: 1.0, to: 0.0),
+                  SY(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 200),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget rotatingCircle() {
     return Container(
       width: 100,
@@ -782,6 +1027,187 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget customGrid() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Stack(
+        children: <Widget>[
+          Positioned(
+            left: 0,
+            top: 0,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 900),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 0,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 100),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 800),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 0,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 200),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 700),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 10,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 300),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 600),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 10,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 400),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 500),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 10,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 500),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 400),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 0,
+            top: 20,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 600),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 300),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 20,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 700),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 200),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20,
+            top: 20,
+            width: 10,
+            height: 10,
+            child: AnimatorSet(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 800),
+                O(from: 0.0, to: 0.5, duration: 500),
+                O(from: 0.5, to: 0.0, duration: 500),
+                Delay(duration: 100),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
