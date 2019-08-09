@@ -31,6 +31,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: cubeGrid(), color: Color(0xFFD35413)),
             BoxColor(child: rotatingCircle(), color: Color(0xFF3279B5)),
             BoxColor(child: pumpingHeart(), color: Color(0xFFF4A352)),
+            BoxColor(child: ripple(), color: Color(0xFF58BD60)),
             BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
             BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
             BoxColor(child: customGrid(), color: Color(0xFF323232)),
@@ -859,6 +860,56 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget ripple() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Transform.rotate(
+        angle: math.pi / 4,
+        child: Stack(
+          children: <Widget>[
+            AnimatorSet(
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 6),
+                ),
+              ),
+              animatorSet: [
+                Serial(duration: 1200, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                  O(from: 1.0, to: 0.0),
+                ]),
+                Delay(duration: 600),
+              ],
+            ),
+            AnimatorSet(
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 6),
+                ),
+              ),
+              animatorSet: [
+                Delay(duration: 600),
+                Serial(duration: 1200, serialList: [
+                  SX(from: 0.0, to: 1.0),
+                  SY(from: 0.0, to: 1.0),
+                  O(from: 1.0, to: 0.0),
+                ]),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
