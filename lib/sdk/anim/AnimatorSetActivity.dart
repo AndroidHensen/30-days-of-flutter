@@ -28,6 +28,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: fadingCube(), color: Color(0xFF58BD60)),
             BoxColor(child: pulse(), color: Color(0xFF7D8A8B)),
             BoxColor(child: threeBounce(), color: Color(0xFFD35413)),
+            BoxColor(child: threeLine(), color: Color(0xFFF48A8B)),
             BoxColor(child: cubeGrid(), color: Color(0xFFD35413)),
             BoxColor(child: rotatingCircle(), color: Color(0xFF3279B5)),
             BoxColor(child: pumpingHeart(), color: Color(0xFFF4A352)),
@@ -36,6 +37,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
             BoxColor(child: customGrid(), color: Color(0xFF323232)),
             BoxColor(child: customColor(), color: Color(0xFFF48A8B)),
+            BoxColor(child: like(), color: Color(0xFFF4A352)),
           ],
         ));
   }
@@ -568,6 +570,76 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                     SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
                   ],
                 ),
+              ],
+            ),
+          ],
+        ));
+  }
+
+  Widget threeLine() {
+    return Container(
+        width: 100,
+        height: 100,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            AnimatorSet(
+              child: Container(
+                color: Colors.white,
+                width: 10,
+                height: 5,
+              ),
+              animatorSet: [
+                TY(
+                    from: 0.0,
+                    to: 5.0,
+                    duration: 400,
+                    curve: Curves.fastOutSlowIn),
+                TY(
+                    from: 5.0,
+                    to: 0.0,
+                    duration: 400,
+                    curve: Curves.fastOutSlowIn),
+              ],
+            ),
+            AnimatorSet(
+              child: Container(
+                color: Colors.white,
+                width: 10,
+                height: 5,
+              ),
+              animatorSet: [
+                TY(
+                    from: 0.0,
+                    to: 5.0,
+                    duration: 400,
+                    delay: 50,
+                    curve: Curves.fastOutSlowIn),
+                TY(
+                    from: 5.0,
+                    to: 0.0,
+                    duration: 400,
+                    curve: Curves.fastOutSlowIn),
+              ],
+            ),
+            AnimatorSet(
+              child: Container(
+                color: Colors.white,
+                width: 10,
+                height: 5,
+              ),
+              animatorSet: [
+                TY(
+                    from: 0.0,
+                    to: 5.0,
+                    duration: 400,
+                    delay: 100,
+                    curve: Curves.fastOutSlowIn),
+                TY(
+                    from: 5.0,
+                    to: 0.0,
+                    duration: 400,
+                    curve: Curves.fastOutSlowIn),
               ],
             ),
           ],
@@ -1298,30 +1370,28 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget testApi() {
-    return AnimatorSet(
-      child: FlutterLogo(
-        style: FlutterLogoStyle.horizontal,
+  Widget like() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: AnimatorSet(
+        child: Icon(
+          Icons.favorite,
+          color: Colors.red,
+          size: 20,
+        ),
+        animatorSet: [
+          Serial(
+            duration: 2400,
+            serialList: [
+              O(from: 1.0, to: 0.0),
+              SX(from: 0.2, to: 1.5),
+              SY(from: 0.2, to: 1.5),
+              TY(from: 0.0, to: -30.0, curve: Curves.fastOutSlowIn),
+            ],
+          ),
+        ],
       ),
-      animatorSet: [
-        O(from: 0.5, to: 1.0, duration: 1000),
-        W(from: 50.0, to: 200.0, duration: 1000),
-        H(from: 50.0, to: 200.0, duration: 1000),
-        P(
-          from: EdgeInsets.only(top: 16.0),
-          to: EdgeInsets.only(top: 60.0),
-          duration: 1000,
-          delay: 500,
-        ),
-        SX(from: 1.0, to: 0.5, duration: 1000),
-        RZ(from: 0.0, to: 0.5, duration: 1000),
-        TX(from: 0.0, to: 300.0, duration: 1000),
-        C(
-          from: Colors.indigo[100],
-          to: Colors.indigo[400],
-          duration: 1000,
-        ),
-      ],
     );
   }
 }
