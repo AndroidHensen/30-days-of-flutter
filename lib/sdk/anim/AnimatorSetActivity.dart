@@ -296,10 +296,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Delay(duration: 1000),
+                  Delay(duration: 0),
                   O(from: 0.0, to: 0.5, duration: 1000),
                   O(from: 0.5, to: 0.0, duration: 1000),
-                  Delay(duration: 1000),
+                  Delay(duration: 2000),
                 ],
               ),
               AnimatorSet(
@@ -312,10 +312,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Delay(duration: 1000),
+                  Delay(duration: 500),
                   O(from: 0.0, to: 0.5, duration: 1000),
                   O(from: 0.5, to: 0.0, duration: 1000),
-                  Delay(duration: 1000),
+                  Delay(duration: 1500),
                 ],
               ),
             ],
@@ -333,10 +333,10 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
                   height: 15,
                 ),
                 animatorSet: [
-                  Delay(duration: 1000),
+                  Delay(duration: 1500),
                   O(from: 0.0, to: 0.5, duration: 1000),
                   O(from: 0.5, to: 0.0, duration: 1000),
-                  Delay(duration: 1000),
+                  Delay(duration: 500),
                 ],
               ),
               AnimatorSet(
@@ -376,19 +376,16 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
-                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                 ),
                 animatorSet: [
-                  O(
-                      delay: 200,
-                      from: 0.0,
-                      to: 1.0,
-                      duration: 2000,
-                      curve: Curves.easeInOut),
+                  Delay(duration: 0),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 2000),
                 ],
               ),
             ),
@@ -398,19 +395,16 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
-                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                 ),
                 animatorSet: [
-                  O(
-                      delay: 400,
-                      from: 0.0,
-                      to: 1.0,
-                      duration: 2000,
-                      curve: Curves.easeInOut),
+                  Delay(duration: 500),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 1500),
                 ],
               ),
             ),
@@ -420,19 +414,16 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
-                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                 ),
                 animatorSet: [
-                  O(
-                      delay: 600,
-                      from: 0.0,
-                      to: 1.0,
-                      duration: 2000,
-                      curve: Curves.easeInOut),
+                  Delay(duration: 1000),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 1000),
                 ],
               ),
             ),
@@ -442,19 +433,16 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               width: 20,
               height: 20,
               child: AnimatorSet(
-                animationType: AnimationType.reverse,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: Colors.white,
                   ),
                 ),
                 animatorSet: [
-                  O(
-                      delay: 800,
-                      from: 0.0,
-                      to: 1.0,
-                      duration: 2000,
-                      curve: Curves.easeInOut),
+                  Delay(duration: 1500),
+                  O(from: 0.0, to: 0.5, duration: 1000),
+                  O(from: 0.5, to: 0.0, duration: 1000),
+                  Delay(duration: 500),
                 ],
               ),
             ),
