@@ -38,6 +38,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: customGrid(), color: Color(0xFF323232)),
             BoxColor(child: customColor(), color: Color(0xFFF48A8B)),
             BoxColor(child: like(), color: Color(0xFFF4A352)),
+            BoxColor(child: love(), color: Color(0xFF2F3E50)),
           ],
         ));
   }
@@ -1377,7 +1378,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
       child: AnimatorSet(
         child: Icon(
           Icons.favorite,
-          color: Colors.red,
+          color: Colors.white,
           size: 20,
         ),
         animatorSet: [
@@ -1385,9 +1386,70 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             duration: 2400,
             serialList: [
               O(from: 1.0, to: 0.0),
-              SX(from: 0.2, to: 1.5),
-              SY(from: 0.2, to: 1.5),
+              SX(from: 0.4, to: 1.5),
+              SY(from: 0.4, to: 1.5),
               TY(from: 0.0, to: -30.0, curve: Curves.fastOutSlowIn),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget love() {
+    return Container(
+      width: 100,
+      height: 100,
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          AnimatorSet(
+            child: Icon(
+              Icons.favorite,
+              color: Colors.white,
+              size: 30,
+            ),
+            animatorSet: [
+              Serial(duration: 1000, serialList: [
+                SX(from: 0.0, to: 1.0, curve: Curves.bounceInOut),
+                SY(from: 0.0, to: 1.0, curve: Curves.bounceInOut),
+              ]),
+              Delay(duration: 500),
+            ],
+          ),
+          makeLove(10, 20, Curves.fastOutSlowIn),
+          makeLove(-10, 20, Curves.fastOutSlowIn),
+          makeLove(20, 0, Curves.fastOutSlowIn),
+          makeLove(-20, 0, Curves.fastOutSlowIn),
+          makeLove(-10, -20, Curves.fastOutSlowIn),
+          makeLove(10, -20, Curves.fastOutSlowIn),
+        ],
+      ),
+    );
+  }
+
+  Widget makeLove(double tx, double ty, Curve curves) {
+    return Container(
+      width: 10,
+      height: 10,
+      child: AnimatorSet(
+        debug: true,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+          ),
+        ),
+        animatorSet: [
+          Delay(duration: 700),
+          Serial(
+            duration: 800,
+            serialList: [
+              TX(from: 0.0, to: tx, curve: curves),
+              TY(from: 0.0, to: ty, curve: curves),
+              SX(from: 1.0, to: 0.2, curve: curves),
+              SY(from: 1.0, to: 0.2, curve: curves),
+              O(from: 1.0, to: 0.8, curve: curves)
             ],
           ),
         ],

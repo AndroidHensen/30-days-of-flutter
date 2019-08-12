@@ -11,6 +11,8 @@ abstract class Animator<T> {
 class Serial extends Animator {
   Serial({
     this.duration = 0,
+
+    /// 无效，用Delay组件替代
     this.delay = 0,
     this.serialList = const <Animator>[],
   });
@@ -231,6 +233,8 @@ class B extends Animator<BorderRadius> {
 class Delay extends Animator {
   Delay({
     this.duration = 0,
+
+    /// 无效
     this.delay = 0,
   });
 
