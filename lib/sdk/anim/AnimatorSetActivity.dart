@@ -46,8 +46,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
   Widget rotatingPlane() {
     return AnimatorSet(
       child: Container(
-        width: 100,
-        height: 100,
+        width: 40,
+        height: 40,
         color: Colors.white,
       ),
       animatorSet: [
@@ -59,8 +59,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget doubleBounce() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Stack(
         children: <Widget>[
           AnimatorSet(
@@ -113,8 +113,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget wave() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -201,8 +201,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget wanderingCubes() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -285,8 +285,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget fadingFour() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -371,8 +371,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget fadingCube() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Transform.rotate(
         angle: math.pi / 4,
         child: Stack(
@@ -461,8 +461,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget pulse() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: AnimatorSet(
         child: Container(
           decoration: BoxDecoration(
@@ -488,8 +488,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget threeBounce() {
     return Container(
-        width: 100,
-        height: 100,
+        width: 40,
+        height: 40,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -579,8 +579,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget threeLine() {
     return Container(
-        width: 100,
-        height: 100,
+        width: 40,
+        height: 40,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -649,8 +649,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget cubeGrid() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -892,8 +892,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget rotatingCircle() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Stack(
         children: <Widget>[
           AnimatorSet(
@@ -917,8 +917,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget pumpingHeart() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: AnimatorSet(
         child: Icon(
           Icons.favorite,
@@ -940,8 +940,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget ripple() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Transform.rotate(
         angle: math.pi / 4,
         child: Stack(
@@ -990,8 +990,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget customRotateIn() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -1036,8 +1036,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget customFadeIn() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Transform.rotate(
         angle: math.pi / 4,
         child: Stack(
@@ -1158,8 +1158,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget customGrid() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Stack(
         children: <Widget>[
           Positioned(
@@ -1339,8 +1339,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget customColor() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Center(
         child: AnimatorSet(
           animationType: AnimationType.reverse,
@@ -1373,8 +1373,9 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget like() {
     return Container(
-      width: 100,
-      height: 100,
+      alignment: Alignment.bottomCenter,
+      width: 40,
+      height: 40,
       child: AnimatorSet(
         child: Icon(
           Icons.favorite,
@@ -1398,8 +1399,8 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
 
   Widget love() {
     return Container(
-      width: 100,
-      height: 100,
+      width: 40,
+      height: 40,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
