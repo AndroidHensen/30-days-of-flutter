@@ -36,7 +36,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
             BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
             BoxColor(child: customGrid(), color: Color(0xFF323232)),
-            BoxColor(child: customColor(), color: Color(0xFFF48A8B)),
+            BoxColor(child: customColor(), color: Color(0xFF3279B5)),
             BoxColor(child: like(), color: Color(0xFFF4A352)),
             BoxColor(child: love(), color: Color(0xFF2F3E50)),
           ],
@@ -1341,32 +1341,35 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     return Container(
       width: 40,
       height: 40,
-      child: Center(
-        child: AnimatorSet(
-          animationType: AnimationType.reverse,
-          child: Container(
-            width: 50,
-            height: 50,
+      alignment: Alignment.bottomCenter,
+      child: AnimatorSet(
+        child: Container(
+          width: 40,
+          height: 20,
+          alignment: Alignment.center,
+          child: Text(
+            "确定",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 10,
+            ),
           ),
-          animatorSet: [
-            Serial(
-              duration: 1000,
-              serialList: [
-                O(from: 0.6, to: 1.0),
-                SX(from: 0.3, to: 1.0),
-                SY(from: 0.3, to: 1.0),
-                P(
-                    from: EdgeInsets.only(left: 0, right: 0),
-                    to: EdgeInsets.only(left: 8, right: 8)),
-                C(from: Colors.white, to: Colors.yellow[200]),
-                B(
-                  from: BorderRadius.circular(8.0),
-                  to: BorderRadius.circular(30.0),
-                ),
-              ],
-            )
-          ],
         ),
+        animatorSet: [
+          Serial(
+            duration: 1000,
+            serialList: [
+              O(from: 0.2, to: 1.0),
+              TY(from: 0.0, to: 10.0),
+              C(from: Colors.white, to: Colors.red[500]),
+              B(
+                from: BorderRadius.circular(0.0),
+                to: BorderRadius.circular(10.0),
+              ),
+            ],
+          ),
+          Delay(duration: 2000),
+        ],
       ),
     );
   }
