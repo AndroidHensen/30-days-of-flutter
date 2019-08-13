@@ -33,12 +33,13 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
             BoxColor(child: rotatingCircle(), color: Color(0xFF3279B5)),
             BoxColor(child: pumpingHeart(), color: Color(0xFFF4A352)),
             BoxColor(child: ripple(), color: Color(0xFF58BD60)),
-            BoxColor(child: customRotateIn(), color: Color(0xFF00BA9B)),
-            BoxColor(child: customFadeIn(), color: Color(0xFFFCCB63)),
-            BoxColor(child: customGrid(), color: Color(0xFF323232)),
-            BoxColor(child: customColor(), color: Color(0xFF3279B5)),
+            BoxColor(child: rotateLine(), color: Color(0xFF00BA9B)),
+            BoxColor(child: cubeFadeIn(), color: Color(0xFFFCCB63)),
+            BoxColor(child: blinkGrid(), color: Color(0xFF323232)),
+            BoxColor(child: fadeButton(), color: Color(0xFF3279B5)),
             BoxColor(child: like(), color: Color(0xFFF4A352)),
             BoxColor(child: love(), color: Color(0xFF2F3E50)),
+            BoxColor(child: menu(), color: Color(0xFF00BA9B)),
           ],
         ));
   }
@@ -504,14 +505,14 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               ),
               animatorSet: [
                 Serial(
-                  duration: 1000,
+                  duration: 800,
                   serialList: [
                     SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                     SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                   ],
                 ),
                 Serial(
-                  duration: 1000,
+                  duration: 800,
                   serialList: [
                     SX(from: 1.0, to: 0.0, curve: Curves.easeInOut),
                     SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
@@ -531,14 +532,14 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               animatorSet: [
                 Serial(
                   delay: 200,
-                  duration: 1000,
+                  duration: 800,
                   serialList: [
                     SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                     SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                   ],
                 ),
                 Serial(
-                  duration: 1000,
+                  duration: 800,
                   serialList: [
                     SX(from: 1.0, to: 0.0, curve: Curves.easeInOut),
                     SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
@@ -558,14 +559,14 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               animatorSet: [
                 Serial(
                   delay: 400,
-                  duration: 1000,
+                  duration: 800,
                   serialList: [
                     SX(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                     SY(from: 0.0, to: 1.0, curve: Curves.easeInOut),
                   ],
                 ),
                 Serial(
-                  duration: 1000,
+                  duration: 800,
                   serialList: [
                     SX(from: 1.0, to: 0.0, curve: Curves.easeInOut),
                     SY(from: 1.0, to: 0.0, curve: Curves.easeInOut),
@@ -988,7 +989,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget customRotateIn() {
+  Widget rotateLine() {
     return Container(
       width: 40,
       height: 40,
@@ -1034,7 +1035,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget customFadeIn() {
+  Widget cubeFadeIn() {
     return Container(
       width: 40,
       height: 40,
@@ -1156,7 +1157,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget customGrid() {
+  Widget blinkGrid() {
     return Container(
       width: 40,
       height: 40,
@@ -1337,7 +1338,7 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
     );
   }
 
-  Widget customColor() {
+  Widget fadeButton() {
     return Container(
       width: 40,
       height: 40,
@@ -1454,6 +1455,84 @@ class AnimatorSetState extends State<AnimatorSetActivity> {
               SX(from: 1.0, to: 0.2, curve: curves),
               SY(from: 1.0, to: 0.2, curve: curves),
               O(from: 1.0, to: 0.8, curve: curves)
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget menu() {
+    return Container(
+      width: 40,
+      height: 40,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          AnimatorSet(
+            animationType: AnimationType.reverse,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.amberAccent[400],
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              width: 30,
+              height: 10,
+            ),
+            animatorSet: [
+              Serial(
+                duration: 2000,
+                serialList: [
+                  TY(from: 0.0, to: 40.0, curve: Curves.elasticInOut),
+                  TX(from: 0.0, to: 20.0, curve: Curves.elasticInOut),
+                  SX(from: 1.0, to: 0.1, curve: Curves.elasticInOut),
+                  SY(from: 1.0, to: 0.1, curve: Curves.elasticInOut),
+                ],
+              ),
+            ],
+          ),
+          AnimatorSet(
+            animationType: AnimationType.reverse,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.brown[400],
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              width: 30,
+              height: 10,
+            ),
+            animatorSet: [
+              Serial(
+                duration: 2000,
+                serialList: [
+                  TY(from: 0.0, to: 26.0, curve: Curves.elasticInOut),
+                  TX(from: 0.0, to: 20.0, curve: Curves.elasticInOut),
+                  SX(from: 1.0, to: 0.1, curve: Curves.elasticInOut),
+                  SY(from: 1.0, to: 0.1, curve: Curves.elasticInOut),
+                ],
+              ),
+            ],
+          ),
+          AnimatorSet(
+            animationType: AnimationType.reverse,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[400],
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              width: 30,
+              height: 10,
+            ),
+            animatorSet: [
+              Serial(
+                duration: 2000,
+                serialList: [
+                  TY(from: 0.0, to: 12.0, curve: Curves.elasticInOut),
+                  TX(from: 0.0, to: 20.0, curve: Curves.elasticInOut),
+                  SX(from: 1.0, to: 0.1, curve: Curves.elasticInOut),
+                  SY(from: 1.0, to: 0.1, curve: Curves.elasticInOut),
+                ],
+              ),
             ],
           ),
         ],
