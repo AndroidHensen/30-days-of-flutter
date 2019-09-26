@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_dialog/components/example/alert_dialog.dart';
+import 'package:flutter_custom_dialog/flutter_custom_dialog.dart';
 
 class DialogActivity extends StatefulWidget {
   @override
@@ -18,11 +20,26 @@ class DialogActivityState extends State<DialogActivity> {
     );
   }
 
+  YYDialog yyAlertDialogBody;
+
   Widget buildAlertDialog() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+      children: <Widget>[
+        RaisedButton(
+          child: Text("Dialog"),
+          onPressed: () {
+            yyAlertDialogBody = YYAlertDialogBody(context);
+          },
+        ),
+        RaisedButton(
+          child: Text("Dialog"),
+          onPressed: () {
+            yyAlertDialogBody.dismiss();
+          },
+        ),
+      ],
     );
   }
 }
