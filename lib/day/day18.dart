@@ -47,7 +47,6 @@ class WeWidgetState extends State<WeWidget> {
       appBar: AppBar(
         title: Text("day18"),
       ),
-      resizeToAvoidBottomPadding: false,
       body: _buildColumn(),
     );
   }
@@ -58,25 +57,21 @@ class WeWidgetState extends State<WeWidget> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         AnimatedDefaultTextStyle(
-          //文本是否应该在软换行符处换行
           softWrap: false,
-          //如果文本超过指定行数时候的对齐方式
           textAlign: TextAlign.right,
-          //文本最大行数，默认是1
-          maxLines: 1,
-          //超过文本区域的裁剪方式
+          maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          curve: Curves.fastOutSlowIn,
+          curve: Curves.linear,
           duration: Duration(seconds: 1),
-          child: Text("Animate messsssss!"),
+          child: Text("Flutter message you!!!"),
           style: _isSelected
               ? TextStyle(
-                  fontSize: 50.0,
+                  fontSize: 10.0,
                   color: Colors.red,
                   fontWeight: FontWeight.bold,
                 )
               : TextStyle(
-                  fontSize: 24.0,
+                  fontSize: 50.0,
                   color: Colors.black,
                   fontWeight: FontWeight.w300,
                 ),
