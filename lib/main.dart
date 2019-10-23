@@ -40,8 +40,6 @@ import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
 import 'day/day9.dart';
-import 'sdk/anim/AnimatorSetActivity.dart';
-import 'sdk/dialog/DialogActivity.dart';
 
 void main() => runApp(App());
 
@@ -70,8 +68,6 @@ var days = [
   {"title": "day22 AnimatedPhysicalModel", "route": "day22"},
   {"title": "day23 AnimatedPositioned", "route": "day23"},
   {"title": "day24 AnimatedSize", "route": "day24"},
-  {"title": "day25 SDK-AnimatorSetActivity[x]", "route": "AnimatorSetActivity"},
-  {"title": "day26 SDK-DialogActivity[x]", "route": "DialogActivity"},
   {"title": "day27 Container", "route": "day27"},
   {"title": "day28 Padding", "route": "day28"},
   {"title": "day29 Center", "route": "day29"},
@@ -88,6 +84,19 @@ var days = [
   {"title": "day40 OverflowBox", "route": "day40"},
   {"title": "day41 SizedBox", "route": "day41"},
   {"title": "day42 SizedOverflowBox", "route": "day42"},
+  {"title": "day43 Transform", "route": "day43"},
+  {"title": "day44 CustomSingleChildLayout", "route": "day44"},
+  {"title": "day45 Row", "route": "day45"},
+  {"title": "day46 Column", "route": "day46"},
+  {"title": "day47 Stack", "route": "day47"},
+  {"title": "day48 IndexedStack", "route": "day48"},
+  {"title": "day49 Flow", "route": "day49"},
+  {"title": "day50 Table", "route": "day50"},
+  {"title": "day51 Wrap", "route": "day51"},
+  {"title": "day52 ListBody", "route": "day52"},
+  {"title": "day53 ListView", "route": "day53"},
+  {"title": "day54 CustomMultiChildLayout", "route": "day54"},
+  {"title": "day55 LayoutBuilder", "route": "day55"},
 ];
 
 class App extends StatelessWidget {
@@ -124,8 +133,6 @@ class App extends StatelessWidget {
         "day22": (context) => Day22(),
         "day23": (context) => Day23(),
         "day24": (context) => Day24(),
-        "AnimatorSetActivity": (context) => AnimatorSetActivity(),
-        "DialogActivity": (context) => DialogActivity(),
         "day27": (context) => Day27(),
         "day28": (context) => Day28(),
         "day29": (context) => Day29(),
