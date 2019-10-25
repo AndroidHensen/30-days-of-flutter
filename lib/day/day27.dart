@@ -41,7 +41,9 @@ class WeWidgetState extends State<WeWidget> {
       transform: Matrix4.identity(),
       margin: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
+        border: Border.all(color: Colors.black, width: 2.0),
         color: Colors.blue[200],
+        borderRadius: BorderRadius.circular(20.0)
       ),
       foregroundDecoration: BoxDecoration(),
       height: 200,
