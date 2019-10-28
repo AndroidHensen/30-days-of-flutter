@@ -31,13 +31,16 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Center(
-      heightFactor: 5.0,
-      widthFactor: 2.0,
-      child: Container(
-        height: 200,
-        width: 200,
-        color: Colors.blue[200],
+    return Container(
+      color: Colors.blueGrey,
+      child: Center(
+        heightFactor: 1.5,
+        widthFactor: 1.5,
+        child: Container(
+          height: 200,
+          width: 200,
+          color: Colors.blue[200],
+        ),
       ),
     );
   }

@@ -34,9 +34,9 @@ class WeWidgetState extends State<WeWidget> {
     return Container(
       color: Colors.blue[200],
       child: Align(
-        heightFactor: 30.0,
-        widthFactor: 10.0,
-        alignment: Alignment(0.0, 1.0),
+        heightFactor: 2.0,
+        widthFactor: 2.0,
+        alignment: Alignment(0.0, 1.0), //底部中点对齐
         child: Text("Hello!"),
       ),
     );

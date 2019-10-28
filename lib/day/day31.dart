@@ -38,7 +38,7 @@ class WeWidgetState extends State<WeWidget> {
       child: FittedBox(
         fit: BoxFit.cover,
         alignment: Alignment.centerLeft,
-        child: Image.asset("images/day27/美女.jpg"),
+        child: Image.asset("images/day27/girl.jpg"),
       ),
     );
   }

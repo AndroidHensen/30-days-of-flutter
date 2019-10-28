@@ -32,8 +32,17 @@ class WeWidgetState extends State<WeWidget> {
 
   Widget _buildColumn() {
     return ConstrainedBox(
-      constraints: BoxConstraints.expand(),
-      child: Card(child: Text('Hello World!')),
+      constraints: BoxConstraints(
+        minWidth: 100.0,
+        minHeight: 100.0,
+        maxWidth: 150.0,
+        maxHeight: 150.0,
+      ),
+      child: Container(
+        width: 200.0,
+        height: 200.0,
+        color: Colors.red,
+      ),
     );
   }
 }
