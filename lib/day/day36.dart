@@ -37,12 +37,12 @@ class WeWidgetState extends State<WeWidget> {
         children: <Widget>[
           Container(
             color: Colors.blue,
-            width: 20.0,
+            width: 40.0,
             height: 150.0,
           ),
           Container(
             color: Colors.red,
-            width: 20.0,
+            width: 40.0,
             height: 60.0,
           ),
           Container(color: Colors.yellow, width: 40.0),

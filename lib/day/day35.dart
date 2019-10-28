@@ -33,8 +33,8 @@ class WeWidgetState extends State<WeWidget> {
   Widget _buildColumn() {
     return Container(
       color: Colors.blue[600],
-      width: 150,
-      height: 150,
+      width: 200,
+      height: 200,
       child: FractionallySizedBox(
         alignment: Alignment.center,
         widthFactor: 0.5,
