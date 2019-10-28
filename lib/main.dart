@@ -35,7 +35,20 @@ import 'day/day4.dart';
 import 'day/day40.dart';
 import 'day/day41.dart';
 import 'day/day42.dart';
+import 'day/day43.dart';
+import 'day/day44.dart';
+import 'day/day45.dart';
+import 'day/day46.dart';
+import 'day/day47.dart';
+import 'day/day48.dart';
+import 'day/day49.dart';
 import 'day/day5.dart';
+import 'day/day50.dart';
+import 'day/day51.dart';
+import 'day/day52.dart';
+import 'day/day53.dart';
+import 'day/day54.dart';
+import 'day/day55.dart';
 import 'day/day6.dart';
 import 'day/day7.dart';
 import 'day/day8.dart';
@@ -149,6 +162,19 @@ class App extends StatelessWidget {
         "day40": (context) => Day40(),
         "day41": (context) => Day41(),
         "day42": (context) => Day42(),
+        "day43": (context) => Day43(),
+        "day44": (context) => Day44(),
+        "day45": (context) => Day45(),
+        "day46": (context) => Day46(),
+        "day47": (context) => Day47(),
+        "day48": (context) => Day48(),
+        "day49": (context) => Day49(),
+        "day50": (context) => Day50(),
+        "day51": (context) => Day51(),
+        "day52": (context) => Day52(),
+        "day53": (context) => Day53(),
+        "day54": (context) => Day54(),
+        "day55": (context) => Day55(),
       },
     );
   }
