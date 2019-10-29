@@ -31,10 +31,32 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return CustomSingleChildLayout(
+      delegate: FixedSizeLayoutDelegate(Size(300, 300)),
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.blueAccent,
+      ),
     );
+  }
+}
+
+class FixedSizeLayoutDelegate extends SingleChildLayoutDelegate {
+  FixedSizeLayoutDelegate(this.size);
+
+  final Size size;
+
+  @override
+  Size getSize(BoxConstraints constraints) => size;
+
+  @override
+  BoxConstraints getConstraintsForChild(BoxConstraints constraints) {
+    return BoxConstraints.tight(size);
+  }
+
+  @override
+  bool shouldRelayout(FixedSizeLayoutDelegate oldDelegate) {
+    return size != oldDelegate.size;
   }
 }
