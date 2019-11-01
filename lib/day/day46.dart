@@ -34,7 +34,24 @@ class WeWidgetState extends State<WeWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+      verticalDirection: VerticalDirection.up,
+      textBaseline: TextBaseline.alphabetic,
+      textDirection: TextDirection.ltr,
+      children: <Widget>[Container(
+        height: 50,
+        width: 50,
+        color: Colors.blueAccent,
+      ),
+      Container(
+        height: 50,
+        width: 50,
+        color: Colors.redAccent,
+      ),
+      Container(
+        height: 50,
+        width: 50,
+        color: Colors.greenAccent,
+      )],
     );
   }
 }
