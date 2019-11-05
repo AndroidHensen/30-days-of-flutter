@@ -32,35 +32,26 @@ class WeWidgetState extends State<WeWidget> {
           _pushToNewPage();
         },
       ),
-      backgroundColor: Color(0xffeeeeee),
     );
   }
 
   Widget _buildColumn() {
-    return Container(
-      margin: EdgeInsets.all(20),
-      width: 200,
-      height: 200,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(3.0, 3.0),
-            blurRadius: 6.0,
-          )
-        ],
-      ),
-      child: Hero(
-        tag: "mmm",
-        transitionOnUserGestures: true,
-        child: Center(
-          child: FlutterLogo(
-            style: FlutterLogoStyle.horizontal,
-            size: 100,
-          ),
-        ),
+    return Hero(
+      tag: "mmm",
+      transitionOnUserGestures: true,
+      placeholderBuilder: (context, size, widget) {
+        return CircularProgressIndicator();
+      },
+      flightShuttleBuilder: (flightContext, animation, flightDirection,
+          fromHeroContext, toHeroContext) {
+        return Icon(
+          Icons.camera,
+          size: 70.0,
+        );
+      },
+      child: Icon(
+        Icons.add,
+        size: 70.0,
       ),
     );
   }
@@ -69,19 +60,18 @@ class WeWidgetState extends State<WeWidget> {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (context) {
         return Scaffold(
-          appBar: AppBar(
-            title: Text('Hero'),
-          ),
-          body: Hero(
-            tag: "mmm",
-            child: Center(
-              child: FlutterLogo(
-                style: FlutterLogoStyle.horizontal,
-                size: 100,
-              ),
+            appBar: AppBar(
+              title: Text('Hero'),
             ),
-          ),
-        );
+            body: Center(
+              child: Hero(
+                tag: "mmm",
+                child: Icon(
+                  Icons.wb_sunny,
+                  size: 70.0,
+                ),
+              ),
+            ));
       }),
     );
   }

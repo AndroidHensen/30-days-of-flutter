@@ -64,7 +64,7 @@ var days = [
   {"title": "day5 底部导航栏", "route": "day5"},
   {"title": "day6 AnimatedContainer[√]", "route": "day6"},
   {"title": "day7 AnimatedCrossFade[√]", "route": "day7"},
-  {"title": "day8 Hero", "route": "day8"},
+  {"title": "day8 Hero[√]", "route": "day8"},
   {"title": "day9 Flutter+Nima", "route": "day9"},
   {"title": "day10 AnimatedBuilder[√]", "route": "day10"},
   {"title": "day11 DecoratedBoxTransition[√]", "route": "day11"},
