@@ -31,10 +31,15 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth > 200.0) {
+          // 尺寸大的
+          return FlutterLogo(size: 200);
+        }
+        // 尺寸小的
+        return FlutterLogo(size: 50);
+      },
     );
   }
 }

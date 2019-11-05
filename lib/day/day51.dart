@@ -31,10 +31,35 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return Wrap(
+      textDirection: TextDirection.ltr,
+      alignment: WrapAlignment.center,
+      verticalDirection: VerticalDirection.down,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      direction: Axis.horizontal,
+      runAlignment: WrapAlignment.center,
+      runSpacing: 10.0,
+      spacing: 10.0,
+      children: <Widget>[
+        Chip(
+          label: Text("张三张三张三"),
+        ),
+        Chip(
+          label: Text("李四李四李四"),
+        ),
+        Chip(
+          label: Text("王五王五王五"),
+        ),
+        Chip(
+          label: Text("赵六赵六赵六"),
+        ),
+        Chip(
+          label: Text("钱七"),
+        ),
+        Chip(
+          label: Text("孙八"),
+        ),
+      ],
     );
   }
 }

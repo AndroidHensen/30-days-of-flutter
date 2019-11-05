@@ -31,10 +31,40 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return CustomMultiChildLayout(
+      delegate: IdLayoutDelegate(),
+      children: <Widget>[
+        LayoutId(
+          id: "title",
+          child: Text("Hensen"),
+        ),
+        LayoutId(
+          id: "description",
+          child: Text("Flutter工程师"),
+        )
+      ],
     );
+  }
+}
+
+class IdLayoutDelegate extends MultiChildLayoutDelegate {
+  IdLayoutDelegate();
+
+  @override
+  void performLayout(Size size) {
+    BoxConstraints constraints = BoxConstraints(maxWidth: size.width);
+
+    // 通过id获取对应的控件大小
+    Size titleSize = layoutChild("title", constraints);
+    Size descriptionSize = layoutChild("description", constraints);
+
+    // 摆放id的控件位置
+    positionChild("title", Offset(0.0, 0.0));
+    positionChild("description", Offset(0.0, titleSize.height));
+  }
+
+  @override
+  bool shouldRelayout(MultiChildLayoutDelegate oldDelegate) {
+    return oldDelegate != null;
   }
 }

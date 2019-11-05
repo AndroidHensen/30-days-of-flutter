@@ -31,10 +31,31 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[],
+    return Flex(
+      direction: Axis.vertical,
+      children: <Widget>[
+        ListBody(
+          mainAxis: Axis.vertical,
+          reverse: false,
+          children: <Widget>[
+            Container(
+              height: 50,
+              width: 50,
+              color: Colors.blueAccent,
+            ),
+            Container(
+              height: 50,
+              width: 50,
+              color: Colors.redAccent,
+            ),
+            Container(
+              height: 50,
+              width: 50,
+              color: Colors.greenAccent,
+            )
+          ],
+        ),
+      ],
     );
   }
 }
