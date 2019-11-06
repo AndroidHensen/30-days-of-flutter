@@ -75,7 +75,7 @@ var days = [
   {"title": "day16 SizeTransition[√]", "route": "day16"},
   {"title": "day17 SlideTransition[√]", "route": "day17"},
   {"title": "day18 AnimatedDefaultTextStyle[√]", "route": "day18"},
-  {"title": "day19 AnimatedListState[x]", "route": "day19"},
+  {"title": "day19 AnimatedListState[√]", "route": "day19"},
   {"title": "day20 AnimatedModalBarrier[x]", "route": "day20"},
   {"title": "day21 AnimatedOpacity", "route": "day21"},
   {"title": "day22 AnimatedPhysicalModel", "route": "day22"},
