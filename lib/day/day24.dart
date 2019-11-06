@@ -52,21 +52,18 @@ class WeWidgetState extends State<WeWidget>
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Center(
-          child: AnimatedSize(
-            vsync: this,
-            duration: Duration(seconds: 1),
-            child: FlutterLogo(
-              style: FlutterLogoStyle.horizontal,
-              size: _width,
-            ),
-          ),
+    return Center(
+      child: AnimatedSize(
+        alignment: Alignment.center,
+        curve: Curves.fastOutSlowIn,
+        vsync: this,
+        duration: Duration(seconds: 1),
+        reverseDuration: Duration(seconds: 2),
+        child: FlutterLogo(
+          style: FlutterLogoStyle.horizontal,
+          size: _width,
         ),
-      ],
+      ),
     );
   }
 }

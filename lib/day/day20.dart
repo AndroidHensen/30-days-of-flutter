@@ -21,43 +21,21 @@ class WeWidget extends StatefulWidget {
 
 class WeWidgetState extends State<WeWidget>
     with SingleTickerProviderStateMixin {
-  //尝试扩展或实现num时，除int或double之外的任何类型都是编译时错误
-  Animation<Offset> _animation;
+  Animation<Color> _animation;
   AnimationController _controller;
   Animation _curve;
-
-  Offset _animationValue;
-  AnimationStatus _state;
 
   @override
   void initState() {
     super.initState();
-
     _controller = AnimationController(
       duration: const Duration(milliseconds: 3000),
       vsync: this,
     );
     _curve = CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn);
-    _animation = Tween(
-      begin: Offset(0.0, 0.0),
-      end: Offset(0.6, 0.3),
-    ).animate(_curve)
-      ..addListener(() {
-        setState(() {
-          _animationValue = _animation.value;
-        });
-      })
-      ..addStatusListener((AnimationStatus state) {
-        if (state == AnimationStatus.completed) {
-          _controller.reverse();
-        } else if (state == AnimationStatus.dismissed) {
-          _controller.forward();
-        }
-
-        setState(() {
-          _state = state;
-        });
-      });
+    _animation =
+        ColorTween(begin: Colors.white, end: Colors.black87.withOpacity(0.8))
+            .animate(_curve);
     _controller.forward();
   }
 
@@ -72,40 +50,16 @@ class WeWidgetState extends State<WeWidget>
   }
 
   Widget _buildColumn() {
-    return Column(
-      children: <Widget>[
-        AnimatorTransition(
-          child: FlutterLogo(
-            style: FlutterLogoStyle.horizontal,
-            size: 200,
-          ),
-          animation: _animation,
-        ),
-        Text("动画值：" + _animationValue.toString()),
-        Text("动画状态：" + _state.toString()),
-      ],
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-}
-
-class AnimatorTransition extends StatelessWidget {
-  final Widget child;
-  final Animation<Offset> animation;
-
-  AnimatorTransition({this.child, this.animation});
-
-  @override
-  Widget build(BuildContext context) {
     return Center(
-      child: SlideTransition(
-        position: animation,
-        child: this.child,
+      child: Container(
+        width: 200,
+        height: 200,
+        child: AnimatedModalBarrier(
+          semanticsLabel: "StackBarrier",
+          barrierSemanticsDismissible: true,
+          dismissible: true,
+          color: _animation,
+        ),
       ),
     );
   }

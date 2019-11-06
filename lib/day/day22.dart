@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 var time = 0;
-var _color = Colors.transparent;
+var _shadowColor = Colors.transparent;
 
 class Day22 extends StatelessWidget {
   @override
@@ -29,10 +29,10 @@ class WeWidgetState extends State<WeWidget> {
       setState(() {
         switch (time % 2) {
           case 0:
-            _color = Colors.transparent;
+            _shadowColor = Colors.transparent;
             break;
           case 1:
-            _color = Colors.grey;
+            _shadowColor = Colors.grey;
             break;
         }
         time++;
@@ -51,24 +51,23 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Center(
-          child: AnimatedPhysicalModel(
-            color: Colors.transparent,
-            shape: BoxShape.rectangle,
-            shadowColor: _color,
-            elevation: 20.0,
-            duration: Duration(seconds: 1),
-            child: FlutterLogo(
-              style: FlutterLogoStyle.horizontal,
-              size: 200,
-            ),
-          ),
+    return Center(
+      child: AnimatedPhysicalModel(
+        curve: Curves.fastOutSlowIn,
+        color: Colors.grey.withOpacity(0.2),
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        borderRadius: BorderRadius.circular(12.0),
+        animateColor: true,
+        animateShadowColor: true,
+        shape: BoxShape.rectangle,
+        shadowColor: _shadowColor,
+        elevation: 20.0,
+        duration: Duration(seconds: 1),
+        child: FlutterLogo(
+          style: FlutterLogoStyle.horizontal,
+          size: 200,
         ),
-      ],
+      ),
     );
   }
 }

@@ -54,7 +54,11 @@ class WeWidgetState extends State<WeWidget> {
     return Stack(
       children: <Widget>[
         AnimatedPositioned(
+          curve: Curves.fastOutSlowIn,
           width: _width,
+          height: _width,
+          top: _width,
+          left: _width,
           duration: Duration(seconds: 1),
           child: FlutterLogo(
             style: FlutterLogoStyle.horizontal,

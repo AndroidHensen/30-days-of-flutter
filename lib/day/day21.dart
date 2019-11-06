@@ -29,7 +29,7 @@ class WeWidgetState extends State<WeWidget> {
       setState(() {
         switch (time % 2) {
           case 0:
-            _opacity = 0.0;
+            _opacity = 0.3;
             break;
           case 1:
             _opacity = 1.0;
@@ -51,21 +51,16 @@ class WeWidgetState extends State<WeWidget> {
   }
 
   Widget _buildColumn() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Center(
-          child: AnimatedOpacity(
-            opacity: _opacity,
-            duration: Duration(seconds: 1),
-            child: FlutterLogo(
-              style: FlutterLogoStyle.horizontal,
-              size: 200,
-            ),
-          ),
+    return Center(
+      child: AnimatedOpacity(
+        curve: Curves.fastOutSlowIn,
+        opacity: _opacity,
+        duration: Duration(seconds: 1),
+        child: FlutterLogo(
+          style: FlutterLogoStyle.horizontal,
+          size: 200,
         ),
-      ],
+      ),
     );
   }
 }
